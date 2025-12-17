@@ -1,4 +1,5 @@
 import { supabaseServer } from '@/lib/supabase/server'
+import CreateWeddingForm from './CreateWeddingForm'
 
 export default async function CreateWeddingPage() {
     const supabase = await supabaseServer()
@@ -9,14 +10,14 @@ export default async function CreateWeddingPage() {
     return (
         <div className="p-6 max-w-xl mx-auto">
             <h1 className="text-2xl font-semibold mb-4">
-                Create your wedding page
+                Create your wedding
             </h1>
 
-            <p className="text-gray-600">
-                Let’s get started, {user?.email}
+            <p className="text-gray-600 mb-6">
+                Let’s get started{user?.email ? `, ${user.email}` : ''}.
             </p>
 
-            {/* Wedding creation form comes next */}
+            <CreateWeddingForm />
         </div>
     )
 }
