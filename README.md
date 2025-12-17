@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EverGift
+EverGift is a streamlined wedding gifting platform that allows couples to create a personalised wedding page where guests can send monetary gifts securely online — no cash, no envelopes.
 
-## Getting Started
+Built with Next.js, Supabase, and Stripe, EverGift focuses on a simple, mobile-first guest experience and a clean setup flow for couples.
 
-First, run the development server:
+## What EverGift Does
+### For Guests
+- Visit a wedding page via link or QR code
+- Choose a gift amount (preset or custom)
+- Leave their name and an optional message
+- Pay securely via Stripe (Apple Pay, Google Pay, cards)
+- Receive confirmation after successful payment
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+No account required.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### For Couples
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* Create and manage a personalised wedding page
+* Upload photos and choose a collage layout
+* Receive gifts directly into their bank account via Stripe
+* View gift totals and recent messages
+* Share their wedding page via link or QR code
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Monetisation Model
 
-## Learn More
+* **Platform fee**: 4% per gift **(TBD)**
+* Guests can optionally cover platform + Stripe fees
+* Stripe processing fee: ~1.7% + $0.30
+* Net revenue to EverGift ≈ 2.3% per gift
+* Payments and payouts handled entirely by Stripe
 
-To learn more about Next.js, take a look at the following resources:
+## Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Frontend
+* Next.js (App Router)
+* TypeScript
+* Tailwind CSS
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Backend
+* Supabase Auth
+* Supabase Postgres
+* Supabase Storage
 
-## Deploy on Vercel
+### Payments
+* Stripe Checkout
+* Stripe Connect (Standard)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Hosting
+* Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Core Features
+* Mobile-first design with desktop support
+* Secure, hosted Stripe Checkout (no PCI burden)
+* Stripe Connect onboarding for couples
+* Public guest pages, private admin dashboard
+* Image upload and collage system
+* Fee-coverage toggle for guests
+
+## Project Status
+* Current stage: Early development (post-design)
+* Full UX and UI completed in Figma
+* Tech stack and data models locked
+* Development setup in progress
+* This repository represents the initial build and MVP implementation.
+
+## Security & Payments
+* No guest accounts required
+* All payments handled by Stripe
+* No card data touches EverGift servers
+* Row-Level Security enforced via Supabase
+
+## Roadmap (High Level)
+* Complete guest gifting flow
+* Couple onboarding and dashboard
+* Email confirmations (v2)
+* Admin tooling (v2)
+* Analytics and logging (later)
