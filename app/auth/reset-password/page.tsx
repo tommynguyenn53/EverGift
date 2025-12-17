@@ -13,7 +13,7 @@ export default function ResetPasswordPage() {
     const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
-        // Ensures session is hydrated from reset link
+        // Ensures Supabase picks up the reset session from the email link
         supabase.auth.getSession()
     }, [supabase])
 
@@ -32,8 +32,10 @@ export default function ResetPasswordPage() {
             return
         }
 
-        // Password updated → logged in
-        router.push('/dashboard')
+        // Force explicit re-login after password change
+        await supabase.auth.signOut()
+
+        router.push('/auth/password-updated')
     }
 
     return (

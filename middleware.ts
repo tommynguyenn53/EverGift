@@ -14,18 +14,10 @@ export async function middleware(req: NextRequest) {
                     return req.cookies.get(name)?.value
                 },
                 set(name: string, value: string, options: any) {
-                    res.cookies.set({
-                        name,
-                        value,
-                        ...options,
-                    })
+                    res.cookies.set({ name, value, ...options })
                 },
                 remove(name: string, options: any) {
-                    res.cookies.set({
-                        name,
-                        value: '',
-                        ...options,
-                    })
+                    res.cookies.set({ name, value: '', ...options })
                 },
             },
         }
@@ -39,14 +31,17 @@ export async function middleware(req: NextRequest) {
 
     const isAuthRoute = pathname.startsWith('/auth')
     const isDashboardRoute = pathname.startsWith('/dashboard')
+    const isPasswordResetFlow =
+        pathname.startsWith('/auth/reset-password') ||
+        pathname.startsWith('/auth/password-updated')
 
     // Not logged in → block dashboard
     if (!user && isDashboardRoute) {
         return NextResponse.redirect(new URL('/auth/login', req.url))
     }
 
-    // Logged in → block auth pages
-    if (user && isAuthRoute) {
+    // Logged in → block auth pages (except reset flow)
+    if (user && isAuthRoute && !isPasswordResetFlow) {
         return NextResponse.redirect(new URL('/dashboard', req.url))
     }
 
@@ -54,5 +49,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/dashboard/:path*', '/auth/:path*'],
+    matcher: ['/dashboard/:path*', '/auth/:path*', '/create-wedding'],
 }

@@ -30,7 +30,7 @@ export default function LoginForm() {
         }
 
         // Logged in successfully
-        router.push('/')
+        router.push('/dashboard')
     }
 
     return (
