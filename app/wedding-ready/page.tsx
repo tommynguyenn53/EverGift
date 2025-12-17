@@ -1,5 +1,7 @@
 import { redirect } from 'next/navigation'
 import { supabaseServer } from '@/lib/supabase/server'
+import WeddingQrCode from '@/components/WeddingQrCode'
+
 
 export default async function WeddingReadyPage() {
     const supabase = await supabaseServer()
@@ -36,12 +38,7 @@ export default async function WeddingReadyPage() {
                     You can start sharing them with your guests.
                 </p>
 
-                {/* QR placeholder for now */}
-                <div className="bg-white rounded-xl p-6 shadow">
-                    <div className="aspect-square bg-gray-100 flex items-center justify-center">
-                        <span className="text-sm text-gray-500">QR Code</span>
-                    </div>
-                </div>
+                <WeddingQrCode value={pageUrl} />
 
                 <p className="text-sm text-gray-500">
                     Press and hold the QR code to save or share it.
