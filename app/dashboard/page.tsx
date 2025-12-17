@@ -1,5 +1,7 @@
 import { redirect } from 'next/navigation'
 import { supabaseServer } from '@/lib/supabase/server'
+import LogoutButton from '@/components/LogoutButton'
+
 
 export default async function DashboardPage() {
     const supabase = await supabaseServer()
@@ -28,13 +30,12 @@ export default async function DashboardPage() {
     // Returning user → dashboard summary
     return (
         <div className="p-6">
-            <h1 className="text-2xl font-semibold mb-4">Dashboard</h1>
+            <div className="flex items-center justify-between mb-6">
+                <h1 className="text-2xl font-semibold">Dashboard</h1>
+                <LogoutButton/>
+            </div>
 
-            <p className="text-gray-600">
-                Welcome back, {user.email}
-            </p>
-
-            {/* Dashboard content goes here */}
+            {/* Dashboard content */}
         </div>
     )
 }
