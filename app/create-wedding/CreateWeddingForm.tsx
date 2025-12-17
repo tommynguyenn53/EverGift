@@ -53,7 +53,7 @@ export default function CreateWeddingForm() {
             return
         }
 
-        router.push('/dashboard')
+        router.push('/wedding-ready')
     }
 
     return (
