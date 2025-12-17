@@ -1,4 +1,16 @@
+'use client'
+
+import { useEffect } from 'react'
+import { supabaseBrowser } from '@/lib/supabase/client'
+
 export default function VerifiedPage() {
+    const supabase = supabaseBrowser()
+
+    useEffect(() => {
+        // Ensure user is logged out after email verification
+        supabase.auth.signOut()
+    }, [supabase])
+
     return (
         <div className="min-h-screen flex items-center justify-center px-4">
             <div className="w-full max-w-sm text-center space-y-6">
