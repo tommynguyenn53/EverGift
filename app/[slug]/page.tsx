@@ -20,6 +20,8 @@ export default async function PublicWeddingPage({ params }: Props) {
         .from('weddings')
         .select(
             `
+      id,
+      user_id,
       partner_one_name,
       partner_two_name,
       wedding_date,
@@ -30,13 +32,35 @@ export default async function PublicWeddingPage({ params }: Props) {
         .eq('slug', slug)
         .single()
 
-    if (error || !wedding || wedding.status !== 'active') {
+    if (error || !wedding) {
+        notFound()
+    }
+
+    // Get current user (if logged in)
+    const {
+        data: { user },
+    } = await supabase.auth.getUser()
+
+    const isOwner = user && user.id === wedding.user_id
+
+    // Visibility rules
+    if (wedding.status !== 'active' && !isOwner) {
         notFound()
     }
 
     return (
+
+
         <div className="min-h-screen flex items-center justify-center px-4">
             <div className="w-full max-w-xl text-center space-y-6">
+
+                {/* Draft preview banner (owner only) */}
+                {isOwner && wedding.status === 'draft' && (
+                    <div className="rounded-md bg-yellow-100 text-yellow-800 px-4 py-2 text-sm">
+                        This page is in draft mode and only visible to you.
+                    </div>
+                )}
+
                 <h1 className="text-3xl font-semibold">
                     {wedding.partner_one_name} & {wedding.partner_two_name}
                 </h1>
