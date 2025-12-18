@@ -3,6 +3,16 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import AuthProvider from "@/app/providers/AuthProvider";
 
+import { Inter } from 'next/font/google'
+
+export const inter = Inter({
+    subsets: ['latin'],
+    weight: ['400', '500', '600'],
+    variable: '--font-inter',
+})
+
+
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -26,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} font-inter`}
       >
       <AuthProvider>
         {children}
