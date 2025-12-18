@@ -6,6 +6,7 @@ import BenefitCards from "@/components/BenefitCards";
 import HowPricingWorks from "@/components/HowPricingWorks";
 import CreateWeddingCTA from "@/components/CreateWeddingCTA";
 import FAQSection from "@/components/FAQSection";
+import Footer from "@/components/Footer";
 
 
 export default function HomePage() {
@@ -108,6 +109,7 @@ export default function HomePage() {
                     <HowPricingWorks/>
                     <CreateWeddingCTA/>
                     <FAQSection/>
+                    <Footer/>
 
                 </section>
 
