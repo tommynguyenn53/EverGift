@@ -12,7 +12,6 @@ import Footer from "@/components/Footer";
 export default function HomePage() {
     return (
         <PageBackground>
-            <AppHeader />
 
             {/* PAGE CONTAINER */}
             <main className="mx-auto max-w-[1200px] px-6">
@@ -109,8 +108,6 @@ export default function HomePage() {
                     <HowPricingWorks/>
                     <CreateWeddingCTA/>
                     <FAQSection/>
-                    <Footer/>
-
                 </section>
 
                 {/* other sections go here */}

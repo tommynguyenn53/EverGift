@@ -5,7 +5,7 @@ import ProfileMenu from '@/components/ProfileMenu'
 export default function AppHeader() {
     return (
         <header className="w-full">
-            <div className="mx-auto max-w-[1200px] flex items-center justify-between px-6">
+            <div className="mx-auto max-w-[1200px] flex items-center justify-between">
 
                 {/* Left: Logo + Brand */}
                 <Link
