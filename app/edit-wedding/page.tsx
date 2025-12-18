@@ -1,6 +1,8 @@
 import { redirect } from 'next/navigation'
 import { supabaseServer } from '@/lib/supabase/server'
 import EditWeddingForm from './EditWeddingForm'
+import AppHeader from '@/components/AppHeader'
+
 
 export default async function EditWeddingPage() {
     const supabase = await supabaseServer()
@@ -31,12 +33,16 @@ export default async function EditWeddingPage() {
     }
 
     return (
-        <div className="p-6 max-w-xl mx-auto">
-            <h1 className="text-2xl font-semibold mb-4">
-                Edit wedding details
-            </h1>
+        <>
+            <AppHeader/>
+            <main> <div className="p-6 max-w-xl mx-auto">
+                <h1 className="text-2xl font-semibold mb-4">
+                    Edit wedding details
+                </h1>
 
-            <EditWeddingForm wedding={wedding} />
-        </div>
+                <EditWeddingForm wedding={wedding} />
+            </div>
+            </main>
+        </>
     )
 }

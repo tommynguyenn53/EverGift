@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import { supabaseServer } from '@/lib/supabase/server'
+import ProfileMenu from "@/components/ProfileMenu";
 
 type Props = {
     params: Promise<{
@@ -52,10 +53,18 @@ export default async function PublicWeddingPage({ params }: Props) {
 
 
         <div className="min-h-screen flex items-center justify-center px-4">
+            {/* Owner-only profile menu */}
+            {isOwner && (
+                <div className="absolute top-4 right-4">
+                    <ProfileMenu />
+                </div>
+            )}
+
             <div className="w-full max-w-xl text-center space-y-6">
 
                 {/* Draft preview banner (owner only) */}
                 {isOwner && wedding.status === 'draft' && (
+
                     <div className="rounded-md bg-yellow-100 text-yellow-800 px-4 py-2 text-sm">
                         This page is in draft mode and only visible to you.
                     </div>

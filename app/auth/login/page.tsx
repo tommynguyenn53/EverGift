@@ -1,8 +1,12 @@
 import LoginForm from './LoginForm'
+import AppHeader from "@/components/AppHeader";
 
 export default function LoginPage() {
     return (
-        <div className="min-h-screen flex items-center justify-center px-4">
+
+        <>
+            <AppHeader/>
+        <main> <div className="min-h-screen flex items-center justify-center px-4">
             <div className="w-full max-w-sm space-y-6">
                 <h1 className="text-2xl font-semibold text-center">
                     Log in to EverGift
@@ -25,5 +29,7 @@ export default function LoginPage() {
                 </div>
             </div>
         </div>
+        </main>
+            </>
     )
 }
