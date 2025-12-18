@@ -2,6 +2,8 @@ import { redirect } from 'next/navigation'
 import { supabaseServer } from '@/lib/supabase/server'
 import WeddingQrCode from '@/components/WeddingQrCode'
 import LogoutButton from '@/components/LogoutButton'
+import PublishToggle from '@/components/PublishToggle'
+
 
 export default async function DashboardPage() {
     const supabase = await supabaseServer()
@@ -20,7 +22,8 @@ export default async function DashboardPage() {
       id,
       partner_one_name,
       partner_two_name,
-      slug
+      slug,
+      status
     `)
         .eq('user_id', user.id)
         .single()
@@ -58,6 +61,12 @@ export default async function DashboardPage() {
 
                 <WeddingQrCode value={pageUrl} />
             </div>
+
+            <PublishToggle
+                weddingId={wedding.id}
+                initialStatus={wedding.status}
+            />
+
 
             {/* Actions */}
             <div className="grid grid-cols-2 gap-3">
