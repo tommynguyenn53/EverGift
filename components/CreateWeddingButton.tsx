@@ -59,7 +59,7 @@ export default function CreateWeddingButton() {
             rounded-[14px]
             md:rounded-[21px]
             bg-[#D8C9A6]
-            px-[42px] py-[18px]
+            px-[36px] py-[18px]
             md:px-[93px] md:py-[27px]
             font-inter
             font-medium

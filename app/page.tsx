@@ -5,6 +5,7 @@ import HowEverGiftWorksCard from "@/components/HowEverGiftWorksCard";
 import BenefitCards from "@/components/BenefitCards";
 import HowPricingWorks from "@/components/HowPricingWorks";
 import CreateWeddingCTA from "@/components/CreateWeddingCTA";
+import FAQSection from "@/components/FAQSection";
 
 
 export default function HomePage() {
@@ -106,6 +107,7 @@ export default function HomePage() {
                     <BenefitCards/>
                     <HowPricingWorks/>
                     <CreateWeddingCTA/>
+                    <FAQSection/>
 
                 </section>
 
