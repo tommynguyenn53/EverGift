@@ -1,20 +1,149 @@
-import AppHeader from "@/components/AppHeader";
+'use client'
+
+import { useState } from 'react'
+import PageBackground from '@/components/PageBackground'
+import { supabaseBrowser } from '@/lib/supabase/client'
 
 export default function CheckEmailPage() {
+    const supabase = supabaseBrowser()
+    const [loading, setLoading] = useState(false)
+    const [message, setMessage] = useState<string | null>(null)
+    const [error, setError] = useState<string | null>(null)
+
+    const handleResend = async () => {
+        setLoading(true)
+        setError(null)
+        setMessage(null)
+
+        const {
+            data: { user },
+            error,
+        } = await supabase.auth.getUser()
+
+        if (!user?.email) {
+            setError('Unable to resend email. Please try signing up again.')
+            setLoading(false)
+            return
+        }
+
+        const { error: resendError } = await supabase.auth.resend({
+            type: 'signup',
+            email: user.email,
+            options: {
+                emailRedirectTo: `${location.origin}/auth/verified`,
+            },
+        })
+
+        if (resendError) {
+            setError(resendError.message)
+        } else {
+            setMessage('Verification email resent.')
+        }
+
+        setLoading(false)
+    }
+
     return (
-        <>
-            <AppHeader/>
-            <main>
-                <div className="min-h-screen flex items-center justify-center px-4">
-                    <div className="w-full max-w-sm text-center space-y-4">
-                        <h1 className="text-2xl font-semibold">Check your email</h1>
-                        <p className="text-gray-600">
-                            We’ve sent you a confirmation link.
-                            Please verify your email to continue.
+        <PageBackground>
+            <main className="">
+                <div className="w-full max-w-sm flex flex-col items-center text-center">
+
+                    {/* Heading */}
+                    <h1
+                        className="
+              mt-[40px]
+              font-inter
+              font-medium
+              text-[26px]
+              tracking-[0.015em]
+              text-[#3A3A3A]
+            "
+                    >
+                        Check your email
+                    </h1>
+
+                    {/* Email icon */}
+                    <img
+                        src="/email-icon.svg"
+                        alt=""
+                        className="mt-[24px]"
+                    />
+
+                    {/* Main message */}
+                    <p
+                        className="
+              mt-[24px]
+              font-inter
+              font-normal
+              text-[15px]
+              leading-[150%]
+              tracking-[0.015em]
+              text-[#3A3A3A]
+            "
+                    >
+                        We’ve sent you a link to verify your <br/> email address.
+                    </p>
+
+                    {/* Secondary message */}
+                    <p
+                        className="
+              mt-[16px]
+              font-inter
+              font-normal
+              text-[15px]
+              leading-[150%]
+              tracking-[0.015em]
+              text-[#3A3A3A]
+            "
+                    >
+                        If you don’t see it, please check your <br/> spam or junk folder.
+                    </p>
+
+                    {/* Resend */}
+                    <p
+                        className="
+              mt-[32px]
+              font-inter
+              text-[15px]
+              leading-[170%]
+              tracking-[0.015em]
+              text-[#3A3A3A]
+            "
+                    >
+            <span className="font-normal">
+              Didn’t receive the email?
+            </span>
+                        <br />
+                        <button
+                            onClick={handleResend}
+                            disabled={loading}
+                            className="
+                font-medium
+                text-[#C9A86A]
+                underline
+                underline-offset-2
+                hover:opacity-80
+                disabled:opacity-50
+              "
+                        >
+                            {loading ? 'Resending…' : 'Resend Link'}
+                        </button>
+                    </p>
+
+                    {/* Feedback */}
+                    {message && (
+                        <p className="mt-[16px] text-sm text-green-600">
+                            {message}
                         </p>
-                    </div>
+                    )}
+
+                    {error && (
+                        <p className="mt-[16px] text-sm text-red-600">
+                            {error}
+                        </p>
+                    )}
                 </div>
             </main>
-        </>
+        </PageBackground>
     )
 }
