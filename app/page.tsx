@@ -78,6 +78,10 @@ export default function HomePage() {
                         transition
                         hover:bg-[#FAF6F0]
                         active:bg-[#FAF6F0]
+                        duration-150
+                        hover:opacity-90
+                        active:opacity-80
+                        active:scale-[0.98]
 
 
                       "

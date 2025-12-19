@@ -89,6 +89,7 @@ export default function VerifiedPage() {
                           transition
                           hover:opacity-90
                           active:opacity-80
+                          active:scale-[0.98]
                         "
                     >
                         Log In

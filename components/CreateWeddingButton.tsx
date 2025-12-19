@@ -69,6 +69,9 @@ export default function CreateWeddingButton() {
             transition
             hover:bg-[#CBB89B]
             active:bg-[#CBB89B]
+            hover:opacity-90
+            active:opacity-80
+            active:scale-[0.98]
             disabled:opacity-70
             disabled:cursor-not-allowed
 

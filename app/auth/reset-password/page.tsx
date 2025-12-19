@@ -228,6 +228,9 @@ export default function ResetPasswordPage() {
                               transition
                               disabled:opacity-60
                               disabled:cursor-not-allowed
+                              hover:opacity-90
+                              active:opacity-80
+                              active:scale-[0.98]
                             "
                     >
                         {loading ? 'Updating…' : 'Reset Password'}

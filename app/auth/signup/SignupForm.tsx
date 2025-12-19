@@ -328,6 +328,9 @@ export default function SignupForm() {
                   text-[16px]
                   text-white
                   transition
+                  hover:opacity-90
+                  active:opacity-80
+                  active:scale-[0.98]
                   disabled:opacity-60
                 "
             >
