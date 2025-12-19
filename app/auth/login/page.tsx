@@ -4,6 +4,7 @@ import { cookies } from 'next/headers'
 
 import AppHeader from '@/components/AppHeader'
 import LoginForm from './LoginForm'
+import PageBackground from "@/components/PageBackground";
 
 export default async function LoginPage() {
     const cookieStore = await cookies()
@@ -30,34 +31,50 @@ export default async function LoginPage() {
     }
 
     return (
-        <>
-            <AppHeader />
+            <PageBackground>
 
-            <main>
-                <div className="min-h-screen flex items-center justify-center px-4">
-                    <div className="w-full max-w-sm space-y-6">
-                        <h1 className="text-2xl font-semibold text-center">
-                            Log in to EverGift
-                        </h1>
+            <main className="">
+                <div className="w-full max-w-sm flex flex-col items-center text-center">
 
+                    {/* Heading */}
+                    <h1
+                        className="
+              mt-[40px]
+              font-inter
+              font-medium
+              text-[26px]
+              tracking-[0.015em]
+              text-[#3A3A3A]
+            "
+                    >
+                        Log In to EverGift
+                    </h1>
+
+                    {/* Sub text */}
+                    <p
+                        className="
+              mt-[20px]
+              font-inter
+              font-normal
+              text-[15px]
+              leading-[150%]
+              tracking-[0.015em]
+              text-[#3A3A3A]
+            "
+                    >
+                        Log in to manage your <br/> personalised wedding gifting page.
+                    </p>
+
+                    {/* Form */}
+                    <div className="mt-[40px] w-full">
                         <LoginForm />
-
-                        <div className="space-y-2 text-center text-sm text-gray-600">
-                            <p>
-                                <a href="/auth/forgot-password" className="underline">
-                                    Forgot your password?
-                                </a>
-                            </p>
-                            <p>
-                                Don’t have an account?{' '}
-                                <a href="/auth/signup" className="underline">
-                                    Sign up
-                                </a>
-                            </p>
-                        </div>
                     </div>
+
+                    {/* Links (unchanged for now) */}
+
+
                 </div>
             </main>
-        </>
+            </PageBackground>
     )
 }

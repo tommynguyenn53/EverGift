@@ -13,8 +13,12 @@ export default function LoginForm() {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
 
+    const canSubmit = email.trim() !== '' && password.trim() !== ''
+
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault()
+        if (!canSubmit) return
+
         setLoading(true)
         setError(null)
 
@@ -29,45 +33,164 @@ export default function LoginForm() {
             return
         }
 
-        // Logged in successfully
         router.push('/dashboard')
     }
 
     return (
-        <form onSubmit={handleLogin} className="space-y-4">
-            <div>
-                <label className="block text-sm font-medium mb-1">Email</label>
+        <form
+            onSubmit={handleLogin}
+            className="flex flex-col items-center gap-[24px] text-left"
+        >
+            {/* Email */}
+            <div className="w-[298px]">
+                <label
+                    className="
+                    block
+                    font-inter
+                    font-medium
+                    text-[15px]
+                    text-[#3A3A3A]
+                    mb-[6px]
+                  "
+                >
+                    Email Address
+                </label>
                 <input
                     type="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full rounded-md border px-3 py-2"
+                    placeholder="Email Address"
+                    className="
+                    w-full
+                    bg-white
+                    rounded-[10px]
+                    px-[15px]
+                    py-[15px]
+                    border
+                    border-black/10
+                    font-inter
+                    text-[15px]
+                    placeholder:text-[#3A3A3A]/35
+                    focus:outline-none
+                  "
                 />
             </div>
 
-            <div>
-                <label className="block text-sm font-medium mb-1">Password</label>
+            {/* Password */}
+            <div className="w-[298px]">
+                <label
+                    className="
+                    block
+                    font-inter
+                    font-medium
+                    text-[15px]
+                    text-[#3A3A3A]
+                    mb-[6px]
+                  "
+                >
+                    Password
+                </label>
                 <input
                     type="password"
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full rounded-md border px-3 py-2"
+                    placeholder="Password"
+                    className="
+                    w-full
+                    bg-white
+                    rounded-[10px]
+                    px-[15px]
+                    py-[15px]
+                    border
+                    border-black/10
+                    font-inter
+                    text-[15px]
+                    placeholder:text-[#3A3A3A]/35
+                    focus:outline-none
+                  "
                 />
+
+                {/* Forgot password */}
+                <a
+                    href="/auth/forgot-password"
+                    className="
+                    mt-[6px]
+                    inline-block
+                    font-inter
+                    font-normal
+                    text-[11px]
+                    tracking-[0.015em]
+                    text-[#3A3A3A]
+                    underline
+                  "
+                >
+                    Forgot your password?
+                </a>
             </div>
 
+            {/* Error */}
             {error && (
-                <p className="text-sm text-red-600">{error}</p>
+                <p className="text-[12px] text-red-600 text-center">
+                    {error}
+                </p>
             )}
 
+            {/* CTA */}
             <button
                 type="submit"
-                disabled={loading}
-                className="w-full rounded-md bg-black text-white py-2 font-medium disabled:opacity-60"
+                disabled={!canSubmit || loading}
+                className="
+                  inline-flex
+                  shadow-[6px_4px_18px_rgba(0,0,0,0.1)]
+                  items-center
+                  justify-center
+                  rounded-[14px]
+                  bg-[#D8C9A6]
+                  px-[62px]
+                  py-[16px]
+                  font-inter
+                  font-medium
+                  text-[16px]
+                  text-white
+                  transition
+                  disabled:opacity-60
+                  disabled:cursor-not-allowed
+                "
             >
-                {loading ? 'Logging in…' : 'Log in'}
+                {loading ? 'Logging in…' : 'Log In'}
             </button>
+
+            {/* Signup link */}
+            <p
+                className="
+                  mt-[-8px]
+                  text-center
+                  font-inter
+                  text-[15px]
+                  leading-[170%]
+                  tracking-[0.015em]
+                  text-[#3A3A3A]
+                "
+            >
+        <span className="font-normal">
+          Don’t have an account?
+        </span>
+                <br />
+                <a
+                    href="/auth/signup"
+                    className="
+                    font-medium
+                    text-[#C9A86A]
+                    underline
+                    underline-offset-2
+                    hover:opacity-80
+                  "
+                >
+                    Sign up
+                </a>
+            </p>
         </form>
     )
 }
