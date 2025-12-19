@@ -315,6 +315,7 @@ export default function SignupForm() {
                 type="submit"
                 disabled={loading || !emailValid || !passwordValid || !passwordsMatch || !acceptedTerms}
                 className="
+                  shadow-[6px_4px_18px_rgba(0,0,0,0.1)]
                   inline-flex
                   mx-auto
                   mt-[8px]
