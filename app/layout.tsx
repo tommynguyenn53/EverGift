@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {Geist, Geist_Mono, Playfair_Display} from "next/font/google";
 import "./globals.css";
 import AuthProvider from "@/app/providers/AuthProvider";
 
@@ -9,6 +9,13 @@ export const inter = Inter({
     subsets: ['latin'],
     weight: ['400', '500', '600'],
     variable: '--font-inter',
+})
+
+export const playfair = Playfair_Display({
+    subsets: ['latin'],
+    weight: ['400'],
+    style: ['normal', 'italic'],
+    variable: '--font-playfair',
 })
 
 
@@ -36,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} font-inter`}
+        className={`${inter.variable} font-inter \`${playfair.variable} playfair-display`}
       >
       <AuthProvider>
         {children}

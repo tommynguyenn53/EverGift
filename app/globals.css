@@ -17,6 +17,46 @@
     }
 }
 
+.playfair-display-heading_text {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: 54px;
+    color: #3a3a3a;
+    text-align: center;
+
+    @media only screen and (max-width: 768px){
+        font-size: 36px;
+
+    }
+}
+
+.playfair-display-date_text {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: 30px;
+    color: #3a3a3a;
+    text-align: center;
+
+    @media only screen and (max-width: 768px){
+        font-size: 20px;
+
+    }
+}
+
+.playfair-display-body_text {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: 23px;
+    color: #3a3a3a;
+    text-align: center;
+    line-height: 150%;
+
+    @media only screen and (max-width: 768px){
+        font-size: 15px;
+
+    }
+}
+
 .evergift_icon {
     height: 54px;
     width: 63px;

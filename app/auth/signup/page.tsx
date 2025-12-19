@@ -94,6 +94,9 @@ export default async function SignupPage() {
                           font-medium
                           text-[#C9A86A]
                           underline
+                          transition
+                          hover:opacity-80
+                          active:opacity-60
                         "
                         >
                             Log in

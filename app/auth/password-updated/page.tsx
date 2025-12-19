@@ -84,6 +84,9 @@ export default function PasswordUpdatedPage() {
                           underline
                           underline-offset-2
                           hover:opacity-80
+                          transition
+                          hover:opacity-80
+                          active:opacity-60
                         "
                     >
                         Return to Homepage

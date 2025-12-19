@@ -124,6 +124,9 @@ export default function CheckEmailPage() {
                 underline-offset-2
                 hover:opacity-80
                 disabled:opacity-50
+                transition
+                hover:opacity-80
+                active:opacity-60
               "
                         >
                             {loading ? 'Resending…' : 'Resend Link'}

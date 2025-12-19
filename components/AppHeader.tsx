@@ -2,7 +2,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import ProfileMenu from '@/components/ProfileMenu'
 
-export default function AppHeader() {
+type AppHeaderProps = {
+    tagline?: string
+    showProfile?: boolean
+}
+
+export default function AppHeader({ tagline, showProfile = true,}: AppHeaderProps) {
     return (
         <header className="w-full">
             <div className="mx-auto max-w-[1200px] flex items-center justify-between">
@@ -18,7 +23,7 @@ export default function AppHeader() {
                     />
 
                     <span className="playfair-display-header_text text-[36px] text-[#7a7a7a] whitespace-nowrap">
-                      EverGift
+                      {tagline?? 'EverGift'}
                         <span className="hidden [@media(min-width:900px)]:inline">
                           · A Simpler Way To Share The Love
                         </span>
@@ -27,7 +32,7 @@ export default function AppHeader() {
                 </Link>
 
                 {/* Right: Profile */}
-                <ProfileMenu/>
+                {showProfile && <ProfileMenu/>}
             </div>
         </header>
     )

@@ -42,14 +42,25 @@ export default function Footer() {
                         font-inter
                         text-[11px]
                         text-[#7D7D7D]
+
                       "
                 >
-                    <Link href="/terms" className="hover:underline">
+                    <Link href="/terms" className="hover:underline
+                        transition
+                        hover:opacity-80
+                        active:opacity-60
+
+                        ">
                         Terms &amp; Conditions
                     </Link>
                     {' '}•{' '}
 
-                    <Link href="/privacy" className="hover:underline">
+                    <Link href="/privacy" className="hover:underline
+                        transition
+                        hover:opacity-80
+                        active:opacity-60
+
+                        ">
                         Privacy Policy
                     </Link>
                     {' '}•{' '}
@@ -69,6 +80,9 @@ export default function Footer() {
                         text-[11px]
                         text-[#7D7D7D]
                         hover:underline
+                        transition
+                        hover:opacity-80
+                        active:opacity-60
                       "
                 >
                     Powered securely by Stripe
