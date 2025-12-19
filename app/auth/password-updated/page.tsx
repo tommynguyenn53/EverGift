@@ -1,31 +1,95 @@
-import AppHeader from "@/components/AppHeader";
+import PageBackground from '@/components/PageBackground'
 
 export default function PasswordUpdatedPage() {
     return (
-        <>
-            <AppHeader/>
+        <PageBackground>
+
             <main>
-                <div className="min-h-screen flex items-center justify-center px-4">
-                    <div className="w-full max-w-sm text-center space-y-6">
-                        <h1 className="text-2xl font-semibold">
-                            Password updated ✅
-                        </h1>
+                <div className="w-full max-w-sm flex flex-col items-center text-center">
 
-                        <p className="text-gray-600">
-                            Your password has been changed successfully.
-                            You can now log in with your new password.
-                        </p>
+                    {/* Heading */}
+                    <h1
+                        className="
+                          mt-[40px]
+                          font-inter
+                          font-medium
+                          text-[26px]
+                          tracking-[0.015em]
+                          text-[#3A3A3A]
+                        "
+                    >
+                        Your password has<br />been reset
+                    </h1>
 
-                        <a
-                            href="/auth/login"
-                            className="block w-full rounded-md bg-black text-white py-2 font-medium"
-                        >
-                            Log in
-                        </a>
-                    </div>
+                    {/* Checkmark icon */}
+                    <img
+                        src="/checkmark-icon.svg"
+                        alt=""
+                        className="mt-[24px]"
+                    />
+
+                    {/* Message */}
+                    <p
+                        className="
+                          mt-[24px]
+                          font-inter
+                          font-normal
+                          text-[15px]
+                          leading-[150%]
+                          tracking-[0.015em]
+                          text-[#3A3A3A]
+                        "
+                    >
+                        You can now log in using<br />
+                        your new password.
+                    </p>
+
+                    {/* CTA button */}
+                    <a
+                        href="/auth/login"
+                        className="
+                          shadow-[6px_4px_18px_rgba(0,0,0,0.1)]
+                          mt-[40px]
+                          inline-flex
+                          items-center
+                          justify-center
+                          rounded-[14px]
+                          bg-[#D8C9A6]
+                          px-[62px]
+                          py-[16px]
+                          font-inter
+                          font-medium
+                          text-[16px]
+                          text-white
+                          transition
+                          hover:opacity-90
+                          active:opacity-80
+                        "
+                    >
+                        Log In
+                    </a>
+
+                    {/* Return to homepage */}
+                    <a
+                        href="/"
+                        className="
+                          mt-[24px]
+                          font-inter
+                          font-medium
+                          text-[15px]
+                          leading-[170%]
+                          tracking-[0.015em]
+                          text-[#C9A86A]
+                          underline
+                          underline-offset-2
+                          hover:opacity-80
+                        "
+                    >
+                        Return to Homepage
+                    </a>
+
                 </div>
             </main>
-        </>
-
+        </PageBackground>
     )
 }
