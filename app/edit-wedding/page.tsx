@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation'
 import { supabaseServer } from '@/lib/supabase/server'
 import EditWeddingForm from './EditWeddingForm'
 import AppHeader from '@/components/AppHeader'
+import PageBackground from "@/components/PageBackground";
 
 
 export default async function EditWeddingPage() {
@@ -22,6 +23,7 @@ export default async function EditWeddingPage() {
       partner_one_name,
       partner_two_name,
       wedding_date,
+      header_text,
       welcome_message,
       slug
     `)
@@ -33,16 +35,12 @@ export default async function EditWeddingPage() {
     }
 
     return (
-        <>
-            <AppHeader/>
-            <main> <div className="p-6 max-w-xl mx-auto">
-                <h1 className="text-2xl font-semibold mb-4">
-                    Edit wedding details
-                </h1>
+            <PageBackground>
+            <main> <div className="w-full flex flex-col items-center">
 
                 <EditWeddingForm wedding={wedding} />
             </div>
             </main>
-        </>
+            </PageBackground>
     )
 }

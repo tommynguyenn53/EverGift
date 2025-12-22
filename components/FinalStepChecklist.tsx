@@ -5,6 +5,8 @@ type FinalStepChecklistProps = {
     allFieldsCompleted: boolean
     collageUploaded: boolean
     stripeConnected: boolean
+    hideStripe?: boolean
+
 }
 
 function ChecklistItem({
@@ -40,6 +42,7 @@ export default function FinalStepChecklist({
                                                allFieldsCompleted,
                                                collageUploaded,
                                                stripeConnected,
+                                                hideStripe
                                            }: FinalStepChecklistProps) {
     return (
         <div className="mt-[16px]">
@@ -65,10 +68,12 @@ export default function FinalStepChecklist({
                     done={collageUploaded}
                     label="Collage uploaded"
                 />
-                <ChecklistItem
-                    done={stripeConnected}
-                    label="Stripe account connected"
-                />
+                {!hideStripe && (
+                    <ChecklistItem
+                        done={stripeConnected}
+                        label="Stripe account connected"
+                    />
+                )}
             </div>
         </div>
     )

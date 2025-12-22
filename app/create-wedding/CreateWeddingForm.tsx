@@ -179,9 +179,8 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
                 partner_one_name: partnerOne,
                 partner_two_name: partnerTwo,
                 wedding_date: weddingDate,
-                header_text: headerText || `${partnerOne} & ${partnerTwo}`,
-                welcome_message:
-                    welcomeMessage || 'Thank you for celebrating this special day with us.',
+                header_text: headerText,
+                welcome_message: welcomeMessage,
                 slug,
                 status: 'active',
             })
@@ -286,7 +285,7 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
                     {/* Header Text */}
                     <div>
                         <label className="block mb-[6px] font-inter font-medium text-[15px] text-[#3A3A3A]">
-                            Header Text (optional)
+                            Header Text
                         </label>
                         <input
                             value={headerText}
@@ -416,7 +415,7 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
                     {/* CTA */}
                     <button
                         onClick={handleCreate}
-                        disabled={loading || !partnerOne || !partnerTwo || !weddingDate || !collageImage || !wedding.payout_enabled}
+                        disabled={loading || !partnerOne || !partnerTwo || !weddingDate || !headerText || !welcomeMessage || !collageImage || !wedding.payout_enabled}
 
                         className="
                         shadow-[6px_4px_18px_rgba(0,0,0,0.1)]
