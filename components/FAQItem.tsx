@@ -76,7 +76,7 @@ export function FAQItem({
               leading-[150%]
               tracking-[0.015em]
               text-[#3A3A3A]
-              w-[302px]
+              w-[295px]
               text-left
             "
                     >

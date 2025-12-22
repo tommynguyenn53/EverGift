@@ -72,7 +72,10 @@ export default function LoginForm() {
                     font-inter
                     text-[15px]
                     placeholder:text-[#3A3A3A]/35
+                    transition
                     focus:outline-none
+                    focus:ring-2
+                    focus:ring-[#D8C9A6]/50
                   "
                 />
             </div>
@@ -108,7 +111,10 @@ export default function LoginForm() {
                     font-inter
                     text-[15px]
                     placeholder:text-[#3A3A3A]/35
+                    transition
                     focus:outline-none
+                    focus:ring-2
+                    focus:ring-[#D8C9A6]/50
                   "
                 />
 

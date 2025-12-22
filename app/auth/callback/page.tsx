@@ -1,29 +1,30 @@
-'use client'
+import { createServerClient } from '@supabase/ssr'
+import { cookies } from 'next/headers'
+import { redirect } from 'next/navigation'
 
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
-import { supabaseBrowser } from '@/lib/supabase/client'
+export default async function AuthCallbackPage() {
+    const cookieStore = await cookies()
 
-export default function AuthCallbackPage() {
-    const router = useRouter()
-    const supabase = supabaseBrowser()
-
-    useEffect(() => {
-        const run = async () => {
-            const { error } = await supabase.auth.exchangeCodeForSession(
-                window.location.href
-            )
-
-            // Either way, go home after handling
-            router.replace('/')
+    const supabase = createServerClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        {
+            cookies: {
+                get(name: string) {
+                    return cookieStore.get(name)?.value
+                },
+                set(name: string, value: string, options: any) {
+                    cookieStore.set({ name, value, ...options })
+                },
+                remove(name: string, options: any) {
+                    cookieStore.set({ name, value: '', ...options })
+                },
+            },
         }
-
-        run()
-    }, [supabase, router])
-
-    return (
-        <div className="min-h-screen flex items-center justify-center">
-            <p>Signing you in…</p>
-        </div>
     )
+
+    // 🔑 This exchanges the code for a session + refresh token
+    await supabase.auth.getSession()
+
+    redirect('/create-wedding')
 }

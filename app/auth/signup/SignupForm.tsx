@@ -91,8 +91,10 @@ export default function SignupForm() {
                     text-[15px]
                     text-[#3A3A3A]
                     placeholder:text-[#3A3A3A]/35
+                    transition
                     focus:outline-none
-                    focus:ring-0
+                    focus:ring-2
+                    focus:ring-[#D8C9A6]/50
                   "
                 />
 
@@ -144,8 +146,10 @@ export default function SignupForm() {
                         text-[15px]
                         text-[#3A3A3A]
                         placeholder:text-[#3A3A3A]/35
+                        transition
                         focus:outline-none
-                        focus:ring-0
+                        focus:ring-2
+                        focus:ring-[#D8C9A6]/50
                       "
                 />
 
@@ -198,8 +202,9 @@ export default function SignupForm() {
                         text-[15px]
                         text-[#3A3A3A]
                         placeholder:text-[#3A3A3A]/35
-                        focus:outline-none
-                        focus:ring-0
+                        transition
+                        focus:outline-none focus:ring-2
+                        focus:ring-[#D8C9A6]/50
                       "
                 />
 

@@ -26,9 +26,12 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "onConflict",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    "**/*.mts",
+    "**/*.ts",
+    "**/*.tsx"
   ],
   "exclude": ["node_modules"]
 }
