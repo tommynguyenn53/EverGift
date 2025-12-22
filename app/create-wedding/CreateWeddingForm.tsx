@@ -78,7 +78,6 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
                 .from('images')
                 .select('storage_path')
                 .eq('wedding_id', wedding.id)
-                .eq('position_index', 0)
                 .single()
 
             if (error || !image) return
@@ -125,9 +124,7 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
                 {
                     wedding_id: weddingId,
                     storage_path: filePath,
-                    position_index: 0,
                 },
-                { onConflict: 'wedding_id,position_index' }
             )
 
         if (dbError) {
