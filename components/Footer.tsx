@@ -45,7 +45,7 @@ export default function Footer() {
 
                       "
                 >
-                    <Link href="/terms" className="hover:underline
+                    <Link href="/terms&conditions" className="hover:underline
                         transition
                         hover:opacity-80
                         active:opacity-60
@@ -55,7 +55,7 @@ export default function Footer() {
                     </Link>
                     {' '}•{' '}
 
-                    <Link href="/privacy" className="hover:underline
+                    <Link href="/privacy-policy" className="hover:underline
                         transition
                         hover:opacity-80
                         active:opacity-60

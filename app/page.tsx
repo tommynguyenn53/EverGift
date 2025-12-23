@@ -89,7 +89,10 @@ export default function HomePage() {
                         View Example Page
                     </Link>
 
-                    <HowEverGiftWorksCard/>
+                    <div className="">
+                        <HowEverGiftWorksCard/>
+                    </div>
+
 
                     <h1
                         className="
@@ -108,9 +111,19 @@ export default function HomePage() {
                         Why Couples Love EverGift
                     </h1>
 
-                    <BenefitCards/>
-                    <HowPricingWorks/>
-                    <CreateWeddingCTA/>
+                    <div className="w-full flex justify-center">
+                        <BenefitCards/>
+                    </div>
+
+
+                    <div className="w-full flex justify-center">
+                        <HowPricingWorks/>
+                    </div>
+
+                    <div className="w-full flex justify-center">
+                        <CreateWeddingCTA/>
+                    </div>
+
                     <FAQSection/>
                 </section>
 

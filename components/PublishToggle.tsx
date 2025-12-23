@@ -53,7 +53,7 @@ export default function PublishToggle({ weddingId, initialStatus }: Props) {
                     </p>
                     <p className="mt-[4px] font-inter text-[13px] text-[#3A3A3A]/70 leading-[150%]">
                         {isActive
-                            ? 'Your page is live and visible to guests'
+                            ? 'Your page is currently live'
                             : 'Your page is currently private'}
                     </p>
                 </div>
@@ -84,7 +84,7 @@ export default function PublishToggle({ weddingId, initialStatus }: Props) {
                             bg-white
                             transition-transform
                             duration-200
-                            ${isActive ? 'translate-x-[17px]' : 'translate-x-0'}
+                            ${isActive ? 'translate-x-[20px]' : 'translate-x-0'}
                         `}
                     />
                 </button>

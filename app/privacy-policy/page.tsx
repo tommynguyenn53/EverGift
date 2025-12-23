@@ -237,7 +237,9 @@ export default function PrivacyPolicyPage() {
                         <p>
                             <br/> Requests can be made by emailing:
                             <br/>
-                            support@evergift.app
+                            <a href="mailto:support@evergift.com" className="underline hover:underline">
+                                support@evergift.app
+                            </a>
                         </p>
 
                         <div className="my-[20px] w-full h-[1px] bg-[#3A3A3A]/15"/>
