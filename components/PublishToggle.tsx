@@ -17,6 +17,7 @@ export default function PublishToggle({ weddingId, initialStatus }: Props) {
     const isActive = status === 'active'
 
     const toggleStatus = async () => {
+        if (loading) return
         setLoading(true)
 
         const newStatus = isActive ? 'draft' : 'active'
@@ -34,29 +35,58 @@ export default function PublishToggle({ weddingId, initialStatus }: Props) {
     }
 
     return (
-        <div className="bg-white rounded-xl p-4 shadow space-y-3">
+        <div
+            className="
+                w-[280px]
+                bg-white
+                rounded-[14px]
+                px-[16px]
+                py-[14px]
+                shadow-[0_4px_12px_rgba(0,0,0,0.05)]
+            "
+        >
             <div className="flex items-center justify-between">
-                <div>
-                    <p className="font-medium">Wedding page</p>
-                    <p className="text-sm text-gray-500">
+                {/* Text */}
+                <div className="pr-4">
+                    <p className="font-inter font-medium text-[15px] text-[#3A3A3A]">
+                        Wedding page
+                    </p>
+                    <p className="mt-[4px] font-inter text-[13px] text-[#3A3A3A]/70 leading-[150%]">
                         {isActive
                             ? 'Your page is live and visible to guests'
                             : 'Your page is currently private'}
                     </p>
                 </div>
 
+                {/* Toggle */}
                 <button
                     onClick={toggleStatus}
                     disabled={loading}
-                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition ${
-                        isActive ? 'bg-green-500' : 'bg-gray-300'
-                    }`}
+                    className={`
+                        relative
+                        w-[44px]
+                        h-[24px]
+                        rounded-full
+                        transition-colors
+                        duration-200
+                        ${isActive ? 'bg-[#D8C9A6]' : 'bg-[#E5E5E5]'}
+                        disabled:opacity-60
+                    `}
                 >
-          <span
-              className={`inline-block h-4 w-4 transform rounded-full bg-white transition ${
-                  isActive ? 'translate-x-6' : 'translate-x-1'
-              }`}
-          />
+                    <span
+                        className={`
+                            absolute
+                            top-[2px]
+                            left-[2px]
+                            w-[20px]
+                            h-[20px]
+                            rounded-full
+                            bg-white
+                            transition-transform
+                            duration-200
+                            ${isActive ? 'translate-x-[17px]' : 'translate-x-0'}
+                        `}
+                    />
                 </button>
             </div>
         </div>

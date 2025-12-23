@@ -58,8 +58,8 @@ export default async function WeddingReadyPage() {
                           text-[#3A3A3A]
                         "
                     >
-                        Your personal QR code and page link are below.
-                        You can start sharing them with your guests.
+                        Your personal QR code and page link are <br/> below.
+                        You can start sharing them <br/> with your guests.
                     </p>
 
                     {/* QR Code */}
@@ -78,7 +78,7 @@ export default async function WeddingReadyPage() {
                           text-[#3A3A3A]
                         "
                     >
-                        Press and hold the QR code to save or share it.
+                        Press the QR code to save or share it.
                     </p>
 
                     {/* Action buttons */}
