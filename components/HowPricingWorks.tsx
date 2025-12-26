@@ -4,8 +4,10 @@ export default function HowPricingWorks() {
             className="
         flex flex-col
         gap-[12px]
+        md:gap-[18px]
         text-center
         mt-[48px]
+        md:mt-[72px]
       "
         >
             {/* Title */}
@@ -14,6 +16,7 @@ export default function HowPricingWorks() {
           font-inter
           font-medium
           text-[22px]
+          md:text-[33px]
           text-[#3A3A3A]
         "
             >
@@ -26,6 +29,7 @@ export default function HowPricingWorks() {
           font-inter
           font-normal
           text-[11px]
+          md:text-[16.5px]
           tracking-[0.015em]
           text-[#999999]
         "
@@ -39,6 +43,7 @@ export default function HowPricingWorks() {
           font-inter
           font-medium
           text-[12px]
+          md:text-[18px]
           text-[#3A3A3A]
         "
             >
@@ -51,6 +56,7 @@ export default function HowPricingWorks() {
           font-inter
           font-normal
           text-[12px]
+          md:text-[18px]
           text-[#3A3A3A]
         "
             >
@@ -62,6 +68,7 @@ export default function HowPricingWorks() {
           font-inter
           font-normal
           text-[12px]
+          md:text-[18px]
           text-[#3A3A3A]
         "
             >
@@ -73,6 +80,7 @@ export default function HowPricingWorks() {
           font-inter
           font-normal
           text-[12px]
+          md:text-[18px]
           text-[#3A3A3A]
         "
             >
@@ -85,6 +93,7 @@ export default function HowPricingWorks() {
           font-inter
           font-normal
           text-[11px]
+          md:text-[16.5px]
           text-[#3A3A3A]/75
         "
             >

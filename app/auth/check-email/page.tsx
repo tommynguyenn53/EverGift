@@ -45,16 +45,18 @@ export default function CheckEmailPage() {
 
     return (
         <PageBackground>
-            <main className="">
+            <main className="w-full max-w-sm mx-auto flex flex-col items-center">
                 <div className="w-full max-w-sm flex flex-col items-center text-center">
 
                     {/* Heading */}
                     <h1
                         className="
               mt-[40px]
+              md:mt-[60px]
               font-inter
               font-medium
               text-[26px]
+              md:text-[39px]
               tracking-[0.015em]
               text-[#3A3A3A]
             "
@@ -63,19 +65,23 @@ export default function CheckEmailPage() {
                     </h1>
 
                     {/* Email icon */}
+                    <div className="mt-[24px] md:mt-[36px]">
                     <img
                         src="/email-icon.svg"
                         alt=""
-                        className="mt-[24px]"
+                        className="md:w-[108px]"
                     />
+                    </div>
 
                     {/* Main message */}
                     <p
                         className="
               mt-[24px]
+              md:mt-[36px]
               font-inter
               font-normal
               text-[15px]
+              md:text-[22.5px]
               leading-[150%]
               tracking-[0.015em]
               text-[#3A3A3A]
@@ -88,9 +94,11 @@ export default function CheckEmailPage() {
                     <p
                         className="
               mt-[16px]
+              md:mt-[24px]
               font-inter
               font-normal
               text-[15px]
+              md:text-[22.5px]
               leading-[150%]
               tracking-[0.015em]
               text-[#3A3A3A]
@@ -103,8 +111,10 @@ export default function CheckEmailPage() {
                     <p
                         className="
               mt-[32px]
+              md:mt-[48px]
               font-inter
               text-[15px]
+              md:text-[22.5px]
               leading-[170%]
               tracking-[0.015em]
               text-[#3A3A3A]
@@ -135,13 +145,13 @@ export default function CheckEmailPage() {
 
                     {/* Feedback */}
                     {message && (
-                        <p className="mt-[16px] text-sm text-green-600">
+                        <p className="mt-[16px] md:mt-[24px] text-sm md:text-xl text-green-600">
                             {message}
                         </p>
                     )}
 
                     {error && (
-                        <p className="mt-[16px] text-sm text-red-600">
+                        <p className="mt-[16px] md:mt-[24px] text-sm md:text-xl text-red-600">
                             {error}
                         </p>
                     )}

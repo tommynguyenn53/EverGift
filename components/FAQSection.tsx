@@ -27,10 +27,6 @@ export default function FAQSection() {
             a: 'Yes! You can customise: Banner header. Welcome message. The full photo collage layout. Gift options & messaging. Your page will feel elegant, personal, and completely unique to your wedding.',
         },
         {
-            q: 'How many photos can we upload for the collage?',
-            a: 'EverGift supports up to 7 photos, perfectly arranged into your chosen collage template.',
-        },
-        {
             q: 'Can guests leave a personal message with their gift?',
             a: 'Absolutely. Guests can include a heartfelt note along with their gift — and you’ll see it displayed beautifully on your dashboard or success notifications.',
         },
@@ -45,12 +41,13 @@ export default function FAQSection() {
     ]
 
     return (
-        <section className="flex flex-col items-center mt-[48px]">
+        <section className="flex flex-col items-center mt-[48px] md:mt-[72px]">
             <h2
                 className="
           font-inter
           font-medium
           text-[22px]
+          md:text-[33px]
           text-[#3A3A3A]
           text-center
         "
@@ -58,7 +55,7 @@ export default function FAQSection() {
                 Frequently Asked Questions
             </h2>
 
-            <div className="mt-[24px] flex flex-col gap-[10px]">
+            <div className="mt-[24px] md:mt-[36px] flex flex-col gap-[10px] md:gap-[15px]">
                 {faqs.map((faq, i) => (
                     <FAQItem
                         key={i}

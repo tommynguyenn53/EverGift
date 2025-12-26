@@ -83,21 +83,21 @@ export default async function DashboardPage() {
             <main className="w-full flex flex-col items-center">
 
                 {/* Heading */}
-                <h1 className="mt-[40px] font-inter font-medium text-[26px] tracking-[0.015em] text-[#3A3A3A] text-center">
+                <h1 className="mt-[40px] md:mt-[60px] font-inter font-medium text-[26px] md:text-[39px] tracking-[0.015em] text-[#3A3A3A] text-center">
                     Hi {wedding.partner_one_name} and {wedding.partner_two_name}
                 </h1>
 
                 {/* Subtext */}
-                <p className="mt-[20px] font-inter text-[15px] leading-[150%] tracking-[0.015em] text-[#3A3A3A] text-center max-w-[320px]">
+                <p className="mt-[20px] md:mt-[30px] font-inter text-[15px] md:text-[22.5px] leading-[150%] tracking-[0.015em] text-[#3A3A3A] text-center max-w-[320px] md:max-w-[480px]">
                     Here’s your wedding page overview.
                 </p>
 
-                <p className="mt-[16px] font-inter text-[15px] leading-[150%] tracking-[0.015em] text-[#3A3A3A] text-center">
+                <p className="mt-[16px] md:mt-[24px] font-inter text-[15px] md:text-[22.5px] leading-[150%] tracking-[0.015em] text-[#3A3A3A] text-center">
                     Press the QR code to save or share it.
                 </p>
 
                 {/* Publish toggle */}
-                <div className="mt-[24px]">
+                <div className="mt-[24px] md:mt-[36px]">
                     <PublishToggle
                         weddingId={wedding.id}
                         initialStatus={wedding.status}
@@ -105,7 +105,7 @@ export default async function DashboardPage() {
                 </div>
 
                 {/* Stats + QR */}
-                <div className="mt-[32px] flex gap-[20px]">
+                <div className="mt-[32px] md:mt-[48px] flex gap-[20px] md:gap-[30px]">
 
                     {/* Totals tile */}
                     <div className="w-[130px] h-[130px] rounded-[10px] bg-white px-[20px] flex flex-col justify-center shadow-[0_4px_12px_rgba(0,0,0,0.05)]">

@@ -75,12 +75,13 @@ export default async function PublicWeddingPage({ params }: Props) {
     )
 
     return (
+
         <div
             className="min-h-screen px-[24px] py-[20px] bg-gradient-to-b from-[#EDE0C3] via-[#F6EEDC] to-[#FFFEFA]"
         >
             <AppHeader tagline={wedding.header_text} showProfile={!!isOwner}/>
             <main>
-                <div className="w-full max-w-sm flex flex-col items-center text-center">
+                <div className="w-full max-w-sm mx-auto flex flex-col items-center text-center">
 
                     {/* Draft banner (owner only) */}
                     {isOwner && wedding.status === 'draft' && (
@@ -92,12 +93,14 @@ export default async function PublicWeddingPage({ params }: Props) {
                     {/* Names */}
                     <h1
                         className="
-              mt-[32px]
-              playfair-display-heading_text
-              text-[36px]
-              tracking-[0.015em]
-              text-[#3A3A3A]
-            "
+                          mt-[32px]
+                          md:mt-[48px]
+                          playfair-display-heading_text
+                          text-[36px]
+                          md:text-[54px]
+                          tracking-[0.015em]
+                          text-[#3A3A3A]
+                        "
                     >
                         {wedding.partner_one_name} &amp; {wedding.partner_two_name}
                     </h1>
@@ -105,12 +108,16 @@ export default async function PublicWeddingPage({ params }: Props) {
                     {/* Date */}
                     <p
                         className="
-              mt-[12px]
-              playfair-display-date_text
-              text-[20px]
-              tracking-[0.015em]
-              text-[#3A3A3A]
-            "
+                          playfair-display-date_text
+                          mt-[12px]
+                          md:mt-[18px]
+                          font-playfair
+                          font-normal
+                          text-[20px]
+                          md:text-[30px]
+                          tracking-[0.015em]
+                          text-[#3A3A3A]
+                        "
                     >
                         {formattedDate}
                     </p>
@@ -120,7 +127,7 @@ export default async function PublicWeddingPage({ params }: Props) {
                         <img
                             src={collageUrl}
                             alt="Wedding photo collage"
-                            className="mt-[32px] w-[229px] h-[344px] object-cover"
+                            className="mt-[32px] md:mt[48px] w-[229px] h-[344px] md:w-[344px] md:h-[603px] object-cover"
                         />
                     )}
 
@@ -128,13 +135,19 @@ export default async function PublicWeddingPage({ params }: Props) {
                     {/* Message */}
                     <p
                         className="
-              mt-[32px]
-              playfair-display-body_text
-              text-[15px]
-              leading-[150%]
-              text-[#3A3A3A]
-              whitespace-pre-line
-            "
+                          playfair-display-body_text
+                          mt-[32px]
+                          md:mt-[48px]
+                          font-playfair
+                          font-normal
+                          text-[15px]
+                          md:text-[22.5px]
+                          leading-[150%]
+                          text-[#3A3A3A]
+                          w-[270px]
+                          md:w-[430px]
+                          whitespace-pre-line
+                        "
                     >
                         {wedding.welcome_message}
 
@@ -143,26 +156,31 @@ export default async function PublicWeddingPage({ params }: Props) {
                     {/* CTA (disabled for now) */}
                     <button
                         className="
-              mt-[24px]
-              shadow-[6px_4px_18px_rgba(0,0,0,0.1)]
-              inline-flex
-              items-center
-              justify-center
-              rounded-[14px]
-              bg-[#D8C9A6]
-              px-[62px]
-              py-[16px]
-              font-inter
-              font-medium
-              text-[16px]
-              text-white
-              transition
-              hover:opacity-90
-              active:opacity-80
-              active:scale-[0.98]
-              disabled:opacity-60
-              disabled:cursor-not-allowed
-            "
+                          mt-[24px]
+                          md:mt-[36px]
+                          shadow-[6px_4px_18px_rgba(0,0,0,0.1)]
+                          inline-flex
+                          items-center
+                          justify-center
+                          rounded-[14px]
+                          md:rounded-[21px]
+                          bg-[#D8C9A6]
+                          px-[62px]
+                          py-[16px]
+                          md:px-[90px]
+                          md:py-[20px]
+                          font-inter
+                          font-medium
+                          text-[16px]
+                          md:text-[24px]
+                          text-white
+                          transition
+                          hover:opacity-90
+                          active:opacity-80
+                          active:scale-[0.98]
+                          disabled:opacity-60
+                          disabled:cursor-not-allowed
+                        "
                     >
                         Give a Gift
                     </button>

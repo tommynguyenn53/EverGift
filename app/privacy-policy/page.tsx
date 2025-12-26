@@ -5,9 +5,9 @@ import Footer from '@/components/Footer'
 export default function PrivacyPolicyPage() {
     return (
         <PageBackground>
-            <div className="w-full flex justify-center px-[24px]">
+            <div className="w-full flex justify-center">
 
-                <main className="w-full max-w-[320px] mt-[40px]">
+                <main className="w-full max-w-[320px] md: max-w-[480px] mt-[40px] md:mt-[60px]">
 
                     {/* Heading */}
                     <h1
@@ -15,6 +15,7 @@ export default function PrivacyPolicyPage() {
                               font-inter
                               font-medium
                               text-[26px]
+                              md:text-[39px]
                               tracking-[0.015em]
                               text-[#3A3A3A]
                               text-center
@@ -27,26 +28,28 @@ export default function PrivacyPolicyPage() {
                     <div
                         className="
                           mt-[24px]
+                          md:mt-[36px]
                           font-inter
                           font-normal
                           text-[12px]
+                          md:text-[18px]
                           leading-[170%]
                           text-[#3A3A3A]
                         "
                     >
 
-                        <p className="mt-[20px]">
-                            <strong className="font-inter font-medium text-[15px] text-[#3A3A3A]">1. Information We
+                        <p className="mt-[20px] md:mt-[30px]">
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">1. Information We
                                 Collect</strong>
                         </p>
 
                         <p>
-                            <strong className="font-inter font-medium text-[12px] text-[#3A3A3A]"> <br/>1.1 Information
+                            <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]"> <br/>1.1 Information
                                 Couples Provide </strong><br/>
                             When creating a wedding page, you may provide:
                         </p>
 
-                        <ul className="list-disc pl-[16px]">
+                        <ul className="list-disc pl-[16px] md:pl-[24px]">
                             <li>Names of the couple</li>
                             <li>Wedding date</li>
                             <li>Photos for the collage</li>
@@ -58,12 +61,12 @@ export default function PrivacyPolicyPage() {
                         </ul>
 
                         <p>
-                            <strong className="font-inter font-medium text-[12px] text-[#3A3A3A]"> <br/>1.2 Information
+                            <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]"> <br/>1.2 Information
                                 Guests Provide</strong><br/>
                             When sending a gift, guests may submit:
                         </p>
 
-                        <ul className="list-disc pl-[16px]">
+                        <ul className="list-disc pl-[16px] md:pl-[24px]">
                             <li>Name (optional — can send anonymously)</li>
                             <li>Gift amount</li>
                             <li>Message to the couple</li>
@@ -71,12 +74,12 @@ export default function PrivacyPolicyPage() {
                         </ul>
 
                         <p>
-                            <strong className="font-inter font-medium text-[12px] text-[#3A3A3A]"> <br/>1.3
+                            <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]"> <br/>1.3
                                 Automatically Collected Information</strong><br/>
                             We may automatically collect:
                         </p>
 
-                        <ul className="list-disc pl-[16px]">
+                        <ul className="list-disc pl-[16px] md:pl-[24px]">
                             <li>Device type</li>
                             <li>Browser type</li>
                             <li>IP address</li>
@@ -88,11 +91,11 @@ export default function PrivacyPolicyPage() {
                             <br/> This helps improve site performance and security.
                         </p>
 
-                        <div className="my-[20px] w-full h-[1px] bg-[#3A3A3A]/15"/>
+                        <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
 
                         <p>
-                            <strong className="font-inter font-medium text-[15px] text-[#3A3A3A]">2. How We Use Your
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">2. How We Use Your
                                 Information</strong>
                         </p>
 
@@ -100,7 +103,7 @@ export default function PrivacyPolicyPage() {
                             We use collected information to:
                         </p>
 
-                        <ul className="list-disc pl-[16px]">
+                        <ul className="list-disc pl-[16px] md:pl-[24px]">
                             <li>Create and display your wedding page</li>
                             <li>Process gifts securely via Stripe</li>
                             <li>Send notifications about gift activity</li>
@@ -113,18 +116,18 @@ export default function PrivacyPolicyPage() {
                             <br/> We never sell your information.
                         </p>
 
-                        <div className="my-[20px] w-full h-[1px] bg-[#3A3A3A]/15"/>
+                        <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
 
                         <p>
-                            <strong className="font-inter font-medium text-[15px] text-[#3A3A3A]">3. Payment Processing (Stripe)</strong>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">3. Payment Processing (Stripe)</strong>
                         </p>
 
                         <p>
                             All payments on EverGift are processed by Stripe.
                         </p>
 
-                        <ul className="list-disc pl-[16px]">
+                        <ul className="list-disc pl-[16px] md:pl-[24px]">
                             <li>Payment card details</li>
                             <li>Billing information</li>
                             <li>Identity verification details (for couples receiving payouts)</li>
@@ -142,18 +145,18 @@ export default function PrivacyPolicyPage() {
                             </span>
                         </p>
 
-                        <div className="my-[20px] w-full h-[1px] bg-[#3A3A3A]/15"/>
+                        <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
 
                         <p>
-                            <strong className="font-inter font-medium text-[15px] text-[#3A3A3A]">4. How We Store & Protect Your Information</strong>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">4. How We Store & Protect Your Information</strong>
                         </p>
 
                         <p>
                             We take reasonable steps to protect your information, including:
                         </p>
 
-                        <ul className="list-disc pl-[16px]">
+                        <ul className="list-disc pl-[16px] md:pl-[24px]">
                             <li>SSL encryption</li>
                             <li>Secure databases</li>
                             <li>Restricted internal access</li>
@@ -164,18 +167,18 @@ export default function PrivacyPolicyPage() {
                             <br/> However, no online service is 100% secure. By using EverGift, you accept this risk.
                         </p>
 
-                        <div className="my-[20px] w-full h-[1px] bg-[#3A3A3A]/15"/>
+                        <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
 
                         <p>
-                            <strong className="font-inter font-medium text-[15px] text-[#3A3A3A]">5. Sharing of Personal Information</strong>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">5. Sharing of Personal Information</strong>
                         </p>
 
                         <p>
                             We may share information only when necessary:
                         </p>
 
-                        <ul className="list-disc pl-[16px]">
+                        <ul className="list-disc pl-[16px] md:pl-[24px]">
                             <li>Stripe (for payments and payouts)</li>
                             <li>Service providers (hosting, analytics, email delivery)</li>
                         </ul>
@@ -184,7 +187,7 @@ export default function PrivacyPolicyPage() {
                             <br/> We do NOT share with:
                         </p>
 
-                        <ul className="list-disc pl-[16px]">
+                        <ul className="list-disc pl-[16px] md:pl-[24px]">
                             <li>Advertisers</li>
                             <li>Third-party marketing companies</li>
                             <li>Any unrelated external parties</li>
@@ -194,18 +197,18 @@ export default function PrivacyPolicyPage() {
                             <br/> We may disclose information if required by law.
                         </p>
 
-                        <div className="my-[20px] w-full h-[1px] bg-[#3A3A3A]/15"/>
+                        <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
 
                         <p>
-                            <strong className="font-inter font-medium text-[15px] text-[#3A3A3A]">6. Data Retention</strong>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">6. Data Retention</strong>
                         </p>
 
                         <p>
                             We retain personal information only as long as necessary:
                         </p>
 
-                        <ul className="list-disc pl-[16px]">
+                        <ul className="list-disc pl-[16px] md:pl-[24px]">
                             <li>Wedding pages remain active unless deleted</li>
                             <li>Gift messages and history stay available to the couple</li>
                             <li>Stripe retains payment records for financial compliance</li>
@@ -215,18 +218,18 @@ export default function PrivacyPolicyPage() {
                             <br/> Couples may request deletion at any time.
                         </p>
 
-                        <div className="my-[20px] w-full h-[1px] bg-[#3A3A3A]/15"/>
+                        <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
 
                         <p>
-                            <strong className="font-inter font-medium text-[15px] text-[#3A3A3A]">7. Couple & Guest Rights</strong>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">7. Couple & Guest Rights</strong>
                         </p>
 
                         <p>
                             Under Australian privacy laws, you have the right to:
                         </p>
 
-                        <ul className="list-disc pl-[16px]">
+                        <ul className="list-disc pl-[16px] md:pl-[24px]">
                             <li>Access your personal information</li>
                             <li>Request correction</li>
                             <li>Request deletion (where legally permitted)</li>
@@ -242,18 +245,18 @@ export default function PrivacyPolicyPage() {
                             </a>
                         </p>
 
-                        <div className="my-[20px] w-full h-[1px] bg-[#3A3A3A]/15"/>
+                        <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
 
                         <p>
-                            <strong className="font-inter font-medium text-[15px] text-[#3A3A3A]">8. Cookies & Tracking</strong>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">8. Cookies & Tracking</strong>
                         </p>
 
                         <p>
                             EverGift may use cookies to:
                         </p>
 
-                        <ul className="list-disc pl-[16px]">
+                        <ul className="list-disc pl-[16px] md:pl-[24px]">
                             <li>Keep you logged in</li>
                             <li>Improve performance</li>
                             <li>Analyse site usage</li>
@@ -263,11 +266,11 @@ export default function PrivacyPolicyPage() {
                             <br/> Cookies can be disabled in your browser, but some features may not work.
                         </p>
 
-                        <div className="my-[20px] w-full h-[1px] bg-[#3A3A3A]/15"/>
+                        <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
 
                         <p>
-                            <strong className="font-inter font-medium text-[15px] text-[#3A3A3A]">9. International Data Transfers</strong>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">9. International Data Transfers</strong>
                         </p>
 
                         <p>
@@ -279,11 +282,11 @@ export default function PrivacyPolicyPage() {
                             <br/> We ensure transfers comply with Australian privacy requirements.
                         </p>
 
-                        <div className="my-[20px] w-full h-[1px] bg-[#3A3A3A]/15"/>
+                        <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
 
                         <p>
-                            <strong className="font-inter font-medium text-[15px] text-[#3A3A3A]">10. Children’s Privacy</strong>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">10. Children’s Privacy</strong>
                         </p>
 
                         <p>
@@ -291,11 +294,11 @@ export default function PrivacyPolicyPage() {
                             We do not knowingly collect data from children.
                         </p>
 
-                        <div className="my-[20px] w-full h-[1px] bg-[#3A3A3A]/15"/>
+                        <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
 
                         <p>
-                            <strong className="font-inter font-medium text-[15px] text-[#3A3A3A]">11. Changes to This Policy</strong>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">11. Changes to This Policy</strong>
                         </p>
 
                         <p>
@@ -303,11 +306,11 @@ export default function PrivacyPolicyPage() {
                             Updates will be posted on this page with a revised “Last Updated” date.
                         </p>
 
-                        <div className="my-[20px] w-full h-[1px] bg-[#3A3A3A]/15"/>
+                        <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
 
                         <p className="mt-[20px]">
-                            <strong className="font-inter font-medium text-[15px] text-[#3A3A3A]">12. Contact
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">12. Contact
                                 Us</strong><br/>
                             If you have questions, contact us at:
                             <br/>
@@ -317,7 +320,7 @@ export default function PrivacyPolicyPage() {
 
                         </p>
 
-                        <div className="my-[20px] w-full h-[1px] bg-[#3A3A3A]/15"/>
+                        <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
 
                     </div>

@@ -21,7 +21,10 @@ export function FAQItem({
         rounded-[16px]
         gap-[10px]
         px-[13px] py-[8px]
+        md:px-[17px] md:py-[12px]
         w-[327px]
+        md:w-[490px]
+
       "
         >
             {/* Header row */}
@@ -34,10 +37,12 @@ export function FAQItem({
             font-inter
             font-normal
             text-[12px]
+            md:text-[18px]
             leading-[170%]
             tracking-[0.015em]
             text-[#3A3A3A]
             w-[302px]
+            md:w-[453px]
           "
                 >
                     {index}. {question}
@@ -48,7 +53,7 @@ export function FAQItem({
                     src="/open-icon.svg"
                     alt=""
                     className={`
-            w-[20px] h-[20px]
+            w-[20px] h-[20px] md:w-[36px] md:h-[36px]
             transition-transform duration-300
             ${open ? 'rotate-180' : 'rotate-0'}
           `}
@@ -60,10 +65,10 @@ export function FAQItem({
                 className={`
           overflow-hidden
           transition-all duration-300 ease-in-out
-          ${open ? 'max-h-[300px] opacity-100 mt-[8px]' : 'max-h-0 opacity-0'}
+          ${open ? 'max-h-[300px] opacity-100 mt-[8px] md:mt-[12px]' : 'max-h-0 opacity-0'}
         `}
             >
-                <div className="flex flex-col gap-[10px]">
+                <div className="flex flex-col gap-[8px] md:gap-[12px]">
                     {/* Divider */}
                     <div className="w-full h-[1px] bg-[#E7DCC8]" />
 
@@ -73,10 +78,12 @@ export function FAQItem({
               font-inter
               font-normal
               text-[12px]
+              text-[18px]
               leading-[150%]
               tracking-[0.015em]
               text-[#3A3A3A]
               w-[295px]
+              md:w-[453px]
               text-left
             "
                     >

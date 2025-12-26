@@ -9,6 +9,7 @@ export default function CreateWeddingCTA() {
         items-center
         text-center
         mt-[48px]
+        md:mt-[72px]
       "
         >
             {/* Heading */}
@@ -17,6 +18,7 @@ export default function CreateWeddingCTA() {
           font-inter
           font-medium
           text-[22px]
+          md:text-[33px]
           text-[#3A3A3A]
         "
             >
@@ -27,9 +29,11 @@ export default function CreateWeddingCTA() {
             <p
                 className="
           mt-[12px]
+          md:mt-[18px]
           font-inter
           font-normal
           text-[11px]
+          md:text-[16.5px]
           tracking-[0.015em]
           text-[#999999]
         "

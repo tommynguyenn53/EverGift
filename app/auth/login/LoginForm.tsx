@@ -39,18 +39,20 @@ export default function LoginForm() {
     return (
         <form
             onSubmit={handleLogin}
-            className="flex flex-col items-center gap-[24px] text-left"
+            className="flex flex-col items-center gap-[24px] md:gap-[36px] text-left"
         >
             {/* Email */}
-            <div className="w-[298px]">
+            <div className="w-[298px] md:w-[447px]">
                 <label
                     className="
                     block
                     font-inter
                     font-medium
                     text-[15px]
+                    md:text-[22.5px]
                     text-[#3A3A3A]
                     mb-[6px]
+                    md:mb-[9px]
                   "
                 >
                     Email Address
@@ -65,12 +67,15 @@ export default function LoginForm() {
                     w-full
                     bg-white
                     rounded-[10px]
-                    px-[15px]
-                    py-[15px]
+                    md:rounded-[15px]
+                    px-[15px] py-[15px]
+                    md:px-[22.5px] md:py-[22.5px]
                     border
                     border-black/10
                     font-inter
                     text-[15px]
+                    md:text-[22.5px]
+                    text-[#3A3A3A]
                     placeholder:text-[#3A3A3A]/35
                     transition
                     focus:outline-none
@@ -81,15 +86,17 @@ export default function LoginForm() {
             </div>
 
             {/* Password */}
-            <div className="w-[298px]">
+            <div className="w-[298px] md:w-[447px]">
                 <label
                     className="
                     block
                     font-inter
                     font-medium
                     text-[15px]
+                    md:text-[22.5px]
                     text-[#3A3A3A]
                     mb-[6px]
+                    md:mb-[9px]
                   "
                 >
                     Password
@@ -104,12 +111,15 @@ export default function LoginForm() {
                     w-full
                     bg-white
                     rounded-[10px]
-                    px-[15px]
-                    py-[15px]
+                    md:rounded-[15px]
+                    px-[15px] py-[15px]
+                    md:px-[22.5px] md:py-[22.5px]
                     border
                     border-black/10
                     font-inter
                     text-[15px]
+                    md:text-[22.5px]
+                    text-[#3A3A3A]
                     placeholder:text-[#3A3A3A]/35
                     transition
                     focus:outline-none
@@ -123,10 +133,12 @@ export default function LoginForm() {
                     href="/auth/forgot-password"
                     className="
                     mt-[6px]
+                    md:mt-[9px]
                     inline-block
                     font-inter
-                    font-normal
+                    font-regular
                     text-[11px]
+                    md:text-[16.5px]
                     tracking-[0.015em]
                     text-[#3A3A3A]
                     underline
@@ -153,12 +165,16 @@ export default function LoginForm() {
                   items-center
                   justify-center
                   rounded-[14px]
+                  md:rounded-[21px]
                   bg-[#D8C9A6]
                   px-[62px]
                   py-[16px]
+                  md:px-[99px]
+                  md:py-[24px]
                   font-inter
                   font-medium
                   text-[16px]
+                  md:text-[24px]
                   text-white
                   transition
                   hover:opacity-90
@@ -175,9 +191,11 @@ export default function LoginForm() {
             <p
                 className="
                   mt-[-8px]
+                  md:mt-[-4px]
                   text-center
                   font-inter
                   text-[15px]
+                  md:text-[22.5px]
                   leading-[170%]
                   tracking-[0.015em]
                   text-[#3A3A3A]

@@ -58,18 +58,20 @@ export default function SignupForm() {
     return (
         <form
             onSubmit={handleSignup}
-            className="flex flex-col gap-[24px]"
+            className="flex flex-col gap-[24px] md:gap-[36px]"
         >
             {/* Email */}
-            <div className="w-[298px]">
+            <div className="w-[298px] md:w-[447px]">
                 <label
                     className="
                     block
                     font-inter
                     font-medium
                     text-[15px]
+                    md:text-[22.5px]
                     text-[#3A3A3A]
                     mb-[6px]
+                    md:mb-[12px]
                   "
                 >
                     Email Address
@@ -84,11 +86,14 @@ export default function SignupForm() {
                     w-full
                     bg-white
                     rounded-[10px]
+                    md:rounded-[15px]
                     px-[15px] py-[15px]
+                    md:px-[22.5px] md:py-[22.5px]
                     border
                     border-black/10
                     font-inter
                     text-[15px]
+                    md:text-[22.5px]
                     text-[#3A3A3A]
                     placeholder:text-[#3A3A3A]/35
                     transition
@@ -102,8 +107,11 @@ export default function SignupForm() {
                     <p
                         className="
                           mt-[6px]
+                          md:mt-[9px]
                           font-inter
+                          font-medium
                           text-[11px]
+                          md:text-[16.5px]
                           tracking-[0.015em]
                           text-[#3A3A3A]
                         "
@@ -115,15 +123,17 @@ export default function SignupForm() {
             </div>
 
             {/* Password */}
-            <div className="w-[298px]">
+            <div className="w-[298px] md:w-[447px]">
                 <label
                     className="
                         block
                         font-inter
                         font-medium
                         text-[15px]
+                        md:text-[22.5px]
                         text-[#3A3A3A]
                         mb-[6px]
+                        md:mb-[12px]
                       "
                 >
                     Password
@@ -136,31 +146,36 @@ export default function SignupForm() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     className="
-                        w-full
-                        bg-white
-                        rounded-[10px]
-                        px-[15px] py-[15px]
-                        border
-                        border-black/10
-                        font-inter
-                        text-[15px]
-                        text-[#3A3A3A]
-                        placeholder:text-[#3A3A3A]/35
-                        transition
-                        focus:outline-none
-                        focus:ring-2
-                        focus:ring-[#D8C9A6]/50
-                      "
+                         w-full
+                            bg-white
+                            rounded-[10px]
+                            md:rounded-[15px]
+                            px-[15px] py-[15px]
+                            md:px-[22.5px] md:py-[22.5px]
+                            border
+                            border-black/10
+                            font-inter
+                            text-[15px]
+                            md:text-[22.5px]
+                            text-[#3A3A3A]
+                            placeholder:text-[#3A3A3A]/35
+                            transition
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-[#D8C9A6]/50
+                          "
                 />
 
                 <p
                     className={`
-                        mt-[6px]
-                        font-inter
-                        font-medium
-                        text-[11px]
-                        tracking-[0.015em]
-            ${
+                          mt-[6px]
+                          md:mt-[9px]
+                          font-inter
+                          font-medium
+                          text-[11px]
+                          md:text-[16.5px]
+                          tracking-[0.015em]
+=            ${
                         passwordValid
                             ? 'text-[#8FAF7A]'
                             : 'text-[#3A3A3A]'
@@ -172,16 +187,18 @@ export default function SignupForm() {
             </div>
 
             {/* Confirm Password */}
-            <div className="w-[298px]">
+            <div className="w-[298px] md:w-[447px]">
                 <label
                     className="
-                    block
-                    font-inter
-                    font-medium
-                    text-[15px]
-                    text-[#3A3A3A]
-                    mb-[6px]
-                  "
+                        block
+                        font-inter
+                        font-medium
+                        text-[15px]
+                        md:text-[22.5px]
+                        text-[#3A3A3A]
+                        mb-[6px]
+                        md:mb-[12px]
+                    "
                 >
                     Confirm Password
                 </label>
@@ -192,29 +209,35 @@ export default function SignupForm() {
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     className="
-                        w-full
-                        bg-white
-                        rounded-[10px]
-                        px-[15px] py-[15px]
-                        border
-                        border-black/10
-                        font-inter
-                        text-[15px]
-                        text-[#3A3A3A]
-                        placeholder:text-[#3A3A3A]/35
-                        transition
-                        focus:outline-none focus:ring-2
-                        focus:ring-[#D8C9A6]/50
-                      "
+                         w-full
+                            bg-white
+                            rounded-[10px]
+                            md:rounded-[15px]
+                            px-[15px] py-[15px]
+                            md:px-[22.5px] md:py-[22.5px]
+                            border
+                            border-black/10
+                            font-inter
+                            text-[15px]
+                            md:text-[22.5px]
+                            text-[#3A3A3A]
+                            placeholder:text-[#3A3A3A]/35
+                            transition
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-[#D8C9A6]/50
+                          "
                 />
 
                 {confirmPassword.length > 0 && (
                     <p
                         className={`
                           mt-[6px]
+                          md:mt-[9px]
                           font-inter
                           font-medium
                           text-[11px]
+                          md:text-[16.5px]
                           tracking-[0.015em]
               ${
                             passwordsMatch
@@ -229,7 +252,7 @@ export default function SignupForm() {
             </div>
 
             {error && (
-                <p className="text-[12px] text-red-600">
+                <p className="text-[12px] md:text-[18px] text-red-600">
                     {error}
                 </p>
             )}
@@ -242,7 +265,9 @@ export default function SignupForm() {
                 className="
                     flex items-center
                     gap-[12px]
+                    md:gap-[18px]
                     w-[298px]
+                    md:w-[447px]
                     cursor-pointer
                     select-none
                   "
@@ -251,11 +276,13 @@ export default function SignupForm() {
                 <div
                     className="
                       w-[20px] h-[20px]
+                      md:w-[30px] md:h-[30px]
                       aspect-square
                       flex items-center justify-center
                       bg-white
                       border border-black/10
                       rounded-[2px]
+                      md:rounded-[3px]
                       shrink-0
                       transition
                       active:scale-[0.95]
@@ -286,6 +313,7 @@ export default function SignupForm() {
                       font-inter
                       font-normal
                       text-[14px]
+                      md:text-[21px]
                       tracking-[0.015em]
                       text-[#3A3A3A]
                       text-left
@@ -324,13 +352,18 @@ export default function SignupForm() {
                   inline-flex
                   mx-auto
                   mt-[8px]
+                  md:mt-[12px]
                   rounded-[14px]
+                  md:rounded-[21px]
                   bg-[#D8C9A6]
                   px-[66px]
                   py-[16px]
+                  md:px-[99px]
+                  md:py-[24px]
                   font-inter
                   font-medium
                   text-[16px]
+                  md:text-[24px]
                   text-white
                   transition
                   hover:opacity-90

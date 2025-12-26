@@ -25,7 +25,6 @@ export default function AppHeader({ tagline, showProfile = true,}: AppHeaderProp
                     <span className="playfair-display-header_text text-[36px] text-[#7a7a7a] whitespace-nowrap">
                       {tagline?? 'EverGift'}
                         <span className="hidden [@media(min-width:900px)]:inline">
-                          · A Simpler Way To Share The Love
                         </span>
                     </span>
 

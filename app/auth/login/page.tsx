@@ -33,16 +33,18 @@ export default async function LoginPage() {
     return (
             <PageBackground>
 
-            <main className="">
+            <main className="w-full max-w-sm mx-auto flex flex-col items-center">
                 <div className="w-full max-w-sm flex flex-col items-center text-center">
 
                     {/* Heading */}
                     <h1
                         className="
               mt-[40px]
+              md:mt-[60px]
               font-inter
               font-medium
               text-[26px]
+              md:text-[39px]
               tracking-[0.015em]
               text-[#3A3A3A]
             "
@@ -54,9 +56,11 @@ export default async function LoginPage() {
                     <p
                         className="
               mt-[20px]
+              md:mt-[30px]
               font-inter
               font-normal
               text-[15px]
+              md:text-[22.5px]
               leading-[150%]
               tracking-[0.015em]
               text-[#3A3A3A]
@@ -66,7 +70,7 @@ export default async function LoginPage() {
                     </p>
 
                     {/* Form */}
-                    <div className="mt-[40px] w-full">
+                    <div className="mt-[40px] md:mt-[60px] w-full">
                         <LoginForm />
                     </div>
 

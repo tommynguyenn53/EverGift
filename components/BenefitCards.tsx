@@ -29,50 +29,56 @@ export default function BenefitCards() {
     return (
         <div
             className="
-        flex flex-col
-        gap-[20px]
-      "
+                flex flex-col
+                gap-[20px]
+                md:gap-[30px]
+                mt-[24px]
+                md:mt-[36px]
+              "
         >
             {benefits.map((benefit) => (
                 <div
                     key={benefit.title}
                     className="
-            flex flex-col
-            items-center
-            text-center
-          "
+                    flex flex-col
+                    items-center
+                    text-center
+                  "
                 >
                     {/* Icon */}
                     <img
                         src={benefit.icon}
                         alt=""
-                        className="w-[72px] h-[72px]"
+                        className="w-[72px] h-[72px] md:w-[108px] md:h-[108px]"
                     />
 
                     {/* Text group */}
-                    <div className="flex flex-col gap-[10px]">
+                    <div className="flex flex-col gap-[10px] md:gap-[15px]">
                         <h3
                             className="
-                font-inter
-                font-medium
-                text-[17px]
-                text-[#3A3A3A]
-                text-center
-                width-[233px]
-              "
+                            font-inter
+                            font-medium
+                            text-[17px]
+                            md:text-[25.5px]
+                            text-[#3A3A3A]
+                            text-center
+                            width-[233px]
+                          "
                         >
                             {benefit.title}
                         </h3>
 
                         <p
                             className="
-                font-inter
-                font-normal
-                text-[12px]
-                leading-[150%]
-                text-[#3A3A3A]
-                w-[233px]
-              "
+                            font-inter
+                            font-normal
+                            text-[12px]
+                            md:text-[18px]
+                            leading-[150%]
+                            text-[#3A3A3A]
+                            w-[233px]
+                            md:w-[349.5px]
+                          "
                         >
                             {benefit.description}
                         </p>

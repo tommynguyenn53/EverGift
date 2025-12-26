@@ -17,17 +17,18 @@ function ChecklistItem({
     label: string
 }) {
     return (
-        <div className="flex items-center gap-[12px]">
+        <div className="flex items-center gap-[12px] md:gap-[18px]">
             <img
                 src={done ? '/done-icon.svg' : '/notDone-icon.svg'}
                 alt={done ? 'Done' : 'Not done'}
-                className="w-[18px] h-[18px]"
+                className="w-[18px] h-[18px] md:w-[27px] md:h-[27px]"
             />
             <p
                 className="
           font-inter
           font-normal
           text-[14px]
+          md:text-[21px]
           tracking-[0.015em]
           text-[#3A3A3A]
         "
@@ -45,13 +46,14 @@ export default function FinalStepChecklist({
                                                 hideStripe
                                            }: FinalStepChecklistProps) {
     return (
-        <div className="mt-[16px]">
+        <div className="mt-[16px] md:mt-[24px]">
             {/* Heading */}
             <p
                 className="
           font-inter
           font-medium
           text-[15px]
+          md:text-[22.5px]
           text-[#3A3A3A]
         "
             >
@@ -59,7 +61,7 @@ export default function FinalStepChecklist({
             </p>
 
             {/* Checklist */}
-            <div className="mt-[12px] flex flex-col gap-[8px]">
+            <div className="mt-[12px] md:mt-[18px] flex flex-col gap-[8px] md:gap-[14px]">
                 <ChecklistItem
                     done={allFieldsCompleted}
                     label="All required fields completed"

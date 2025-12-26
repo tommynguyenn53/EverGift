@@ -48,7 +48,7 @@ export default function ResetPasswordPage() {
     return (
         <PageBackground>
 
-            <main className="">
+            <main className="w-full max-w-sm mx-auto flex flex-col items-cente">
                 <form
                     onSubmit={handleUpdate}
                     className="w-full max-w-sm flex flex-col items-center text-left"
@@ -56,10 +56,13 @@ export default function ResetPasswordPage() {
                     {/* Heading */}
                     <h1
                         className="
+                          md:w-[500px]
                           mt-[40px]
+                          md:mt-[60px]
                           font-inter
                           font-medium
                           text-[26px]
+                          md:text-[39px]
                           tracking-[0.015em]
                           text-[#3A3A3A]
                           text-center
@@ -72,16 +75,18 @@ export default function ResetPasswordPage() {
                     <img
                         src="/lock-icon-2.svg"
                         alt=""
-                        className="mt-[24px]"
+                        className="mt-[24px] md:mt-[36px] md:w-[108px]"
                     />
 
                     {/* Sub text */}
                     <p
                         className="
                           mt-[24px]
+                          md:mt-[36px]
                           font-inter
                           font-normal
                           text-[15px]
+                          md:text-[22.5px]
                           leading-[150%]
                           tracking-[0.015em]
                           text-[#3A3A3A]
@@ -92,16 +97,18 @@ export default function ResetPasswordPage() {
                     </p>
 
                     {/* New password */}
-                    <div className="mt-[40px] w-[298px]">
+                    <div className="mt-[40px] md:mt-[60px] w-[298px] md:w-[447px]">
                         <label
                             className="
-                            block
-                            font-inter
-                            font-medium
-                            text-[15px]
-                            text-[#3A3A3A]
-                            mb-[6px]
-                          "
+                                block
+                                font-inter
+                                font-medium
+                                text-[15px]
+                                md:text-[22.5px]
+                                text-[#3A3A3A]
+                                mb-[6px]
+                                md:mb-[9px]
+                                "
                         >
                             New Password
                         </label>
@@ -113,29 +120,34 @@ export default function ResetPasswordPage() {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             className="
-                            w-full
-                            bg-white
-                            rounded-[10px]
-                            px-[15px]
-                            py-[15px]
-                            border
-                            border-black/10
-                            font-inter
-                            text-[15px]
-                            placeholder:text-[#3A3A3A]/35
-                            transition
-                            focus:outline-none
-                            focus:ring-2
-                            focus:ring-[#D8C9A6]/50
+                                w-full
+                                bg-white
+                                rounded-[10px]
+                                md:rounded-[15px]
+                                px-[15px] py-[15px]
+                                md:px-[22.5px] md:py-[22.5px]
+                                border
+                                border-black/10
+                                font-inter
+                                text-[15px]
+                                md:text-[22.5px]
+                                text-[#3A3A3A]
+                                placeholder:text-[#3A3A3A]/35
+                                transition
+                                focus:outline-none
+                                focus:ring-2
+                                focus:ring-[#D8C9A6]/50
                           "
                         />
 
                         <p
                             className={`
                                 mt-[6px]
+                                md:mt-[9px]
                                 font-inter
                                 font-medium
                                 text-[11px]
+                                md:text-[16.5px]
                                 tracking-[0.015em]
                 ${
                                 passwordValid
@@ -149,15 +161,17 @@ export default function ResetPasswordPage() {
                     </div>
 
                     {/* Confirm password */}
-                    <div className="mt-[24px] w-[298px]">
+                    <div className="mt-[40px] md:mt-[60px] w-[298px] md:w-[447px]">
                         <label
                             className="
-                              block
-                              font-inter
-                              font-medium
-                              text-[15px]
-                              text-[#3A3A3A]
-                              mb-[6px]
+                                block
+                                font-inter
+                                font-medium
+                                text-[15px]
+                                md:text-[22.5px]
+                                text-[#3A3A3A]
+                                mb-[6px]
+                                md:mb-[9px]
                             "
                         >
                             Confirm Password
@@ -170,20 +184,23 @@ export default function ResetPasswordPage() {
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                             className="
-                              w-full
-                              bg-white
-                              rounded-[10px]
-                              px-[15px]
-                              py-[15px]
-                              border
-                              border-black/10
-                              font-inter
-                              text-[15px]
-                              placeholder:text-[#3A3A3A]/35
-                              transition
-                              focus:outline-none
-                              focus:ring-2
-                              focus:ring-[#D8C9A6]/50
+                                w-full
+                                bg-white
+                                rounded-[10px]
+                                md:rounded-[15px]
+                                px-[15px] py-[15px]
+                                md:px-[22.5px] md:py-[22.5px]
+                                border
+                                border-black/10
+                                font-inter
+                                text-[15px]
+                                md:text-[22.5px]
+                                text-[#3A3A3A]
+                                placeholder:text-[#3A3A3A]/35
+                                transition
+                                focus:outline-none
+                                focus:ring-2
+                                focus:ring-[#D8C9A6]/50
                             "
                         />
 
@@ -192,9 +209,11 @@ export default function ResetPasswordPage() {
                             <p
                                 className={`
                                     mt-[6px]
+                                    md:mt-[9px]
                                     font-inter
                                     font-medium
                                     text-[11px]
+                                    md:text-[16.5px]
                                     tracking-[0.015em]
         ${
                                     passwordsMatch
@@ -209,7 +228,7 @@ export default function ResetPasswordPage() {
                     </div>
 
                     {error && (
-                        <p className="mt-[16px] text-sm text-red-600 text-center">
+                        <p className="mt-[16px] md:-[24px] text-sm md:text-xl text-red-600 text-center">
                             {error}
                         </p>
                     )}
@@ -220,16 +239,21 @@ export default function ResetPasswordPage() {
                         disabled={loading || !passwordValid || !passwordsMatch}
                         className="
                               mt-[32px]
+                              md:mt-[48px]
                               inline-flex
                               items-center
                               justify-center
                               rounded-[14px]
+                              md:rounded-[21px]
                               bg-[#D8C9A6]
                               px-[62px]
                               py-[16px]
+                              md:px-[99px]
+                              md:py-[24px]
                               font-inter
                               font-medium
                               text-[16px]
+                              md:text-[24px]
                               text-white
                               transition
                               disabled:opacity-60

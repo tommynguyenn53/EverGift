@@ -97,7 +97,7 @@ export default function HomePage() {
                     <h1
                         className="
                           mt-[48px]
-                          md:mt-[60px]
+                          md:mt-[72px]
                           font-inter
                           font-medium
                           text-[22px]

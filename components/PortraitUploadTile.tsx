@@ -14,7 +14,9 @@ export default function PortraitUploadTile({
             className="
         shrink-0
         w-[229px]
+        md:w-[343.5px]
         h-[344px]
+        md:h-[516px]
         bg-black/5
         border border-black/15
         flex items-center justify-center
@@ -42,11 +44,11 @@ export default function PortraitUploadTile({
                     className="w-full h-full object-cover"
                 />
             ) : (
-                <div className="flex flex-col items-center gap-[8px]">
-          <span className="font-inter font-medium text-[24px] tracking-[0.015em] text-black/40">
+                <div className="flex flex-col items-center gap-[8px] md:gap-[14px]">
+          <span className="font-inter font-medium text-[24px] md:text-[36px] tracking-[0.015em] text-black/40">
             +
           </span>
-                    <span className="font-inter font-normal text-[12px] tracking-[0.015em] text-black/40">
+                    <span className="font-inter font-normal text-[12px] md:text-[18px] tracking-[0.015em] text-black/40">
             Upload collage
           </span>
                 </div>

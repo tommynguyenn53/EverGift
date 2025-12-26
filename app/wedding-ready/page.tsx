@@ -29,16 +29,18 @@ export default async function WeddingReadyPage() {
 
     return (
         <PageBackground>
-            <main className="flex flex-col items-center px-4">
+            <main className="flex flex-col items-center">
                 <div className="w-full max-w-sm text-center">
 
                     {/* Heading */}
                     <h1
                         className="
                           mt-[40px]
+                          md:mt-[60px]
                           font-inter
                           font-medium
                           text-[26px]
+                          md:text-[39px]
                           tracking-[0.015em]
                           text-[#3A3A3A]
                         "
@@ -50,20 +52,22 @@ export default async function WeddingReadyPage() {
                     <p
                         className="
                           mt-[20px]
+                          md:mt-[30px]
                           font-inter
                           font-normal
                           text-[15px]
+                          md:text-[22.5px]
                           leading-[150%]
                           tracking-[0.015em]
                           text-[#3A3A3A]
                         "
                     >
-                        Your personal QR code and page link are <br/> below.
-                        You can start sharing them <br/> with your guests.
+                        Your personal QR code and page link are below.
+                        You can start sharing them with your guests.
                     </p>
 
                     {/* QR Code */}
-                    <div className="mt-[32px] flex justify-center">
+                    <div className="mt-[32px] md:mt-[48px] flex justify-center">
                         <WeddingQrCode value={pageUrl} />
                     </div>
 
@@ -71,9 +75,11 @@ export default async function WeddingReadyPage() {
                     <p
                         className="
                           mt-[16px]
+                          md:mt-[24px]
                           font-inter
                           font-normal
                           text-[15px]
+                          md:text-[22.5px]
                           tracking-[0.015em]
                           text-[#3A3A3A]
                         "

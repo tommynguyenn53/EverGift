@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Footer() {
     return (
-        <footer className="w-full mt-[32px]">
+        <footer className="w-full mt-[32px] md:mt-[48px]">
             {/* Stripe logo */}
             <div className="flex justify-center">
                 <a
@@ -13,7 +13,7 @@ export default function Footer() {
                     <img
                         src="/stripe-logo.svg"
                         alt="Stripe"
-                        className="h-[32px]"
+                        className="h-[32px] md:h-[54px]"
                     />
                 </a>
             </div>
@@ -22,16 +22,19 @@ export default function Footer() {
             <div
                 className="
           mt-[12px]
+          md:mt-[18px]
           flex flex-col
           gap-[15px]
+          md:gap-[22.5px]
           text-left
+          md:text-center
         "
             >
-                <p className="font-inter text-[11px] text-[#7D7D7D]">
+                <p className="font-inter text-[11px] md:text-[16.5px] text-[#7D7D7D]">
                     EverGift © 2025
                 </p>
 
-                <p className="font-inter text-[11px] text-[#7D7D7D]">
+                <p className="font-inter text-[11px] md:text-[16.5px] text-[#7D7D7D]">
                     A simpler way to share the love
                 </p>
 
@@ -41,7 +44,9 @@ export default function Footer() {
                         gap-[10px]
                         font-inter
                         text-[11px]
+                        md:text-[16.5px]
                         text-[#7D7D7D]
+                        md:justify-center
 
                       "
                 >
@@ -78,6 +83,7 @@ export default function Footer() {
                     className="
                         font-inter
                         text-[11px]
+                        md:text-[16.5px]
                         text-[#7D7D7D]
                         hover:underline
                         transition
@@ -88,7 +94,7 @@ export default function Footer() {
                     Powered securely by Stripe
                 </a>
 
-                <p className="font-inter text-[11px] text-[#7D7D7D]">
+                <p className="font-inter text-[11px] md:text-[16.5px] text-[#7D7D7D]">
                     No account needed – instant &amp; secure
                 </p>
             </div>

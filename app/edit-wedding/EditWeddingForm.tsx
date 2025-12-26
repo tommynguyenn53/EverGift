@@ -161,96 +161,96 @@ export default function EditWeddingForm({ wedding }: { wedding: Wedding }) {
 
     return (
         <div className="w-full flex flex-col items-center">
-            <h1 className="mt-[40px] font-inter font-medium text-[26px] tracking-[0.015em] text-[#3A3A3A] text-center">
+            <h1 className="mt-[40px] md:mt-[60px] font-inter font-medium text-[26px] md:text-[39px] tracking-[0.015em] text-[#3A3A3A] text-center">
                 Edit Your Wedding Page
             </h1>
 
-            <p className="mt-[20px] font-inter text-[15px] leading-[150%] tracking-[0.015em] text-[#3A3A3A] text-center max-w-[320px]">
+            <p className="mt-[20px] md:mt-[30px] font-inter text-[15px] md:text-[22.5px] leading-[150%] tracking-[0.015em] text-[#3A3A3A] text-center max-w-[320px] md:max-w-[480px]">
                 Update your wedding details below — changes will be reflected on your <br/>
                 wedding page.
             </p>
 
             {/* Fields */}
-            <div className="mt-[40px] flex flex-col gap-[24px] w-[298px]">
+            <div className="mt-[40px] flex flex-col gap-[24px] md:gap-[36px] w-[298px] md:w-[447px]">
 
                 {/* Partner 1 */}
                 <div>
-                    <label className="block mb-[6px] font-inter font-medium text-[15px] text-[#3A3A3A]">
+                    <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
                         Partner 1 Name
                     </label>
                     <input
                         value={partnerOne}
                         onChange={(e) => setPartnerOne(e.target.value)}
                         placeholder="Name"
-                        className="w-full rounded-[10px] bg-white px-[15px] py-[15px] border border-black/10 font-inter text-[15px] placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
+                        className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px] md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                     />
                 </div>
 
                 {/* Partner 2 */}
                 <div>
-                    <label className="block mb-[6px] font-inter font-medium text-[15px] text-[#3A3A3A]">
+                    <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
                         Partner 2 Name
                     </label>
                     <input
                         value={partnerTwo}
                         onChange={(e) => setPartnerTwo(e.target.value)}
                         placeholder="Name"
-                        className="w-full rounded-[10px] bg-white px-[15px] py-[15px] border border-black/10 font-inter text-[15px] placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
+                        className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px] md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                     />
                 </div>
 
                 {/* Wedding Date */}
                 <div>
-                    <label className="block mb-[6px] font-inter font-medium text-[15px] text-[#3A3A3A]">
+                    <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
                         Wedding Date
                     </label>
                     <input
                         type="date"
                         value={weddingDate}
                         onChange={(e) => setWeddingDate(e.target.value)}
-                        className="w-full rounded-[10px] bg-white px-[15px] py-[15px] pr-[44px] border border-black/10 font-inter text-[15px] focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50 appearance-none"
+                        className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px] md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                     />
                 </div>
 
                 {/* Header Text */}
                 <div>
-                    <label className="block mb-[6px] font-inter font-medium text-[15px] text-[#3A3A3A]">
+                    <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
                         Header Text
                     </label>
                     <input
                         value={headerText}
                         onChange={(e) => setHeaderText(e.target.value)}
                         placeholder="A celebration of love"
-                        className="w-full rounded-[10px] bg-white px-[15px] py-[15px] border border-black/10 font-inter text-[15px] placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
+                        className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px] md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                     />
                 </div>
 
                 {/* Welcome Message */}
                 <div>
-                    <label className="block mb-[6px] font-inter font-medium text-[15px] text-[#3A3A3A]">
+                    <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
                         Welcome Message
                     </label>
                     <textarea
                         value={welcomeMessage}
                         onChange={(e) => setWelcomeMessage(e.target.value)}
                         placeholder="Thank you for celebrating this special day with us."
-                        className="w-full resize-none rounded-[10px] bg-white px-[15px] py-[15px] border border-black/10 font-inter text-[15px] placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
+                        className="w-full resize-none rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px] md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                     />
                 </div>
 
-                <div className="mt-[16px] flex flex-col gap-[10px]">
-                    <p className="font-inter font-medium text-[15px] text-[#3A3A3A]">
+                <div className="mt-[16px] md:mt-[24px] flex flex-col gap-[10px] md:gap-[15px]">
+                    <p className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
                         Your Collage Photos
                     </p>
 
-                    <p className="font-inter text-[11px] tracking-[0.015em] text-[#3A3A3A]">
+                    <p className="font-inter text-[11px] md:text-[16.5px] tracking-[0.015em] text-[#3A3A3A]">
                         Update your collage photos below.
                     </p>
 
                     <button
                         type="button"
                         onClick={() => setShowImageHelp(true)}
-                        className="text-[11px] text-[#C9A86A] underline w-fit"
+                        className="text-[11px] md:text-[16.5px] text-[#C9A86A] underline w-fit"
                     >
                         ⓘ What images should I upload?
                     </button>
@@ -268,7 +268,7 @@ export default function EditWeddingForm({ wedding }: { wedding: Wedding }) {
                     />
                 </div>
 
-                {error && <p className="text-[13px] text-red-600">{error}</p>}
+                {error && <p className="text-[13px] md:text-[19.5px] text-red-600">{error}</p>}
 
 
                 <FinalStepChecklist
@@ -282,17 +282,21 @@ export default function EditWeddingForm({ wedding }: { wedding: Wedding }) {
                     onClick={handleSave}
                     disabled={loading || !partnerOne || !partnerTwo || !weddingDate || !headerText || !welcomeMessage || !collageImage}
                     className="
-            mt-[16px]
-            shadow-[6px_4px_18px_rgba(0,0,0,0.1)]
-            rounded-[14px]
-            bg-[#D8C9A6]
-            py-[16px]
-            font-inter
-            font-medium
-            text-[16px]
-            text-white
-            disabled:opacity-60
-          "
+                    mt-[16px]
+                    md:mt-[24px]
+                    shadow-[6px_4px_18px_rgba(0,0,0,0.1)]
+                    rounded-[14px]
+                    md:rounded-[21px]
+                    bg-[#D8C9A6]
+                    py-[16px]
+                    md:py-[24px]
+                    font-inter
+                    font-medium
+                    text-[16px]
+                    md:text-[24px]
+                    text-white
+                    disabled:opacity-60
+                  "
                 >
                     {loading ? 'Updating…' : 'Update My Wedding Page'}
                 </button>
