@@ -43,18 +43,19 @@ export default function LoginForm() {
         >
             {/* Email */}
             <div className="w-[298px] md:w-[447px]">
-                <label
+                <label htmlFor="email"
                     className="block font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A] mb-[6px] md:mb-[9px]"
                 >
                     Email Address
                 </label>
                 <input
+                    id="email"
                     type="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email Address"
-                    className="w-full bg-whiterounded-[10px] md:rounded-[15px] px-[15px] py-[15px] md:px-[22.5px] md:py-[22.5px]
+                    className="w-full bg-white rounded-[10px] md:rounded-[15px] px-[15px] py-[15px] md:px-[22.5px] md:py-[22.5px]
                     border border-black/10 font-inter text-[15px] md:text-[22.5px] text-[#3A3A3A] placeholder:text-[#3A3A3A]/35
                     transition focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                 />
@@ -63,11 +64,13 @@ export default function LoginForm() {
             {/* Password */}
             <div className="w-[298px] md:w-[447px]">
                 <label
+                    htmlFor="password"
                     className="block font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A] mb-[6px] md:mb-[9px]"
                 >
                     Password
                 </label>
                 <input
+                    id="password"
                     type="password"
                     required
                     value={password}
@@ -97,6 +100,7 @@ export default function LoginForm() {
 
             {/* CTA */}
             <button
+                id="login-submit"
                 type="submit"
                 disabled={!canSubmit || loading}
                 className="inline-flex shadow-[6px_4px_18px_rgba(0,0,0,0.1)] items-center justify-center rounded-[14px]

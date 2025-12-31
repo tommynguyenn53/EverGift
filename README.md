@@ -23,10 +23,10 @@ No account required.
 
 ## Monetisation Model
 
-* **Platform fee**: 4% per gift **(TBD)**
+* **Platform fee**: 5% per gift
 * Guests can optionally cover platform + Stripe fees
 * Stripe processing fee: ~1.7% + $0.30
-* Net revenue to EverGift ≈ 2.3% per gift
+* Net revenue to EverGift ≈ 5% per gift
 * Payments and payouts handled entirely by Stripe
 
 ## Tech Stack

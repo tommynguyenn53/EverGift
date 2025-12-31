@@ -147,7 +147,7 @@ export default function ForgotPasswordPage() {
 
                     {/* Email input */}
                     <div className="mt-[40px] md:mt-[60px] w-[298px] md:w-[447px]">
-                        <label
+                        <label htmlFor="email"
                             className="block font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A] mb-[6px]
                             md:mb-[9px]"
                         >
@@ -155,6 +155,7 @@ export default function ForgotPasswordPage() {
                         </label>
 
                         <input
+                            id="email"
                             type="email"
                             required
                             placeholder="Email Address"

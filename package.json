@@ -9,8 +9,6 @@
     "lint": "eslint",
     "test": "vitest",
     "test:run": "vitest run"
-
-
   },
   "dependencies": {
     "@stripe/react-stripe-js": "^5.4.1",
@@ -27,13 +25,17 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.0.10",
+    "jsdom": "^27.4.0",
     "tailwindcss": "^4",
     "typescript": "^5",
+    "vite-tsconfig-paths": "^6.0.3",
     "vitest": "^4.0.16"
   }
 }

@@ -180,11 +180,12 @@ export default function EditWeddingForm({ wedding }: { wedding: Wedding }) {
 
                 {/* Partner 1 */}
                 <div>
-                    <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px]
+                    <label htmlFor="partner-one-name" className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px]
                     md:text-[22.5px] text-[#3A3A3A]">
                         Partner 1 Name
                     </label>
                     <input
+                        id="partner-one-name"
                         value={partnerOne}
                         onChange={(e) => setPartnerOne(e.target.value)}
                         placeholder="Name"
@@ -196,11 +197,12 @@ export default function EditWeddingForm({ wedding }: { wedding: Wedding }) {
 
                 {/* Partner 2 */}
                 <div>
-                    <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
+                    <label htmlFor="partner-two-name" className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
                     text-[#3A3A3A]">
                         Partner 2 Name
                     </label>
                     <input
+                        id="partner-two-name"
                         value={partnerTwo}
                         onChange={(e) => setPartnerTwo(e.target.value)}
                         placeholder="Name"
@@ -212,11 +214,12 @@ export default function EditWeddingForm({ wedding }: { wedding: Wedding }) {
 
                 {/* Wedding Date */}
                 <div>
-                    <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px]
+                    <label htmlFor="wedding-date" className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px]
                     md:text-[22.5px] text-[#3A3A3A]">
                         Wedding Date
                     </label>
                     <input
+                        id="wedding-date"
                         type="date"
                         value={weddingDate}
                         onChange={(e) => setWeddingDate(e.target.value)}
@@ -229,11 +232,13 @@ export default function EditWeddingForm({ wedding }: { wedding: Wedding }) {
                 {/* Header Text */}
                 <div>
                     <label
+                        htmlFor="header-text"
                         className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px]
                         md:text-[22.5px] text-[#3A3A3A]">
                         Header Text
                     </label>
                     <input
+                        id="header-text"
                         value={headerText}
                         maxLength={HEADERTEXT_LIMIT}
                         onChange={(e) => setHeaderText(e.target.value)}
@@ -257,12 +262,13 @@ export default function EditWeddingForm({ wedding }: { wedding: Wedding }) {
 
                 {/* Welcome Message */}
                 <div>
-                    <label
+                    <label htmlFor="welcome-message"
                         className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
                         text-[#3A3A3A]">
                         Welcome Message
                     </label>
                     <textarea
+                        id="welcome-message"
                         value={welcomeMessage}
                         maxLength={WELCOMEMESSAGE_LIMIT}
                         onChange={(e) => setWelcomeMessage(e.target.value)}

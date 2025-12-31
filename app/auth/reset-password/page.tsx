@@ -79,6 +79,7 @@ export default function ResetPasswordPage() {
                     {/* New password */}
                     <div className="mt-[40px] md:mt-[60px] w-[298px] md:w-[447px]">
                         <label
+                            htmlFor="password"
                             className="block font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A] mb-[6px]
                             md:mb-[9px]"
                         >
@@ -86,6 +87,7 @@ export default function ResetPasswordPage() {
                         </label>
 
                         <input
+                            id="password"
                             type="password"
                             required
                             placeholder="New Password"
@@ -112,6 +114,7 @@ export default function ResetPasswordPage() {
                     {/* Confirm password */}
                     <div className="mt-[40px] md:mt-[60px] w-[298px] md:w-[447px]">
                         <label
+                            htmlFor="confirmPassword"
                             className="block font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]
                             mb-[6px] md:mb-[9px]"
                         >
@@ -119,6 +122,7 @@ export default function ResetPasswordPage() {
                         </label>
 
                         <input
+                            id={"confirmPassword"}
                             type="password"
                             required
                             placeholder="Confirm Password"

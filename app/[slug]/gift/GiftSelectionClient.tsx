@@ -69,7 +69,7 @@ export default function GiftSelectionClient({ weddingId, slug }: Props) {
                 </label>
                 <input
                     value={guestName}
-                    onChange={(e) => setGuestName(e.target.value)}
+                    onChange={(e) => setGuestName(e.target.value.trimStart())}
                     placeholder="Your name"
                     className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] md:px-[22.5px] py-[15px] md:py-[22.5px] border border-black/12 font-inter text-[15px] md:text-[22.5px]"
                 />
@@ -83,7 +83,7 @@ export default function GiftSelectionClient({ weddingId, slug }: Props) {
                 <textarea
                     value={message}
                     maxLength={MESSAGE_LIMIT}
-                    onChange={(e) => setMessage(e.target.value)}
+                    onChange={(e) => setMessage(e.target.value.slice(0, MESSAGE_LIMIT))}
                     rows={3}
                     placeholder="Write your message here…"
                     className="w-full resize-none rounded-[10px] md:rounded-[15px] bg-white px-[15px] md:px-[22.5px] py-[15px] md:py-[22.5px] border border-black/12 font-inter text-[15px] md:text-[22.5px]"

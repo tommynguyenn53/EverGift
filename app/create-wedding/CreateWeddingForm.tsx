@@ -62,6 +62,9 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
         !!weddingDate &&
         !! welcomeMessage
 
+    const isBlank = (s: string) => !s.trim()
+
+
     useEffect(() => {
         if (hydratedRef.current) return
         hydratedRef.current = true
@@ -226,10 +229,11 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
 
                     {/* Partner 1 */}
                     <div>
-                        <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                        <label htmlFor="partner-one" className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
                             Partner 1 Name
                         </label>
                         <input
+                            id="partner-one"
                             value={partnerOne}
                             onChange={(e) => setPartnerOne(e.target.value)}
                             placeholder="Name"
@@ -242,11 +246,12 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
 
                     {/* Partner 2 */}
                     <div>
-                        <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
+                        <label htmlFor="partner-two" className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
                         text-[#3A3A3A]">
                             Partner 2 Name
                         </label>
                         <input
+                            id="partner-two"
                             value={partnerTwo}
                             onChange={(e) => setPartnerTwo(e.target.value)}
                             placeholder="Name"
@@ -259,12 +264,13 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
 
                     {/* Wedding Date */}
                     <div>
-                        <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
+                        <label htmlFor="wedding-date" className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
                         text-[#3A3A3A]">
                             Wedding Date
                         </label>
                         <div className="relative">
                             <input
+                                id="wedding-date"
                                 type="date"
                                 placeholder="DD/MM/YYYY"
                                 value={weddingDate}
@@ -280,15 +286,16 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
 
                     {/* Header Text */}
                     <div>
-                        <label
+                        <label htmlFor="header-text"
                             className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
                             text-[#3A3A3A]">
                             Header Text
                         </label>
                         <input
+                            id="header-text"
                             value={headerText}
                             maxLength={HEADERTEXT_LIMIT}
-                            onChange={(e) => setHeaderText(e.target.value)}
+                            onChange={(e) => setHeaderText(e.target.value.slice(0, 35))}
                             placeholder="A celebration of love"
                             className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px]
                             md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] placeholder:text-[#3A3A3A]/35
@@ -303,15 +310,16 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
 
                     {/* Welcome Message */}
                     <div>
-                        <label
+                        <label htmlFor="welcome-message"
                             className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
                             text-[#3A3A3A]">
                             Welcome Message
                         </label>
                         <textarea
+                            id="welcome-message"
                             value={welcomeMessage}
                             maxLength={WELCOMEMESSAGE_LIMIT}
-                            onChange={(e) => setWelcomeMessage(e.target.value)}
+                            onChange={(e) => setWelcomeMessage(e.target.value.slice(0, 150))}
                             placeholder="Thank you for celebrating this special day with us."
                             className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px]
                             md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] placeholder:text-[#3A3A3A]/35
@@ -407,8 +415,9 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
                     {/* CTA */}
                     <button
                         onClick={handleCreate}
-                        disabled={loading || !partnerOne || !partnerTwo || !weddingDate || !headerText || !welcomeMessage
-                            || !collageImage || !wedding.payout_enabled}
+                        disabled={loading || isBlank(partnerOne) || isBlank(partnerTwo) || isBlank(weddingDate) ||
+                            isBlank(headerText) || isBlank(welcomeMessage) || !collageImage || !wedding.payout_enabled
+                        }
 
                         className="shadow-[6px_4px_18px_rgba(0,0,0,0.1)] rounded-[14px] md:rounded-[21px] bg-[#D8C9A6]
                         py-[16px] md:py-[24px] font-inter font-medium text-[16px] md:text-[24px] text-white transition

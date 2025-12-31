@@ -62,12 +62,13 @@ export default function SignupForm() {
         >
             {/* Email */}
             <div className="w-[298px] md:w-[447px]">
-                <label
+                <label htmlFor="email"
                     className="block font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A] mb-[6px] md:mb-[12px]"
                 >
                     Email Address
                 </label>
                 <input
+                    id="email"
                     type="email"
                     required
                     placeholder="Email Address"
@@ -91,12 +92,13 @@ export default function SignupForm() {
 
             {/* Password */}
             <div className="w-[298px] md:w-[447px]">
-                <label
+                <label htmlFor="password"
                     className="block font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A] mb-[6px] md:mb-[12px]"
                 >
                     Password
                 </label>
                 <input
+                    id="password"
                     type="password"
                     required
                     minLength={8}
@@ -124,11 +126,13 @@ export default function SignupForm() {
             {/* Confirm Password */}
             <div className="w-[298px] md:w-[447px]">
                 <label
+                    htmlFor="confirmPassword"
                     className="block font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A] mb-[6px] md:mb-[12px]"
                 >
                     Confirm Password
                 </label>
                 <input
+                    id="confirmPassword"
                     type="password"
                     required
                     placeholder="Confirm Password"
@@ -164,6 +168,7 @@ export default function SignupForm() {
             <div
                 role="checkbox"
                 aria-checked={acceptedTerms}
+                aria-label="Accept terms"
                 onClick={() => setAcceptedTerms(!acceptedTerms)}
                 className="flex items-center gap-[12px] md:gap-[18px] w-[298px] md:w-[447px] cursor-pointer select-none"
             >

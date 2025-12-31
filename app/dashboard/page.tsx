@@ -31,11 +31,16 @@ function formatDate(date: string) {
 export default async function DashboardPage() {
     const supabase = await supabaseServer()
 
-    const {
-        data: { user },
-    } = await supabase.auth.getUser()
+    const { data } = await supabase.auth.getUser()
 
-    if (!user) redirect('/auth/login')
+    if (!data?.user) {
+        redirect('/auth/login')
+        return null // THIS IS REQUIRED FOR TESTS
+    }
+
+    const user = data.user
+
+
 
     const { data: wedding } = await supabase
         .from('weddings')
