@@ -11,21 +11,8 @@ export default function PortraitUploadTile({
                                            }: PortraitUploadTileProps) {
     return (
         <label
-            className="
-        shrink-0
-        w-[229px]
-        md:w-[343.5px]
-        h-[344px]
-        md:h-[516px]
-        bg-black/5
-        border border-black/15
-        flex items-center justify-center
-        cursor-pointer
-        overflow-hidden
-        transition
-        hover:bg-black/10
-        active:scale-[0.98]
-      "
+            className="shrink-0 w-[229px] md:w-[343.5px] h-[344px] md:h-[516px] bg-black/5 border border-black/15
+            flex items-center justify-center cursor-pointer overflow-hidden transition hover:bg-black/10 active:scale-[0.98]"
         >
             <input
                 type="file"

@@ -20,15 +20,7 @@ export default function Footer() {
 
             {/* Footer content */}
             <div
-                className="
-          mt-[12px]
-          md:mt-[18px]
-          flex flex-col
-          gap-[15px]
-          md:gap-[22.5px]
-          text-left
-          md:text-center
-        "
+                className="mt-[12px] md:mt-[18px] flex flex-col gap-[15px] md:gap-[22.5px] text-left md:text-center"
             >
                 <p className="font-inter text-[11px] md:text-[16.5px] text-[#7D7D7D]">
                     EverGift © 2025
@@ -39,33 +31,14 @@ export default function Footer() {
                 </p>
 
                 <div
-                    className="
-                        flex flex-wrap
-                        gap-[10px]
-                        font-inter
-                        text-[11px]
-                        md:text-[16.5px]
-                        text-[#7D7D7D]
-                        md:justify-center
-
-                      "
+                    className="flex flex-wrap gap-[10px] font-inter text-[11px] md:text-[16.5px] text-[#7D7D7D] md:justify-center"
                 >
-                    <Link href="/terms&conditions" className="hover:underline
-                        transition
-                        hover:opacity-80
-                        active:opacity-60
-
-                        ">
+                    <Link href="/terms&conditions" className="hover:underline transition hover:opacity-80 active:opacity-60">
                         Terms &amp; Conditions
                     </Link>
                     {' '}•{' '}
 
-                    <Link href="/privacy-policy" className="hover:underline
-                        transition
-                        hover:opacity-80
-                        active:opacity-60
-
-                        ">
+                    <Link href="/privacy-policy" className="hover:underline transition hover:opacity-80 active:opacity-60">
                         Privacy Policy
                     </Link>
                     {' '}•{' '}
@@ -80,16 +53,8 @@ export default function Footer() {
                     href="https://stripe.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="
-                        font-inter
-                        text-[11px]
-                        md:text-[16.5px]
-                        text-[#7D7D7D]
-                        hover:underline
-                        transition
-                        hover:opacity-80
-                        active:opacity-60
-                      "
+                    className="font-inter text-[11px] md:text-[16.5px] text-[#7D7D7D] hover:underline transition hover:opacity-80
+                    active:opacity-60"
                 >
                     Powered securely by Stripe
                 </a>

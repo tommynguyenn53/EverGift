@@ -65,7 +65,7 @@ export async function POST(
         details_submitted: account.details_submitted,
     })
 
-    const payoutEnabled = account.payouts_enabled === true
+    const payoutEnabled =   account.details_submitted && account.charges_enabled
 
     const { error: updateError } = await supabase
         .from('weddings')

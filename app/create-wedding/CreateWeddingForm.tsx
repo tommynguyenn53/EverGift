@@ -27,6 +27,10 @@ type CreateWeddingFormProps = {
     }
 }
 
+const HEADERTEXT_LIMIT = 35
+const WELCOMEMESSAGE_LIMIT = 150
+
+
 
 export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
     const supabase = supabaseBrowser()
@@ -202,37 +206,16 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
 
                 {/* Heading */}
                 <h1
-                    className="
-          mt-[40px]
-          md:mt-[60px]
-          font-inter
-          font-medium
-          text-[26px]
-          md:text-[39px]
-          tracking-[0.015em]
-          text-[#3A3A3A]
-          text-center
-        "
+                    className="mt-[40px] md:mt-[60px] font-interfont-medium text-[26px] md:text-[39px] tracking-[0.015em]
+                    text-[#3A3A3A] text-center"
                 >
                     Create Your Wedding Page
                 </h1>
 
                 {/* Subtext */}
                 <p
-                    className="
-          mt-[20px]
-          md:mt-[30px]
-          font-inter
-          font-normal
-          text-[15px]
-          md:text-[22.5px]
-          leading-[150%]
-          tracking-[0.015em]
-          text-[#3A3A3A]
-          text-center
-          max-w-[320px]
-          md:max-w-[520px]
-        "
+                    className="mt-[20px] md:mt-[30px] font-inter font-normal text-[15px] md:text-[22.5px] leading-[150%]
+                    tracking-[0.015em] text-[#3A3A3A] text-center max-w-[320px] md:max-w-[520px]"
                 >
                     Enter your details below to generate your personalised
                     wedding gifting page.
@@ -251,13 +234,16 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
                             onChange={(e) => setPartnerOne(e.target.value)}
                             placeholder="Name"
                             required
-                            className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px] md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
+                            className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px]
+                            md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px]
+                            placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                         />
                     </div>
 
                     {/* Partner 2 */}
                     <div>
-                        <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                        <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
+                        text-[#3A3A3A]">
                             Partner 2 Name
                         </label>
                         <input
@@ -265,13 +251,16 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
                             onChange={(e) => setPartnerTwo(e.target.value)}
                             placeholder="Name"
                             required
-                            className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px] md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
+                            className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px]
+                            md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px]
+                            placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                         />
                     </div>
 
                     {/* Wedding Date */}
                     <div>
-                        <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                        <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
+                        text-[#3A3A3A]">
                             Wedding Date
                         </label>
                         <div className="relative">
@@ -281,7 +270,9 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
                                 value={weddingDate}
                                 onChange={(e) => setWeddingDate(e.target.value)}
                                 required
-                                className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px] md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
+                                className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px]
+                                md:px-[22.5px] md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px]
+                                placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                             />
 
                         </div>
@@ -289,28 +280,48 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
 
                     {/* Header Text */}
                     <div>
-                        <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                        <label
+                            className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
+                            text-[#3A3A3A]">
                             Header Text
                         </label>
                         <input
                             value={headerText}
+                            maxLength={HEADERTEXT_LIMIT}
                             onChange={(e) => setHeaderText(e.target.value)}
                             placeholder="A celebration of love"
-                            className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px] md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
+                            className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px]
+                            md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] placeholder:text-[#3A3A3A]/35
+                            focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                         />
+                        <p
+                            className="mt-[6px] font-inter text-[11px] tracking-[0.015em] text-[#3A3A3A]/60"
+                        >
+                            Character count: {headerText.length}/{HEADERTEXT_LIMIT}
+                        </p>
                     </div>
 
                     {/* Welcome Message */}
                     <div>
-                        <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                        <label
+                            className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
+                            text-[#3A3A3A]">
                             Welcome Message
                         </label>
                         <textarea
                             value={welcomeMessage}
+                            maxLength={WELCOMEMESSAGE_LIMIT}
                             onChange={(e) => setWelcomeMessage(e.target.value)}
                             placeholder="Thank you for celebrating this special day with us."
-                            className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px] md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
+                            className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px]
+                            md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] placeholder:text-[#3A3A3A]/35
+                            focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                         />
+                        <p
+                            className="mt-[6px] font-inter text-[11px] tracking-[0.015em] text-[#3A3A3A]/60"
+                        >
+                            Character count: {welcomeMessage.length}/{WELCOMEMESSAGE_LIMIT}
+                        </p>
                     </div>
 
                     {error && (
@@ -323,29 +334,17 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
 
                         <div className="flex flex-col gap-[10px] md:gap-[15px]">
 
-                            {/* Subheading */}
+                        {/* Subheading */}
                             <p
-                                className="
-                                font-inter
-                                font-medium
-                                text-[15px]
-                                md:text-[22.5px]
-                                text-[#3A3A3A]
-                              "
+                                className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]"
                             >
                                 Your Collage Photo
                             </p>
 
                             {/* Helper text */}
                             <p
-                                className="
-                                font-inter
-                                font-normal
-                                text-[11px]
-                                md:text-[16.5px]
-                                tracking-[0.015em]
-                                text-[#3A3A3A]
-                              "
+                                className="font-inter font-normal text-[11px] md:text-[16.5px] tracking-[0.015em]
+                                text-[#3A3A3A]"
                             >
                                 Make your wedding page feel uniquely yours.
                             </p>
@@ -355,21 +354,9 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
                                 type="button"
                                 onClick={() => setShowImageHelp(true)
                                 }
-                                className="
-                                w-fit
-                                font-inter
-                                font-medium
-                                text-[11px]
-                                md:text-[16.5px]
-                                leading-[170%]
-                                tracking-[0.015em]
-                                text-[#C9A86A]
-                                hover:opacity-80
-                                underline
-                                transition
-                                hover:opacity-80
-                                active:opacity-60
-                              "
+                                className="w-fit font-inter font-medium text-[11px] md:text-[16.5px] leading-[170%]
+                                tracking-[0.015em] text-[#C9A86A] hover:opacity-80 underline transition hover:opacity-80
+                                active:opacity-60"
                             >
                                 ⓘ What image should I upload?
                             </button>
@@ -391,7 +378,8 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
                     </div>
 
                     {wedding.stripe_account_id ? (
-                        <div className="mt-[16px] md:mt-[24px] text-green-600 text-[14px] md:text-[21px] font-inter text-center">
+                        <div className="mt-[16px] md:mt-[24px] text-green-600 text-[14px] md:text-[21px] font-inter
+                        text-center">
                             ✓ Stripe account connected
                         </div>
                     ) : (
@@ -404,7 +392,7 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
 
                     {!wedding.payout_enabled && (
                         <p className=" text-[12px] md:text-[18px] text-[#3A3A3A]/70 text-center">
-                            Please finish Stripe setup so we can enable payouts before publishing your wedding page.
+                            Please finish Stripe setup so guests can send gifts to your wedding.
                         </p>
                     )}
 
@@ -416,34 +404,15 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
 
 
 
-
-
-
-
                     {/* CTA */}
                     <button
                         onClick={handleCreate}
-                        disabled={loading || !partnerOne || !partnerTwo || !weddingDate || !headerText || !welcomeMessage || !collageImage || !wedding.payout_enabled}
+                        disabled={loading || !partnerOne || !partnerTwo || !weddingDate || !headerText || !welcomeMessage
+                            || !collageImage || !wedding.payout_enabled}
 
-                        className="
-                        shadow-[6px_4px_18px_rgba(0,0,0,0.1)]
-                        rounded-[14px]
-                        md:rounded-[21px]
-                        bg-[#D8C9A6]
-                        py-[16px]
-                        md:py-[24px]
-                        font-inter
-                        font-medium
-                        text-[16px]
-                        md:text-[24px]
-                        text-white
-                        transition
-                        hover:opacity-90
-                        active:opacity-80
-                        active:scale-[0.98]
-                        disabled:opacity-60
-                        disabled:cursor-not-allowed
-                      "
+                        className="shadow-[6px_4px_18px_rgba(0,0,0,0.1)] rounded-[14px] md:rounded-[21px] bg-[#D8C9A6]
+                        py-[16px] md:py-[24px] font-inter font-medium text-[16px] md:text-[24px] text-white transition
+                        hover:opacity-90 active:opacity-80 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                         {loading ? 'Creating…' : 'Create My Wedding Page'}
                     </button>

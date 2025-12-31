@@ -1,0 +1,136 @@
+import { NextResponse } from 'next/server'
+import Stripe from 'stripe'
+import { supabaseService } from '@/lib/supabase/service'
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+    apiVersion: '2024-04-10',
+})
+
+export async function POST(req: Request) {
+    const body = await req.text()
+    const sig = req.headers.get('stripe-signature')
+
+    if (!sig) {
+        return NextResponse.json({ error: 'Missing signature' }, { status: 400 })
+    }
+
+    let event: Stripe.Event
+
+    try {
+        event = stripe.webhooks.constructEvent(
+            body,
+            sig,
+            process.env.STRIPE_WEBHOOK_SECRET!
+        )
+    } catch (err) {
+        console.error('Webhook signature verification failed', err)
+        return NextResponse.json({ error: 'Invalid signature' }, { status: 400 })
+    }
+
+    const supabase = supabaseService
+    const eventId = event.id
+
+    /**
+     * 🔒 IDEMPOTENCY CHECK
+     * If we've already processed this Stripe event, exit immediately
+     */
+    const { data: alreadyProcessed } = await supabase
+        .from('stripe_webhook_events')
+        .select('id')
+        .eq('id', eventId)
+        .single()
+
+    if (alreadyProcessed) {
+        console.log('🔁 Duplicate webhook ignored:', eventId)
+        return NextResponse.json({ received: true })
+    }
+
+    try {
+        /**
+         * ✅ HANDLE EVENT
+         */
+        if (event.type === 'checkout.session.completed') {
+            const session = event.data.object as Stripe.Checkout.Session
+            const sessionId = session.id
+
+            // Re-fetch session with expanded payment_intent
+            const expandedSession = await stripe.checkout.sessions.retrieve(sessionId, {
+                expand: ['payment_intent'],
+            })
+
+            const paymentIntent =
+                expandedSession.payment_intent as Stripe.PaymentIntent | null
+
+            if (!paymentIntent) {
+                console.error('PaymentIntent missing for session', sessionId)
+                return NextResponse.json({ received: true })
+            }
+
+            // 🔁 Retry loop to handle DB race condition
+            let gift = null
+
+            for (let i = 0; i < 5; i++) {
+                const { data } = await supabase
+                    .from('gifts')
+                    .select('*')
+                    .eq('stripe_checkout_session_id', sessionId)
+                    .single()
+
+                if (data) {
+                    gift = data
+                    break
+                }
+
+                await new Promise((r) => setTimeout(r, 500))
+            }
+
+            if (!gift) {
+                console.error('Gift not found after retries for session', sessionId)
+                return NextResponse.json({ received: true })
+            }
+
+            /**
+             * 🔒 IDEMPOTENT UPDATE
+             * Prevents double status updates if webhook is replayed
+             */
+            const { error: updateError } = await supabase
+                .from('gifts')
+                .update({
+                    status: 'paid',
+                    stripe_payment_intent_id: paymentIntent.id,
+                })
+                .eq('stripe_checkout_session_id', sessionId)
+                .neq('status', 'paid')
+
+            if (updateError) {
+                console.error('Gift update failed:', updateError)
+                throw updateError
+            }
+        }
+
+        if (event.type === 'checkout.session.expired') {
+            const session = event.data.object as Stripe.Checkout.Session
+
+            await supabaseService
+                .from('gifts')
+                .update({ status: 'failed' })
+                .eq('stripe_checkout_session_id', session.id)
+                .eq('status', 'pending')
+        }
+
+
+        /**
+         * ✅ MARK EVENT AS PROCESSED
+         * Only done AFTER successful handling
+         */
+        await supabase
+            .from('stripe_webhook_events')
+            .insert({ id: eventId })
+
+        console.log('✅ Webhook processed successfully:', eventId)
+        return NextResponse.json({ received: true })
+    } catch (err) {
+        console.error('Webhook processing failed:', err)
+        return NextResponse.json({ received: false }, { status: 500 })
+    }
+}

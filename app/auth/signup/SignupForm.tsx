@@ -63,16 +63,7 @@ export default function SignupForm() {
             {/* Email */}
             <div className="w-[298px] md:w-[447px]">
                 <label
-                    className="
-                    block
-                    font-inter
-                    font-medium
-                    text-[15px]
-                    md:text-[22.5px]
-                    text-[#3A3A3A]
-                    mb-[6px]
-                    md:mb-[12px]
-                  "
+                    className="block font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A] mb-[6px] md:mb-[12px]"
                 >
                     Email Address
                 </label>
@@ -82,39 +73,15 @@ export default function SignupForm() {
                     placeholder="Email Address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="
-                    w-full
-                    bg-white
-                    rounded-[10px]
-                    md:rounded-[15px]
-                    px-[15px] py-[15px]
-                    md:px-[22.5px] md:py-[22.5px]
-                    border
-                    border-black/10
-                    font-inter
-                    text-[15px]
-                    md:text-[22.5px]
-                    text-[#3A3A3A]
-                    placeholder:text-[#3A3A3A]/35
-                    transition
-                    focus:outline-none
-                    focus:ring-2
-                    focus:ring-[#D8C9A6]/50
-                  "
+                    className="w-full bg-white rounded-[10px] md:rounded-[15px] px-[15px] py-[15px] md:px-[22.5px]
+                    md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] text-[#3A3A3A]
+                    placeholder:text-[#3A3A3A]/35 transition focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                 />
 
                 {email.length > 0 && !emailValid && (
                     <p
-                        className="
-                          mt-[6px]
-                          md:mt-[9px]
-                          font-inter
-                          font-medium
-                          text-[11px]
-                          md:text-[16.5px]
-                          tracking-[0.015em]
-                          text-[#3A3A3A]
-                        "
+                        className="mt-[6px] md:mt-[9px] font-inter font-medium text-[11px] md:text-[16.5px]
+                        tracking-[0.015em] text-[#3A3A3A]"
                     >
                         Please enter a valid email address
                     </p>
@@ -125,16 +92,7 @@ export default function SignupForm() {
             {/* Password */}
             <div className="w-[298px] md:w-[447px]">
                 <label
-                    className="
-                        block
-                        font-inter
-                        font-medium
-                        text-[15px]
-                        md:text-[22.5px]
-                        text-[#3A3A3A]
-                        mb-[6px]
-                        md:mb-[12px]
-                      "
+                    className="block font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A] mb-[6px] md:mb-[12px]"
                 >
                     Password
                 </label>
@@ -145,42 +103,19 @@ export default function SignupForm() {
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="
-                         w-full
-                            bg-white
-                            rounded-[10px]
-                            md:rounded-[15px]
-                            px-[15px] py-[15px]
-                            md:px-[22.5px] md:py-[22.5px]
-                            border
-                            border-black/10
-                            font-inter
-                            text-[15px]
-                            md:text-[22.5px]
-                            text-[#3A3A3A]
-                            placeholder:text-[#3A3A3A]/35
-                            transition
-                            focus:outline-none
-                            focus:ring-2
-                            focus:ring-[#D8C9A6]/50
-                          "
+                    className="w-full bg-white rounded-[10px] md:rounded-[15px] px-[15px] py-[15px] md:px-[22.5px] md:py-[22.5px]
+                            border border-black/10 font-inter text-[15px] md:text-[22.5px] text-[#3A3A3A] placeholder:text-[#3A3A3A]/35
+                            transition focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                 />
 
                 <p
-                    className={`
-                          mt-[6px]
-                          md:mt-[9px]
-                          font-inter
-                          font-medium
-                          text-[11px]
-                          md:text-[16.5px]
-                          tracking-[0.015em]
-=            ${
+                    className={`mt-[6px] md:mt-[9px] font-inter font-medium text-[11px] md:text-[16.5px] tracking-[0.015em]
+                    ${
                         passwordValid
                             ? 'text-[#8FAF7A]'
                             : 'text-[#3A3A3A]'
                     }
-          `}
+              `}
                 >
                     Minimum 8 characters
                 </p>
@@ -189,16 +124,7 @@ export default function SignupForm() {
             {/* Confirm Password */}
             <div className="w-[298px] md:w-[447px]">
                 <label
-                    className="
-                        block
-                        font-inter
-                        font-medium
-                        text-[15px]
-                        md:text-[22.5px]
-                        text-[#3A3A3A]
-                        mb-[6px]
-                        md:mb-[12px]
-                    "
+                    className="block font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A] mb-[6px] md:mb-[12px]"
                 >
                     Confirm Password
                 </label>
@@ -208,43 +134,20 @@ export default function SignupForm() {
                     placeholder="Confirm Password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="
-                         w-full
-                            bg-white
-                            rounded-[10px]
-                            md:rounded-[15px]
-                            px-[15px] py-[15px]
-                            md:px-[22.5px] md:py-[22.5px]
-                            border
-                            border-black/10
-                            font-inter
-                            text-[15px]
-                            md:text-[22.5px]
-                            text-[#3A3A3A]
-                            placeholder:text-[#3A3A3A]/35
-                            transition
-                            focus:outline-none
-                            focus:ring-2
-                            focus:ring-[#D8C9A6]/50
-                          "
+                    className="w-full bg-white rounded-[10px] md:rounded-[15px] px-[15px] py-[15px] md:px-[22.5px] md:py-[22.5px]
+                    border border-black/10 font-inter text-[15px] md:text-[22.5px] text-[#3A3A3A] placeholder:text-[#3A3A3A]/35
+                    transition focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                 />
 
                 {confirmPassword.length > 0 && (
                     <p
-                        className={`
-                          mt-[6px]
-                          md:mt-[9px]
-                          font-inter
-                          font-medium
-                          text-[11px]
-                          md:text-[16.5px]
-                          tracking-[0.015em]
-              ${
+                        className={`mt-[6px] md:mt-[9px] font-inter font-medium text-[11px] md:text-[16.5px] tracking-[0.015em]
+                      ${
                             passwordsMatch
                                 ? 'text-[#8FAF7A]'
                                 : 'text-[#3A3A3A]'
                         }
-            `}
+                    `}
                     >
                         Passwords must match
                     </p>
@@ -262,31 +165,12 @@ export default function SignupForm() {
                 role="checkbox"
                 aria-checked={acceptedTerms}
                 onClick={() => setAcceptedTerms(!acceptedTerms)}
-                className="
-                    flex items-center
-                    gap-[12px]
-                    md:gap-[18px]
-                    w-[298px]
-                    md:w-[447px]
-                    cursor-pointer
-                    select-none
-                  "
+                className="flex items-center gap-[12px] md:gap-[18px] w-[298px] md:w-[447px] cursor-pointer select-none"
             >
                 {/* Checkbox square */}
                 <div
-                    className="
-                      w-[20px] h-[20px]
-                      md:w-[30px] md:h-[30px]
-                      aspect-square
-                      flex items-center justify-center
-                      bg-white
-                      border border-black/10
-                      rounded-[2px]
-                      md:rounded-[3px]
-                      shrink-0
-                      transition
-                      active:scale-[0.95]
-                    "
+                    className="w-[20px] h-[20px] md:w-[30px] md:h-[30px] aspect-square flex items-center justify-center
+                    bg-white border border-black/10 rounded-[2px] md:rounded-[3px] shrink-0 transition active:scale-[0.95]"
                 >
                     {acceptedTerms && (
                         <svg
@@ -309,15 +193,7 @@ export default function SignupForm() {
 
                 {/* Text + links */}
                 <p
-                    className="
-                      font-inter
-                      font-normal
-                      text-[14px]
-                      md:text-[21px]
-                      tracking-[0.015em]
-                      text-[#3A3A3A]
-                      text-left
-                    "
+                    className="font-inter font-normal text-[14px] md:text-[21px] tracking-[0.015em] text-[#3A3A3A] text-left"
                 >
                     I agree to the{' '}
                     <a
@@ -347,30 +223,10 @@ export default function SignupForm() {
             <button
                 type="submit"
                 disabled={loading || !emailValid || !passwordValid || !passwordsMatch || !acceptedTerms}
-                className="
-                  shadow-[6px_4px_18px_rgba(0,0,0,0.1)]
-                  inline-flex
-                  mx-auto
-                  mt-[8px]
-                  md:mt-[12px]
-                  rounded-[14px]
-                  md:rounded-[21px]
-                  bg-[#D8C9A6]
-                  px-[66px]
-                  py-[16px]
-                  md:px-[99px]
-                  md:py-[24px]
-                  font-inter
-                  font-medium
-                  text-[16px]
-                  md:text-[24px]
-                  text-white
-                  transition
-                  hover:opacity-90
-                  active:opacity-80
-                  active:scale-[0.98]
-                  disabled:opacity-60
-                "
+                className="shadow-[6px_4px_18px_rgba(0,0,0,0.1)] inline-flex mx-auto mt-[8px] md:mt-[12px] rounded-[14px]
+                md:rounded-[21px] bg-[#D8C9A6] px-[66px] py-[16px] md:px-[99px] md:py-[24px] font-inter font-medium
+                text-[16px] md:text-[24px] text-white transition hover:opacity-90 active:opacity-80 active:scale-[0.98]
+                disabled:opacity-60"
             >
                 {loading ? 'Creating account…' : 'Create Account'}
             </button>

@@ -15,8 +15,8 @@ export default function FAQSection() {
             a: 'We support: Apple Pay, Google Pay, Samsung Pay, Visa, Mastercard, AMEX, International cards. Anything Stripe supports — EverGift supports too.',
         },
         {
-            q: 'How does the 4% platform fee work?',
-            a: 'EverGift charges a 4% platform fee per gift. Guests can choose to cover the fee. If they prefer not to, the fee simply comes out of the gift amount — the couple never pays out of pocket.',
+            q: 'How does the 5% platform fee work?',
+            a: 'EverGift charges a 5% platform fee per gift. Guests can choose to cover the fee. If they prefer not to, the fee simply comes out of the gift amount — the couple never pays out of pocket.',
         },
         {
             q: 'When do we receive the money?',
@@ -43,14 +43,7 @@ export default function FAQSection() {
     return (
         <section className="flex flex-col items-center mt-[48px] md:mt-[72px]">
             <h2
-                className="
-          font-inter
-          font-medium
-          text-[22px]
-          md:text-[33px]
-          text-[#3A3A3A]
-          text-center
-        "
+                className="font-inter font-medium text-[22px] md:text-[33px] text-[#3A3A3A] text-center"
             >
                 Frequently Asked Questions
             </h2>

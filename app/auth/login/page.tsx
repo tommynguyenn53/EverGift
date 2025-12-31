@@ -38,33 +38,16 @@ export default async function LoginPage() {
 
                     {/* Heading */}
                     <h1
-                        className="
-              mt-[40px]
-              md:mt-[60px]
-              font-inter
-              font-medium
-              text-[26px]
-              md:text-[39px]
-              tracking-[0.015em]
-              text-[#3A3A3A]
-            "
+                        className="mt-[40px] md:mt-[60px] font-inter font-medium text-[26px] md:text-[39px]
+                        tracking-[0.015em] text-[#3A3A3A]"
                     >
                         Log In to EverGift
                     </h1>
 
                     {/* Sub text */}
                     <p
-                        className="
-              mt-[20px]
-              md:mt-[30px]
-              font-inter
-              font-normal
-              text-[15px]
-              md:text-[22.5px]
-              leading-[150%]
-              tracking-[0.015em]
-              text-[#3A3A3A]
-            "
+                        className="mt-[20px] md:mt-[30px] font-inter font-normal text-[15px] md:text-[22.5px]
+                        leading-[150%] tracking-[0.015em] text-[#3A3A3A]"
                     >
                         Log in to manage your <br/> personalised wedding gifting page.
                     </p>

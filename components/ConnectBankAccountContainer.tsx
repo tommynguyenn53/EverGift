@@ -48,7 +48,8 @@ export default function ConnectBankAccountContainer({weddingId,
 
     if (connected) {
         return (
-            <div className="mt-[16px] md:mt-[24px] flex items-center justify-center gap-[8px] md:gap-[14px] text-green-600 text-[14px] md:text-[21px] font-inter">
+            <div className="mt-[16px] md:mt-[24px] flex items-center justify-center gap-[8px] md:gap-[14px]
+            text-green-600 text-[14px] md:text-[21px] font-inter">
                 ✓ Stripe account connected
             </div>
         )

@@ -29,72 +29,49 @@ export default async function WeddingReadyPage() {
 
     return (
         <PageBackground>
-            <main className="flex flex-col items-center">
-                <div className="w-full max-w-sm text-center">
+            <main className="w-full flex flex-col items-center text-center">
+                {/* Heading */}
+                <h1
+                    className="mt-[40px] md:mt-[60px] font-inter font-medium text-[26px] md:text-[39px] tracking-[0.015em]
+                    text-[#3A3A3A]"
+                >
+                    Your Wedding Page <br/> Is Ready
+                </h1>
 
-                    {/* Heading */}
-                    <h1
-                        className="
-                          mt-[40px]
-                          md:mt-[60px]
-                          font-inter
-                          font-medium
-                          text-[26px]
-                          md:text-[39px]
-                          tracking-[0.015em]
-                          text-[#3A3A3A]
-                        "
-                    >
-                        Your Wedding Page <br/> Is Ready
-                    </h1>
+                {/* Subtext */}
+                <p
+                    className="mt-[20px] md:mt-[30px] font-inter font-normal text-[15px] md:text-[22.5px] leading-[150%]
+                    tracking-[0.015em] text-[#3A3A3A]"
+                >
+                    Your personal QR code and page link are below.
+                </p>
 
-                    {/* Subtext */}
-                    <p
-                        className="
-                          mt-[20px]
-                          md:mt-[30px]
-                          font-inter
-                          font-normal
-                          text-[15px]
-                          md:text-[22.5px]
-                          leading-[150%]
-                          tracking-[0.015em]
-                          text-[#3A3A3A]
-                        "
-                    >
-                        Your personal QR code and page link are below.
-                        You can start sharing them with your guests.
-                    </p>
+                <p
+                    className="font-inter font-normal text-[15px] md:text-[22.5px] leading-[150%] tracking-[0.015em]
+                    text-[#3A3A3A]"
+                >
+                    You can start sharing them with your guests.
+                </p>
 
-                    {/* QR Code */}
-                    <div className="mt-[32px] md:mt-[48px] flex justify-center">
-                        <WeddingQrCode value={pageUrl} />
-                    </div>
-
-                    {/* QR helper text */}
-                    <p
-                        className="
-                          mt-[16px]
-                          md:mt-[24px]
-                          font-inter
-                          font-normal
-                          text-[15px]
-                          md:text-[22.5px]
-                          tracking-[0.015em]
-                          text-[#3A3A3A]
-                        "
-                    >
-                        Press the QR code to save or share it.
-                    </p>
-
-                    {/* Action buttons */}
-                    <div className= "flex justify-center">
-                        <WeddingReadyActions pageUrl={pageUrl} />
-                    </div>
-
-
-
+                {/* QR Code */}
+                <div className="mt-[32px] md:mt-[48px] flex justify-center">
+                    <WeddingQrCode value={pageUrl}/>
                 </div>
+
+                {/* QR helper text */}
+                <p
+                    className="mt-[16px] md:mt-[24px] font-inter font-normal text-[15px] md:text-[22.5px] tracking-[0.015em]
+                     text-[#3A3A3A]"
+                >
+                    Press the QR code to save or share it.
+                </p>
+
+                {/* Action buttons */}
+                <div className="">
+                    <WeddingReadyActions pageUrl={pageUrl}/>
+                </div>
+
+
             </main>
         </PageBackground>
     )

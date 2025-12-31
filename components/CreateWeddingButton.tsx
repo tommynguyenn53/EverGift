@@ -51,32 +51,11 @@ export default function CreateWeddingButton() {
         <button
             onClick={handleClick}
             disabled={hasWedding === null}
-            className="YOUR_EXISTING_CLASSES disabled:opacity-70
-            shadow-[6px_4px_18px_rgba(0,0,0,0.1)]
-            mt-[24px]
-            md:mt-[36px]
-            inline-flex items-center justify-center
-            rounded-[14px]
-            md:rounded-[21px]
-            bg-[#D8C9A6]
-            px-[36px] py-[18px]
-            md:px-[93px] md:py-[27px]
-            font-inter
-            font-medium
-            text-[16px]
-            md:text-[24px]
-            text-white
-            transition
-            hover:bg-[#CBB89B]
-            active:bg-[#CBB89B]
-            hover:opacity-90
-            active:opacity-80
-            active:scale-[0.98]
-            disabled:opacity-70
-            disabled:cursor-not-allowed
-
-
-            "
+            className="disabled:opacity-70 shadow-[6px_4px_18px_rgba(0,0,0,0.1)] mt-[24px] md:mt-[36px]
+            inline-flex items-center justify-center rounded-[14px] md:rounded-[21px] bg-[#D8C9A6] px-[36px] py-[18px]
+            md:px-[93px] md:py-[27px] font-inter font-medium text-[16px] md:text-[24px] text-white transition
+            hover:bg-[#CBB89B] active:bg-[#CBB89B] hover:opacity-90 active:opacity-80 active:scale-[0.98]
+            disabled:opacity-70 disabled:cursor-not-allowed"
         >
             Create Your Wedding Page
         </button>

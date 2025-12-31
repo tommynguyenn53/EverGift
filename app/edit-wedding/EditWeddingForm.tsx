@@ -18,6 +18,9 @@ type Wedding = {
     slug: string
 }
 
+const HEADERTEXT_LIMIT = 35
+const WELCOMEMESSAGE_LIMIT = 150
+
 
 export default function EditWeddingForm({ wedding }: { wedding: Wedding }) {
     const supabase = supabaseBrowser()
@@ -161,11 +164,13 @@ export default function EditWeddingForm({ wedding }: { wedding: Wedding }) {
 
     return (
         <div className="w-full flex flex-col items-center">
-            <h1 className="mt-[40px] md:mt-[60px] font-inter font-medium text-[26px] md:text-[39px] tracking-[0.015em] text-[#3A3A3A] text-center">
+            <h1 className="mt-[40px] md:mt-[60px] font-inter font-medium text-[26px] md:text-[39px] tracking-[0.015em]
+            text-[#3A3A3A] text-center">
                 Edit Your Wedding Page
             </h1>
 
-            <p className="mt-[20px] md:mt-[30px] font-inter text-[15px] md:text-[22.5px] leading-[150%] tracking-[0.015em] text-[#3A3A3A] text-center max-w-[320px] md:max-w-[480px]">
+            <p className="mt-[20px] md:mt-[30px] font-inter text-[15px] md:text-[22.5px] leading-[150%] tracking-[0.015em]
+            text-[#3A3A3A] text-center max-w-[320px] md:max-w-[480px]">
                 Update your wedding details below — changes will be reflected on your <br/>
                 wedding page.
             </p>
@@ -175,67 +180,102 @@ export default function EditWeddingForm({ wedding }: { wedding: Wedding }) {
 
                 {/* Partner 1 */}
                 <div>
-                    <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                    <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px]
+                    md:text-[22.5px] text-[#3A3A3A]">
                         Partner 1 Name
                     </label>
                     <input
                         value={partnerOne}
                         onChange={(e) => setPartnerOne(e.target.value)}
                         placeholder="Name"
-                        className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px] md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
+                        className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px]
+                        md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] placeholder:text-[#3A3A3A]/35
+                        focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                     />
                 </div>
 
                 {/* Partner 2 */}
                 <div>
-                    <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                    <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
+                    text-[#3A3A3A]">
                         Partner 2 Name
                     </label>
                     <input
                         value={partnerTwo}
                         onChange={(e) => setPartnerTwo(e.target.value)}
                         placeholder="Name"
-                        className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px] md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
+                        className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px]
+                        md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px]
+                        placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                     />
                 </div>
 
                 {/* Wedding Date */}
                 <div>
-                    <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                    <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px]
+                    md:text-[22.5px] text-[#3A3A3A]">
                         Wedding Date
                     </label>
                     <input
                         type="date"
                         value={weddingDate}
                         onChange={(e) => setWeddingDate(e.target.value)}
-                        className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px] md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
+                        className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px]
+                        md:px-[22.5px] md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px]
+                        placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                     />
                 </div>
 
                 {/* Header Text */}
                 <div>
-                    <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                    <label
+                        className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px]
+                        md:text-[22.5px] text-[#3A3A3A]">
                         Header Text
                     </label>
                     <input
                         value={headerText}
+                        maxLength={HEADERTEXT_LIMIT}
                         onChange={(e) => setHeaderText(e.target.value)}
                         placeholder="A celebration of love"
-                        className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px] md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
+                        className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px]
+                        md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px]
+                        placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                     />
+                    <p
+                        className="
+                        mt-[6px]
+                        font-inter
+                        text-[11px]
+                        tracking-[0.015em]
+                        text-[#3A3A3A]/60
+                      "
+                    >
+                        Character count: {headerText.length}/{HEADERTEXT_LIMIT}
+                    </p>
                 </div>
 
                 {/* Welcome Message */}
                 <div>
-                    <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                    <label
+                        className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
+                        text-[#3A3A3A]">
                         Welcome Message
                     </label>
                     <textarea
                         value={welcomeMessage}
+                        maxLength={WELCOMEMESSAGE_LIMIT}
                         onChange={(e) => setWelcomeMessage(e.target.value)}
                         placeholder="Thank you for celebrating this special day with us."
-                        className="w-full resize-none rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px] md:px-[22.5px] md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px] placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
+                        className="w-full resize-none rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px]
+                        md:px-[22.5px] md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px]
+                        placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                     />
+                    <p
+                        className="font-inter text-[11px] tracking-[0.015em] text-[#3A3A3A]/60 mt-[6px]"
+                    >
+                        Character count: {welcomeMessage.length}/{WELCOMEMESSAGE_LIMIT}
+                    </p>
                 </div>
 
                 <div className="mt-[16px] md:mt-[24px] flex flex-col gap-[10px] md:gap-[15px]">
@@ -280,23 +320,11 @@ export default function EditWeddingForm({ wedding }: { wedding: Wedding }) {
 
                 <button
                     onClick={handleSave}
-                    disabled={loading || !partnerOne || !partnerTwo || !weddingDate || !headerText || !welcomeMessage || !collageImage}
-                    className="
-                    mt-[16px]
-                    md:mt-[24px]
-                    shadow-[6px_4px_18px_rgba(0,0,0,0.1)]
-                    rounded-[14px]
-                    md:rounded-[21px]
-                    bg-[#D8C9A6]
-                    py-[16px]
-                    md:py-[24px]
-                    font-inter
-                    font-medium
-                    text-[16px]
-                    md:text-[24px]
-                    text-white
-                    disabled:opacity-60
-                  "
+                    disabled={loading || !partnerOne || !partnerTwo || !weddingDate || !headerText || !welcomeMessage
+                        || !collageImage}
+                    className="mt-[16px] md:mt-[24px] shadow-[6px_4px_18px_rgba(0,0,0,0.1)] rounded-[14px]
+                    md:rounded-[21px] bg-[#D8C9A6] py-[16px] md:py-[24px] font-inter font-medium text-[16px] md:text-[24px]
+                    text-white disabled:opacity-60"
                 >
                     {loading ? 'Updating…' : 'Update My Wedding Page'}
                 </button>

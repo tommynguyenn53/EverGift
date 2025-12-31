@@ -9,31 +9,16 @@ export default function TermsPage() {
 
                     {/* Page title */}
                     <h1
-                        className="
-                          font-inter
-                          font-medium
-                          text-[26px]
-                          md:text-[39px]
-                          tracking-[0.015em]
-                          text-[#3A3A3A]
-                          text-center
-                        "
+                        className="font-inter font-medium text-[26px] md:text-[39px] tracking-[0.015em] text-[#3A3A3A]
+                        text-center"
                     >
                         Terms & Conditions
                     </h1>
 
                     {/* Body */}
                     <div
-                        className="
-                          mt-[24px]
-                          md:mt-[36px]
-                          font-inter
-                          font-normal
-                          text-[12px]
-                          md:text-[18px]
-                          leading-[170%]
-                          text-[#3A3A3A]
-                        "
+                        className="mt-[24px] md:mt-[36px] font-inter font-normal text-[12px] md:text-[18px] leading-[170%]
+                        text-[#3A3A3A]"
                     >
 
                         {/* 1 */}

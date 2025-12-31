@@ -1,7 +1,8 @@
-import { notFound } from 'next/navigation'
-import { supabaseServer } from '@/lib/supabase/server'
+import {notFound} from 'next/navigation'
+import {supabaseServer} from '@/lib/supabase/server'
 import AppHeader from "@/components/AppHeader";
 import Footer from "@/components/Footer";
+import Link from "next/link"
 
 type Props = {
     params: Promise<{
@@ -13,13 +14,13 @@ type WeddingImage = {
     storage_path: string
 }
 
-export default async function PublicWeddingPage({ params }: Props) {
-    const { slug } = await params
+export default async function PublicWeddingPage({params}: Props) {
+    const {slug} = await params
     if (!slug) notFound()
 
     const supabase = await supabaseServer()
 
-    const { data: wedding, error } = await supabase
+    const {data: wedding, error} = await supabase
         .from('weddings')
         .select(`
       id,
@@ -36,7 +37,7 @@ export default async function PublicWeddingPage({ params }: Props) {
 
     if (error || !wedding) notFound()
 
-    const { data: image } = await supabase
+    const {data: image} = await supabase
         .from('images')
         .select('storage_path')
         .eq('wedding_id', wedding.id)
@@ -45,17 +46,15 @@ export default async function PublicWeddingPage({ params }: Props) {
     let collageUrl: string | null = null
 
     if (image?.storage_path) {
-        const { data } = supabase.storage
+        const {data} = supabase.storage
             .from('wedding-images')
             .getPublicUrl(image.storage_path)
 
         collageUrl = data.publicUrl
     }
 
-
-
     const {
-        data: { user },
+        data: {user},
     } = await supabase.auth.getUser()
 
     const isOwner = user && user.id === wedding.user_id
@@ -92,32 +91,16 @@ export default async function PublicWeddingPage({ params }: Props) {
 
                     {/* Names */}
                     <h1
-                        className="
-                          mt-[32px]
-                          md:mt-[48px]
-                          playfair-display-heading_text
-                          text-[36px]
-                          md:text-[54px]
-                          tracking-[0.015em]
-                          text-[#3A3A3A]
-                        "
+                        className="mt-[32px] md:mt-[48px] playfair-display-heading_text text-[36px] md:text-[54px]
+                        tracking-[0.015em] text-[#3A3A3A]"
                     >
                         {wedding.partner_one_name} &amp; {wedding.partner_two_name}
                     </h1>
 
                     {/* Date */}
                     <p
-                        className="
-                          playfair-display-date_text
-                          mt-[12px]
-                          md:mt-[18px]
-                          font-playfair
-                          font-normal
-                          text-[20px]
-                          md:text-[30px]
-                          tracking-[0.015em]
-                          text-[#3A3A3A]
-                        "
+                        className="playfair-display-date_text mt-[12px] md:mt-[18px] font-playfair font-normal
+                        text-[20px] md:text-[30px] tracking-[0.015em] text-[#3A3A3A]"
                     >
                         {formattedDate}
                     </p>
@@ -134,57 +117,23 @@ export default async function PublicWeddingPage({ params }: Props) {
 
                     {/* Message */}
                     <p
-                        className="
-                          playfair-display-body_text
-                          mt-[32px]
-                          md:mt-[48px]
-                          font-playfair
-                          font-normal
-                          text-[15px]
-                          md:text-[22.5px]
-                          leading-[150%]
-                          text-[#3A3A3A]
-                          w-[270px]
-                          md:w-[430px]
-                          whitespace-pre-line
-                        "
+                        className="playfair-display-body_text mt-[32px] md:mt-[48px] font-playfair font-normal
+                        text-[15px] md:text-[22.5px] leading-[150%] text-[#3A3A3A] w-[270px] md:w-[430px]whitespace-pre-line"
                     >
                         {wedding.welcome_message}
 
                     </p>
 
                     {/* CTA (disabled for now) */}
-                    <button
-                        className="
-                          mt-[24px]
-                          md:mt-[36px]
-                          shadow-[6px_4px_18px_rgba(0,0,0,0.1)]
-                          inline-flex
-                          items-center
-                          justify-center
-                          rounded-[14px]
-                          md:rounded-[21px]
-                          bg-[#D8C9A6]
-                          px-[62px]
-                          py-[16px]
-                          md:px-[90px]
-                          md:py-[20px]
-                          font-inter
-                          font-medium
-                          text-[16px]
-                          md:text-[24px]
-                          text-white
-                          transition
-                          hover:opacity-90
-                          active:opacity-80
-                          active:scale-[0.98]
-                          disabled:opacity-60
-                          disabled:cursor-not-allowed
-                        "
+                    <Link
+                        href={`/${slug}/gift`}
+                        className="mt-[24px] md:mt-[36px] shadow-[6px_4px_18px_rgba(0,0,0,0.1)] inline-flex items-center
+                        justify-center rounded-[14px] md:rounded-[21px] bg-[#D8C9A6] px-[62px] py-[16px] md:px-[90px]
+                        md:py-[20px] font-inter font-medium text-[16px] md:text-[24px] text-white transition hover:opacity-90
+                        active:opacity-80 active:scale-[0.98]"
                     >
                         Give a Gift
-                    </button>
-
+                    </Link>
                 </div>
             </main>
             <Footer/>

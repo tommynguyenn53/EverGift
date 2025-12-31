@@ -37,35 +37,16 @@ export default async function SignupPage() {
                 <div className="">
                     {/* Heading */}
                     <h1
-                        className="
-                        mt-[40px]
-                        md:mt-[60px]
-                        font-inter
-                        font-medium
-                        text-[26px]
-                        md:text-[39px]
-                        tracking-[0.015em]
-                        text-[#3A3A3A]
-                        text-center
-                      "
+                        className="mt-[40px] md:mt-[60px] font-inter font-medium text-[26px] md:text-[39px]
+                        tracking-[0.015em] text-[#3A3A3A] text-center"
                     >
                         Create Your <br/> EverGift Account
                     </h1>
 
                     {/* Sub text */}
                     <p
-                        className="
-                        mt-[20px]
-                        md:mt-[30px]
-                        font-inter
-                        font-normal
-                        text-[15px]
-                        md:text-[22.5px]
-                        leading-[150%]
-                        tracking-[0.015em]
-                        text-[#3A3A3A]
-                        text-center
-                      "
+                        className="mt-[20px] md:mt-[30px] font-inter font-normal text-[15px] md:text-[22.5px] leading-[150%]
+                        tracking-[0.015em] text-[#3A3A3A] text-center"
                     >
                         Sign up to create and manage your <br/> personalised wedding gifting page.
                     </p>
@@ -78,17 +59,8 @@ export default async function SignupPage() {
 
                     {/* Login link */}
                     <p
-                        className="
-                        mt-[16px]
-                        md:mt-[24px]
-                        text-center
-                        font-inter
-                        text-[15px]
-                        md:text-[22.5px]
-                        leading-[170%]
-                        tracking-[0.015em]
-                        text-[#3A3A3A]
-                      "
+                        className="mt-[16px] md:mt-[24px] text-center font-inter text-[15px] md:text-[22.5px] leading-[170%]
+                        tracking-[0.015em] text-[#3A3A3A]"
                                         >
                       <span className="font-normal">
                         Already have an account?
@@ -96,14 +68,7 @@ export default async function SignupPage() {
                     <br/>
                     <a
                         href="/auth/login"
-                        className="
-                          font-medium
-                          text-[#C9A86A]
-                          underline
-                          transition
-                          hover:opacity-80
-                          active:opacity-60
-                        "
+                        className="font-medium text-[#C9A86A] underline transition hover:opacity-80 active:opacity-60"
                         >
                             Log in
                         </a>

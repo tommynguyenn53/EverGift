@@ -62,16 +62,8 @@ export default function ForgotPasswordPage() {
                     <div className="w-full max-w-sm flex flex-col items-center text-center">
 
                         <h1
-                            className="
-                            mt-[40px]
-                            md:mt-[60px]
-                            font-inter
-                            font-medium
-                            text-[26px]
-                            md:text-[39px]
-                            tracking-[0.015em]
-                            text-[#3A3A3A]
-                          "
+                            className="mt-[40px] md:mt-[60px] font-inter font-medium text-[26px] md:text-[39px]
+                            tracking-[0.015em] text-[#3A3A3A]"
                         >
                             Check your email
                         </h1>
@@ -83,33 +75,16 @@ export default function ForgotPasswordPage() {
                         />
 
                         <p
-                            className="
-                            mt-[24px]
-                            md:mt-[36px]
-                            font-inter
-                            font-normal
-                            text-[15px]
-                            md:text-[22.5px]
-                            leading-[150%]
-                            tracking-[0.015em]
-                            text-[#3A3A3A]
-                          "
+                            className="mt-[24px] md:mt-[36px] font-inter font-normal text-[15px] md:text-[22.5px]
+                            leading-[150%] tracking-[0.015em] text-[#3A3A3A]"
                         >
                             We’ve sent you a link to reset your <br/> password.
                             If you don’t see it, check <br/> your spam or junk folder.
                         </p>
 
                         <p
-                            className="
-                            mt-[24px]
-                            md:mt-[36px]
-                            font-inter
-                            text-[15px]
-                            md:text-[22.5px]
-                            leading-[170%]
-                            tracking-[0.015em]
-                            text-[#3A3A3A]
-                          "
+                            className="mt-[24px] md:mt-[36px] font-inter text-[15px] md:text-[22.5px] leading-[170%]
+                            tracking-[0.015em] text-[#3A3A3A]"
                         >
                       <span className="font-normal">
                         Didn’t get the email?
@@ -118,14 +93,8 @@ export default function ForgotPasswordPage() {
                             <button
                                 onClick={handleResend}
                                 disabled={loading}
-                                className="
-                          font-medium
-                          text-[#C9A86A]
-                          underline
-                          underline-offset-2
-                          hover:opacity-80
-                          disabled:opacity-50
-                            "
+                                className="font-medium text-[#C9A86A] underline underline-offset-2 hover:opacity-80
+                                disabled:opacity-50"
                             >
                                 {loading ? 'Resending…' : 'Resend Link'}
                             </button>
@@ -162,36 +131,16 @@ export default function ForgotPasswordPage() {
                 >
                     {/* Heading */}
                     <h1
-                        className="
-                          md:w-[500px]
-                          mt-[40px]
-                          md:mt-[60px]
-                          font-inter
-                          font-medium
-                          text-[26px]
-                          md:text-[39px]
-                          tracking-[0.015em]
-                          text-[#3A3A3A]
-                          text-center
-                        "
+                        className="md:w-[500px] mt-[40px] md:mt-[60px] font-inter font-medium text-[26px] md:text-[39px]
+                        tracking-[0.015em] text-[#3A3A3A] text-center"
                     >
                         Forgot your password?
                     </h1>
 
                     {/* Sub text */}
                     <p
-                        className="
-                          mt-[20px]
-                          md:mt-[30px]
-                          font-inter
-                          font-normal
-                          text-[15px]
-                          md:text-[22.5px]
-                          leading-[150%]
-                          tracking-[0.015em]
-                          text-[#3A3A3A]
-                          text-center
-                        "
+                        className="mt-[20px] md:mt-[30px] font-inter font-normal text-[15px] md:text-[22.5px]
+                        leading-[150%] tracking-[0.015em] text-[#3A3A3A] text-center"
                     >
                         Enter your email and we’ll send you <br/> a link to reset your password.
                     </p>
@@ -199,16 +148,8 @@ export default function ForgotPasswordPage() {
                     {/* Email input */}
                     <div className="mt-[40px] md:mt-[60px] w-[298px] md:w-[447px]">
                         <label
-                            className="
-                                block
-                                font-inter
-                                font-medium
-                                text-[15px]
-                                md:text-[22.5px]
-                                text-[#3A3A3A]
-                                mb-[6px]
-                                md:mb-[9px]
-                              "
+                            className="block font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A] mb-[6px]
+                            md:mb-[9px]"
                         >
                             Email Address
                         </label>
@@ -219,25 +160,10 @@ export default function ForgotPasswordPage() {
                             placeholder="Email Address"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="
-                                w-full
-                                bg-white
-                                rounded-[10px]
-                                md:rounded-[15px]
-                                px-[15px] py-[15px]
-                                md:px-[22.5px] md:py-[22.5px]
-                                border
-                                border-black/10
-                                font-inter
-                                text-[15px]
-                                md:text-[22.5px]
-                                text-[#3A3A3A]
-                                placeholder:text-[#3A3A3A]/35
-                                transition
-                                focus:outline-none
-                                focus:ring-2
-                                focus:ring-[#D8C9A6]/50
-                          "
+                            className="w-full bg-white rounded-[10px] md:rounded-[15px] px-[15px] py-[15px]
+                            md:px-[22.5px] md:py-[22.5px] border border-black/10 font-inter text-[15px]
+                            md:text-[22.5px] text-[#3A3A3A] placeholder:text-[#3A3A3A]/35 transition focus:outline-none
+                            focus:ring-2 focus:ring-[#D8C9A6]/50"
                         />
                     </div>
 
@@ -251,48 +177,18 @@ export default function ForgotPasswordPage() {
                     <button
                         type="submit"
                         disabled={loading || !email}
-                        className="
-                          mt-[32px]
-                          md:mt-[48px]
-                          inline-flex
-                          items-center
-                          justify-center
-                          rounded-[14px]
-                          md:rounded-[21px]
-                          bg-[#D8C9A6]
-                          px-[62px]
-                          py-[16px]
-                          md:px-[99px]
-                          md:py-[24px]
-                          font-inter
-                          font-medium
-                          text-[16px]
-                          md:text-[24px]
-                          text-white
-                          transition
-                          disabled:opacity-60
-                          disabled:cursor-not-allowed
-                          hover:opacity-90
-                          active:opacity-80
-                          active:scale-[0.98]
-                        "
+                        className="mt-[32px] md:mt-[48px] inline-flex items-center justify-center rounded-[14px]
+                          md:rounded-[21px] bg-[#D8C9A6] px-[62px] py-[16px] md:px-[99px] md:py-[24px] font-inter
+                          font-medium text-[16px] md:text-[24px] text-white transition disabled:opacity-60 disabled:cursor-not-allowed
+                          hover:opacity-90 active:opacity-80 active:scale-[0.98]"
                     >
                         {loading ? 'Sending…' : 'Send Reset Link'}
                     </button>
 
                     {/* Back to login */}
                     <p
-                        className="
-                          mt-[24px]
-                          md:mt-[36px]
-                          text-center
-                          font-inter
-                          text-[15px]
-                          md:text-[22.5px]
-                          leading-[170%]
-                          tracking-[0.015em]
-                          text-[#3A3A3A]
-                        "
+                        className="mt-[24px] md:mt-[36px] text-center font-inter text-[15px] md:text-[22.5px] leading-[170%]
+                        tracking-[0.015em] text-[#3A3A3A]"
                     >
             <span className="font-normal">
               Remember your password?
@@ -300,16 +196,8 @@ export default function ForgotPasswordPage() {
                         <br/>
                         <a
                             href="/auth/login"
-                            className="
-                            font-medium
-                            text-[#C9A86A]
-                            underline
-                            underline-offset-2
-                            hover:opacity-80
-                            transition
-                            hover:opacity-80
-                            active:opacity-60
-                          "
+                            className="font-medium text-[#C9A86A] underline underline-offset-2 hover:opacity-80 transition
+                            hover:opacity-80 active:opacity-60"
                         >
                             Log in
                         </a>

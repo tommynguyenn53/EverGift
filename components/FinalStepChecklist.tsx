@@ -24,14 +24,7 @@ function ChecklistItem({
                 className="w-[18px] h-[18px] md:w-[27px] md:h-[27px]"
             />
             <p
-                className="
-          font-inter
-          font-normal
-          text-[14px]
-          md:text-[21px]
-          tracking-[0.015em]
-          text-[#3A3A3A]
-        "
+                className="font-inter font-normal text-[14px] md:text-[21px] tracking-[0.015em] text-[#3A3A3A]"
             >
                 {label}
             </p>
@@ -49,13 +42,7 @@ export default function FinalStepChecklist({
         <div className="mt-[16px] md:mt-[24px]">
             {/* Heading */}
             <p
-                className="
-          font-inter
-          font-medium
-          text-[15px]
-          md:text-[22.5px]
-          text-[#3A3A3A]
-        "
+                className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]"
             >
                 Final Step
             </p>

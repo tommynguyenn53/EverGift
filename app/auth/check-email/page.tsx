@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import {useState} from 'react'
 import PageBackground from '@/components/PageBackground'
-import { supabaseBrowser } from '@/lib/supabase/client'
+import {supabaseBrowser} from '@/lib/supabase/client'
 
 export default function CheckEmailPage() {
     const supabase = supabaseBrowser()
@@ -16,7 +16,7 @@ export default function CheckEmailPage() {
         setMessage(null)
 
         const {
-            data: { user },
+            data: {user},
             error,
         } = await supabase.auth.getUser()
 
@@ -26,7 +26,7 @@ export default function CheckEmailPage() {
             return
         }
 
-        const { error: resendError } = await supabase.auth.resend({
+        const {error: resendError} = await supabase.auth.resend({
             type: 'signup',
             email: user.email,
             options: {
@@ -50,94 +50,51 @@ export default function CheckEmailPage() {
 
                     {/* Heading */}
                     <h1
-                        className="
-              mt-[40px]
-              md:mt-[60px]
-              font-inter
-              font-medium
-              text-[26px]
-              md:text-[39px]
-              tracking-[0.015em]
-              text-[#3A3A3A]
-            "
+                        className="mt-[40px] md:mt-[60px] font-inter font-medium text-[26px] md:text-[39px] tracking-[0.015em]
+                        text-[#3A3A3A]"
                     >
                         Check your email
                     </h1>
 
                     {/* Email icon */}
                     <div className="mt-[24px] md:mt-[36px]">
-                    <img
-                        src="/email-icon.svg"
-                        alt=""
-                        className="md:w-[108px]"
-                    />
+                        <img
+                            src="/email-icon.svg"
+                            alt=""
+                            className="md:w-[108px]"
+                        />
                     </div>
 
                     {/* Main message */}
                     <p
-                        className="
-              mt-[24px]
-              md:mt-[36px]
-              font-inter
-              font-normal
-              text-[15px]
-              md:text-[22.5px]
-              leading-[150%]
-              tracking-[0.015em]
-              text-[#3A3A3A]
-            "
+                        className="mt-[24px] md:mt-[36px] font-inter font-normal text-[15px] md:text-[22.5px]
+                        leading-[150%] tracking-[0.015em] text-[#3A3A3A]"
                     >
                         We’ve sent you a link to verify your <br/> email address.
                     </p>
 
                     {/* Secondary message */}
                     <p
-                        className="
-              mt-[16px]
-              md:mt-[24px]
-              font-inter
-              font-normal
-              text-[15px]
-              md:text-[22.5px]
-              leading-[150%]
-              tracking-[0.015em]
-              text-[#3A3A3A]
-            "
+                        className="mt-[16px] md:mt-[24px] font-inter font-normal text-[15px] md:text-[22.5px] leading-[150%]
+                        tracking-[0.015em] text-[#3A3A3A]"
                     >
                         If you don’t see it, please check your <br/> spam or junk folder.
                     </p>
 
                     {/* Resend */}
                     <p
-                        className="
-              mt-[32px]
-              md:mt-[48px]
-              font-inter
-              text-[15px]
-              md:text-[22.5px]
-              leading-[170%]
-              tracking-[0.015em]
-              text-[#3A3A3A]
-            "
+                        className="mt-[32px] md:mt-[48px] font-inter text-[15px] md:text-[22.5px] leading-[170%]
+                        tracking-[0.015em] text-[#3A3A3A]"
                     >
-            <span className="font-normal">
-              Didn’t receive the email?
-            </span>
-                        <br />
+                        <span className="font-normal">
+                          Didn’t receive the email?
+                        </span>
+                        <br/>
                         <button
                             onClick={handleResend}
                             disabled={loading}
-                            className="
-                font-medium
-                text-[#C9A86A]
-                underline
-                underline-offset-2
-                hover:opacity-80
-                disabled:opacity-50
-                transition
-                hover:opacity-80
-                active:opacity-60
-              "
+                            className="font-medium text-[#C9A86A] underline underline-offset-2 hover:opacity-80
+                            disabled:opacity-50 transition hover:opacity-80 active:opacity-60"
                         >
                             {loading ? 'Resending…' : 'Resend Link'}
                         </button>

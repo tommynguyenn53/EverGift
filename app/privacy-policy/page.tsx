@@ -11,41 +11,26 @@ export default function PrivacyPolicyPage() {
 
                     {/* Heading */}
                     <h1
-                        className="
-                              font-inter
-                              font-medium
-                              text-[26px]
-                              md:text-[39px]
-                              tracking-[0.015em]
-                              text-[#3A3A3A]
-                              text-center
-                        "
+                        className="font-inter font-medium text-[26px] md:text-[39px] tracking-[0.015em] text-[#3A3A3A]
+                        text-center"
                     >
                         Privacy Policy
                     </h1>
 
                     {/* Body */}
                     <div
-                        className="
-                          mt-[24px]
-                          md:mt-[36px]
-                          font-inter
-                          font-normal
-                          text-[12px]
-                          md:text-[18px]
-                          leading-[170%]
-                          text-[#3A3A3A]
-                        "
+                        className="mt-[24px] md:mt-[36px] font-inter font-normal text-[12px] md:text-[18px] leading-[170%]
+                        text-[#3A3A3A]"
                     >
 
                         <p className="mt-[20px] md:mt-[30px]">
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">1. Information We
-                                Collect</strong>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                1. Information We Collect</strong>
                         </p>
 
                         <p>
-                            <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]"> <br/>1.1 Information
-                                Couples Provide </strong><br/>
+                            <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]">
+                                <br/>1.1 Information Couples Provide </strong><br/>
                             When creating a wedding page, you may provide:
                         </p>
 
@@ -61,7 +46,8 @@ export default function PrivacyPolicyPage() {
                         </ul>
 
                         <p>
-                            <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]"> <br/>1.2 Information
+                            <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]">
+                                <br/>1.2 Information
                                 Guests Provide</strong><br/>
                             When sending a gift, guests may submit:
                         </p>
@@ -74,9 +60,8 @@ export default function PrivacyPolicyPage() {
                         </ul>
 
                         <p>
-                            <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]"> <br/>1.3
-                                Automatically Collected Information</strong><br/>
-                            We may automatically collect:
+                            <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]">
+                                <br/>1.3 Automatically Collected Information</strong><br/>We may automatically collect:
                         </p>
 
                         <ul className="list-disc pl-[16px] md:pl-[24px]">
@@ -95,8 +80,8 @@ export default function PrivacyPolicyPage() {
 
 
                         <p>
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">2. How We Use Your
-                                Information</strong>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                2. How We Use Your Information</strong>
                         </p>
 
                         <p>
@@ -120,7 +105,8 @@ export default function PrivacyPolicyPage() {
 
 
                         <p>
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">3. Payment Processing (Stripe)</strong>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                3. Payment Processing (Stripe)</strong>
                         </p>
 
                         <p>
@@ -149,7 +135,8 @@ export default function PrivacyPolicyPage() {
 
 
                         <p>
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">4. How We Store & Protect Your Information</strong>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                4. How We Store & Protect Your Information</strong>
                         </p>
 
                         <p>
@@ -171,7 +158,8 @@ export default function PrivacyPolicyPage() {
 
 
                         <p>
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">5. Sharing of Personal Information</strong>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                5. Sharing of Personal Information</strong>
                         </p>
 
                         <p>
@@ -201,7 +189,8 @@ export default function PrivacyPolicyPage() {
 
 
                         <p>
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">6. Data Retention</strong>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                6. Data Retention</strong>
                         </p>
 
                         <p>
@@ -222,7 +211,8 @@ export default function PrivacyPolicyPage() {
 
 
                         <p>
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">7. Couple & Guest Rights</strong>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                7. Couple & Guest Rights</strong>
                         </p>
 
                         <p>
@@ -249,7 +239,8 @@ export default function PrivacyPolicyPage() {
 
 
                         <p>
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">8. Cookies & Tracking</strong>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                8. Cookies & Tracking</strong>
                         </p>
 
                         <p>
@@ -270,7 +261,8 @@ export default function PrivacyPolicyPage() {
 
 
                         <p>
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">9. International Data Transfers</strong>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                9. International Data Transfers</strong>
                         </p>
 
                         <p>
@@ -286,7 +278,8 @@ export default function PrivacyPolicyPage() {
 
 
                         <p>
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">10. Children’s Privacy</strong>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                10. Children’s Privacy</strong>
                         </p>
 
                         <p>
@@ -298,7 +291,8 @@ export default function PrivacyPolicyPage() {
 
 
                         <p>
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">11. Changes to This Policy</strong>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                11. Changes to This Policy</strong>
                         </p>
 
                         <p>
@@ -310,7 +304,8 @@ export default function PrivacyPolicyPage() {
 
 
                         <p className="mt-[20px]">
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">12. Contact
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                12. Contact
                                 Us</strong><br/>
                             If you have questions, contact us at:
                             <br/>
