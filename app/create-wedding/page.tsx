@@ -1,9 +1,10 @@
+import { Suspense } from 'react'
 import CreateWeddingClient from './CreateWeddingClient'
 
-export default async function CreateWeddingPage() {
+export default function CreateWeddingPage() {
     return (
-        <div>
+        <Suspense fallback={null}>
             <CreateWeddingClient />
-        </div>
+        </Suspense>
     )
 }
