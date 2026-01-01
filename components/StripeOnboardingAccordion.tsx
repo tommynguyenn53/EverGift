@@ -4,14 +4,12 @@ import { useState } from 'react'
 
 export default function StripeOnboardingAccordion() {
     const [open, setOpen] = useState(false)
+    const [copied, setCopied] = useState(false)
 
     const DESCRIPTION_TEXT =
         'Collecting wedding gifts from family and friends through a digital wedding gifting platform. Funds are gifted to the couple to celebrate their wedding.'
 
-    const [copied, setCopied] = useState(false)
-
     const copyToClipboard = async (text: string) => {
-        // Modern browsers
         if (navigator.clipboard && window.isSecureContext) {
             await navigator.clipboard.writeText(text)
             return
@@ -20,7 +18,7 @@ export default function StripeOnboardingAccordion() {
         // iOS Safari fallback
         const textarea = document.createElement('textarea')
         textarea.value = text
-        textarea.style.position = 'fixed' // prevents scrolling to bottom
+        textarea.style.position = 'fixed'
         textarea.style.opacity = '0'
         document.body.appendChild(textarea)
         textarea.focus()
@@ -33,14 +31,11 @@ export default function StripeOnboardingAccordion() {
         }
     }
 
-
     const handleCopy = async () => {
         await copyToClipboard(DESCRIPTION_TEXT)
         setCopied(true)
         setTimeout(() => setCopied(false), 2000)
     }
-
-
 
     return (
         <div
@@ -53,27 +48,36 @@ export default function StripeOnboardingAccordion() {
                 type="button"
                 onClick={() => setOpen(!open)}
                 className="w-full flex items-center justify-between
-                px-[16px] md:px-[24px] py-[14px] md:py-[21px]
-                font-inter font-medium text-[13px] md:text-[19.5px]
-                text-[#3A3A3A]"
+    px-[16px] md:px-[24px] py-[14px] md:py-[21px]
+    font-inter font-medium text-[13px] md:text-[19.5px]
+    text-[#3A3A3A]"
             >
                 <span>What happens when I connect Stripe?</span>
 
-                <span
-                    className={`transition-transform duration-200 ${
-                        open ? 'rotate-180' : 'rotate-0'
-                    }`}
-                >
-                    ▾
-                </span>
+                <img
+                    src="/open-icon.svg"
+                    alt=""
+                    className={`w-[20px] h-[20px] md:w-[36px] md:h-[36px]
+        transition-transform duration-300
+        ${open ? 'rotate-180' : 'rotate-0'}`}
+                />
             </button>
 
-            {/* Content */}
-            {open && (
+            {/* Animated content */}
+            <div
+                className={`overflow-hidden transition-all duration-300 ease-in-out
+                ${
+                    open
+                        ? 'max-h-[1400px] opacity-100'
+                        : 'max-h-0 opacity-0'
+                }`}
+            >
                 <div
-                    className="px-[16px] md:px-[24px] pb-[18px] md:pb-[27px]
+                    className={`px-[16px] md:px-[24px] pb-[18px] md:pb-[27px]
                     font-inter text-[12px] md:text-[18px]
-                    leading-[160%] text-[#3A3A3A] space-y-[16px]"
+                    leading-[160%] text-[#3A3A3A] space-y-[16px]
+                    transition-all duration-300
+                    ${open ? 'mt-[6px]' : 'mt-0'}`}
                 >
                     {/* Intro */}
                     <p className="text-[#3A3A3A]/80">
@@ -128,7 +132,9 @@ export default function StripeOnboardingAccordion() {
 
                     {/* Step 4 */}
                     <div>
-                        <p className="font-medium">Step 4 — Describe how you’ll use EverGift</p>
+                        <p className="font-medium">
+                            Step 4 — Describe how you’ll use EverGift
+                        </p>
                         <ul className="mt-[6px] ml-[18px] list-disc text-[#3A3A3A]/80">
                             <li>
                                 Industry:{' '}
@@ -140,15 +146,19 @@ export default function StripeOnboardingAccordion() {
 
                         <div
                             onClick={handleCopy}
-                            className="mt-[10px] rounded-[10px]
-                                bg-[#F6EEDC]/60 p-[10px]
-                                cursor-pointer select-none
-                                transition hover:bg-[#F6EEDC]/80
-                                active:scale-[0.98]
-                                border border-black/5"
+                            className={`mt-[10px] rounded-[10px]
+                            p-[10px] cursor-pointer select-none
+                            border border-black/5
+                            transition-all duration-200
+                            ${
+                                copied
+                                    ? 'bg-[#D8C9A6]/70'
+                                    : 'bg-[#F6EEDC]/60 hover:bg-[#F6EEDC]/80'
+                            }
+                            active:scale-[0.98]`}
                         >
                             <div className="flex items-center justify-between mb-[4px]">
-                                <p className="font-medium text-[11px] md:text-[16px] text-[#3A3A3A]">
+                                <p className="font-medium text-[11px] md:text-[16px]">
                                     Suggested description
                                 </p>
 
@@ -161,7 +171,6 @@ export default function StripeOnboardingAccordion() {
                                 {DESCRIPTION_TEXT}
                             </p>
                         </div>
-
                     </div>
 
                     {/* Step 5 */}
@@ -171,13 +180,13 @@ export default function StripeOnboardingAccordion() {
                             <li>BSB</li>
                             <li>Account number</li>
                         </ul>
-                        <p className="mt-[6px] text-[#3A3A3A]/60">
+                        <p className="text-[#3A3A3A]/60">
                             <br/>
                             All wedding gifts will be paid into this account.
                         </p>
                     </div>
 
-                    {/* Footer reassurance */}
+                    {/* Footer */}
                     <p className="text-[#3A3A3A]/60">
                         If you exit Stripe early, you can resume setup at any time.
                     </p>
@@ -187,7 +196,7 @@ export default function StripeOnboardingAccordion() {
                         All sensitive information is handled securely by Stripe.
                     </p>
                 </div>
-            )}
+            </div>
         </div>
     )
 }
