@@ -40,11 +40,17 @@ export default async function GiftSuccessPage({ params, searchParams }: Props) {
 
     if (error || !gift) notFound()
 
+    const wedding = gift.wedding?.[0]
+
+    if (!wedding) notFound()
+
+
     const totalFees = gift.platform_fee_cents + gift.stripe_fee_cents
 
     const totalCharged = gift.guest_covered_fees
         ? gift.amount_cents + totalFees
         : gift.amount_cents
+
 
     return (
         <div className="min-h-screen px-[24px] py-[20px] bg-gradient-to-b from-[#EDE0C3] via-[#F6EEDC] to-[#FFFEFA]">
@@ -73,8 +79,8 @@ export default async function GiftSuccessPage({ params, searchParams }: Props) {
                     className="mt-[24px] md:mt-[36px] font-inter text-[16px] md:text-[24px] text-[#3A3A3A] max-w-[250px]
                     md:max-w-[375px]"
                 >
-                    Your gift for {gift.wedding.partner_one_name} &amp;{' '}
-                    {gift.wedding.partner_two_name} has been sent successfully.
+                    Your gift for {wedding.partner_one_name} &amp;{' '}
+                    {wedding.partner_two_name} has been sent successfully.
                     <br /><br />
                     Thank you for celebrating this special moment with them.
                 </p>
@@ -139,7 +145,7 @@ export default async function GiftSuccessPage({ params, searchParams }: Props) {
 
                 {/* CTA */}
                 <a
-                    href={`/${gift.wedding.slug}`}
+                    href={`/${wedding.slug}`}
                     className="mt-[32px] md:mt-[48px] w-[288px] md:w-[432px] h-[55px] md:h-[82.5px] flex items-center
                     justify-center rounded-[14px] md:rounded-[21px] bg-[#D8C9A6] font-inter font-medium text-[16px]
                     md:text-[24px] text-white shadow-[6px_4px_18px_rgba(0,0,0,0.1)] hover:opacity-90 transition
