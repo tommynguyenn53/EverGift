@@ -42,7 +42,7 @@ export default function SignupForm() {
             email,
             password,
             options: {
-                emailRedirectTo: `${location.origin}/auth/verified`,
+                emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/verified`,
             },
         })
 
