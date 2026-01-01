@@ -52,23 +52,34 @@ export default function ProfileMenu() {
 
             {/* Dropdown */}
             {open && (
-                <div className="absolute right-0 mt-2 w-56 rounded-xl bg-white shadow-lg border overflow-hidden">
+                <div
+                    className="absolute right-0 mt-3 w-60 rounded-2xl bg-[#FFFDF8] shadow-[0_12px_30px_rgba(0,0,0,0.12)] border border-black/5 overflow-hidden animate-in fade-in zoom-in-95 font-inter">
                     {email ? (
                         <>
-                            <div className="px-4 py-3 border-b">
-                                <p className="text-sm font-medium truncate">{email}</p>
+                            {/* Email / identity */}
+                            <div className="px-4 py-3">
+                                <p className="text-[11.5px] font-medium tracking-[0.01em] tracking-wide text-[#6B6B6B] uppercase">
+                                    Signed in as
+                                </p>
+                                <p className="mt-1 text-sm font-medium truncate text-[#3A3A3A] bg-black/5 rounded-lg px-2 py-1">
+                                    {email}
+                                </p>
                             </div>
 
+                            <div className="h-px bg-black/5 mx-4"/>
+
+                            {/* Dashboard */}
                             <Link
                                 href="/dashboard"
-                                className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                className="mx-2 my-1 block rounded-lg px-4 py-2 tracking-[0.01em] text-sm font-medium text-[#3A3A3A] hover:bg-black/5 transition"
                             >
                                 Dashboard
                             </Link>
 
+                            {/* Logout */}
                             <button
                                 onClick={logout}
-                                className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-50"
+                                className="mx-2 mb-2 block w-[calc(100%-1rem)] tracking-[0.01em] rounded-lg px-4 py-2 text-sm font-medium text-red-500 hover:bg-red-50 transition text-left"
                             >
                                 Log out
                             </button>
@@ -76,12 +87,13 @@ export default function ProfileMenu() {
                     ) : (
                         <Link
                             href="/auth/login"
-                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                            className="block px-4 py-3 text-sm font-medium hover:bg-black/5 rounded-lg mx-2 my-2"
                         >
                             Log in
                         </Link>
                     )}
                 </div>
+
             )}
         </div>
     )

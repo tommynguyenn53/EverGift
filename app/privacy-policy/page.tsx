@@ -37,7 +37,7 @@ export default function PrivacyPolicyPage() {
                         <ul className="list-disc pl-[16px] md:pl-[24px]">
                             <li>Names of the couple</li>
                             <li>Wedding date</li>
-                            <li>Photos for the collage</li>
+                            <li>Photo of the collage</li>
                             <li>Custom messages or page text</li>
                             <li>Email addresses</li>
                             <li>
@@ -73,7 +73,9 @@ export default function PrivacyPolicyPage() {
                         </ul>
 
                         <p>
-                            <br/> This helps improve site performance and security.
+                            <br/> This information helps us operate the platform, improve performance, enhance security,
+                            and prevent misuse.
+
                         </p>
 
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
@@ -91,14 +93,16 @@ export default function PrivacyPolicyPage() {
                         <ul className="list-disc pl-[16px] md:pl-[24px]">
                             <li>Create and display your wedding page</li>
                             <li>Process gifts securely via Stripe</li>
-                            <li>Send notifications about gift activity</li>
+                            <li>Send emails about gift activity</li>
                             <li>Provide customer support</li>
                             <li>Improve our website and services</li>
                             <li>Prevent fraud or misuse</li>
                         </ul>
 
                         <p>
-                            <br/> We never sell your information.
+                            <br/> We never sell your information. By using EverGift, you consent to the collection
+                            and use of your information as described in this Privacy Policy.
+
                         </p>
 
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
@@ -170,6 +174,8 @@ export default function PrivacyPolicyPage() {
                             <li>Stripe (for payments and payouts)</li>
                             <li>Service providers (hosting, analytics, email delivery)</li>
                         </ul>
+                        <br/>
+                        EverGift may rely on third-party service providers to operate the platform. These providers only receive information necessary to perform their services.
 
                         <p>
                             <br/> We do NOT share with:
@@ -204,7 +210,9 @@ export default function PrivacyPolicyPage() {
                         </ul>
 
                         <p>
-                            <br/> Couples may request deletion at any time.
+                            <br/> Couples may request deletion of their wedding page and personal information,
+                            subject to legal and financial record-keeping requirements.
+
                         </p>
 
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
@@ -283,8 +291,9 @@ export default function PrivacyPolicyPage() {
                         </p>
 
                         <p>
-                            EverGift is not intended for individuals under 16 years old.
+                            EverGift is not intended for individuals under 18 years old.
                             We do not knowingly collect data from children.
+
                         </p>
 
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
@@ -298,6 +307,11 @@ export default function PrivacyPolicyPage() {
                         <p>
                             We may update this Privacy Policy periodically.
                             Updates will be posted on this page with a revised “Last Updated” date.
+
+                            <br/>
+                            <br/>
+                            This Privacy Policy should be read together with EverGift’s Terms & Conditions.
+
                         </p>
 
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>

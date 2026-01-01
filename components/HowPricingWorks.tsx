@@ -45,7 +45,7 @@ export default function HowPricingWorks() {
 
             {/* Footer note */}
             <p
-                className="font-inter font-normal text-[11px] md:text-[16.5px]text-[#3A3A3A]/75"
+                className="font-inter font-normal text-[11px] md:text-[16.5px] text-[#3A3A3A]/75"
             >
                 All payments are processed securely with Stripe.
             </p>

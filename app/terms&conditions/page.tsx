@@ -24,11 +24,11 @@ export default function TermsPage() {
                         {/* 1 */}
                         <p className="mt-[20px] md:mt-[30px] ">
                             <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">1.
-                                Definitions</strong><br/>
+                                Information Provided</strong><br/>
                             When creating a wedding page, you may provide:
                             <br/>• Names of the couple
                             <br/>• Wedding date
-                            <br/>• Photos for the collage
+                            <br/>• Collage photo
                             <br/>• Custom messages or page text
                             <br/>• Email address
                             <br/><br/>
@@ -53,10 +53,22 @@ export default function TermsPage() {
 
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
+                        <p className="mt-[20px] md:mt-[30px]">
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">3.
+                                Privacy
+                            </strong><br/>
+                            EverGift collects and uses personal information in accordance with its Privacy Policy.
+                            By using the platform, you consent to the collection and use of your information as described in that policy.
+
+                        </p>
+
+
+                        <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
+
 
                         {/* 3 */}
                         <p className="mt-[20px] md:mt-[30px]">
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">3.
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">4.
                                 Wedding Pages &
                                 User Content</strong><br/>
                             Couples may upload:
@@ -78,31 +90,43 @@ export default function TermsPage() {
 
                         {/* 4 */}
                         <p className="mt-[20px] md:mt-[30px]">
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">4.
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">5.
                                 Gifts &
                                 Payments<br/></strong><br/>
-                            <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]">4.1
+                            <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]">5.1
                                 Payment
                                 Processing</strong><br/>
                             All payments are processed securely by Stripe. EverGift does not store payment details.
                             <br/><br/>
-                            <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]">4.2
+                            <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]">5.2
                                 Platform
                                 Fees</strong><br/>
                             EverGift charges a platform fee on each gift. This fee is disclosed before payment.
                             <br/><br/>
-                            <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]">4.3
+                            <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]">5.3
                                 Availability of
                                 Payouts</strong><br/>
                             Gifts are transferred to the couple’s connected Stripe account. Payout timing is controlled
                             by Stripe.
                             <br/><br/>
-                            <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]">4.4
+                            <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]">5.4
+                                Stripe Terms</strong><br/>
+                            Payments made through EverGift are also subject to Stripe’s terms and conditions.
+                            Stripe may impose additional requirements or restrictions.
+                            <br/><br/>
+                            <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]">5.5
                                 Refunds</strong><br/>
                             All gifts are voluntary and final unless:
                             <br/>• Required by law
                             <br/>• Approved by the couple
                             <br/>• Stripe issues a refund due to fraud or payment failure
+
+                            <br/>
+                            <br/>
+                            EverGift acts solely as a platform facilitating gifts between guests and couples. EverGift
+                            is not a party to any gift transaction and does not control or guarantee outcomes between
+                            users.
+
                         </p>
 
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
@@ -110,14 +134,17 @@ export default function TermsPage() {
 
                         {/* 5 */}
                         <p className="mt-[20px] md:mt-[30px]">
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">5. Responsibilities of
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">6.
+                                Responsibilities of
                                 Couples</strong><br/>
                             Couples are responsible for:
                             <br/>• Providing accurate wedding information
                             <br/>• Moderating and managing messages
                             <br/>• Ensuring gift links are accurate
                             <br/><br/>
-                            EverGift does not guarantee gift delivery outcomes.
+                            EverGift does not guarantee outcomes between guests and couples beyond
+                            facilitating the gifting platform.
+
                         </p>
 
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
@@ -125,7 +152,8 @@ export default function TermsPage() {
 
                         {/* 6 */}
                         <p className="mt-[20px] md:mt-[30px]">
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">6. Responsibilities of
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">7.
+                                Responsibilities of
                                 Guests</strong><br/>
                             Guests agree to:
                             <br/>• Provide accurate payment details
@@ -138,7 +166,8 @@ export default function TermsPage() {
 
                         {/* 7 */}
                         <p className="mt-[20px] md:mt-[30px]">
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">7. Prohibited
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">8.
+                                Prohibited
                                 Conduct</strong><br/>
                             Users must NOT:
                             <br/>• Upload offensive or illegal content
@@ -148,10 +177,26 @@ export default function TermsPage() {
 
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
-
                         {/* 8 */}
+
                         <p className="mt-[20px] md:mt-[30px]">
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">8. Intellectual
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                9. No Refund Policy
+                            </strong>
+                            <br/>
+                            Except as outlined in Section 5.5, all gifts made through EverGift are final.
+                            <br/>
+                            <br/>
+                            Guests are shown all gift amounts and applicable fees before confirming payment.
+                        </p>
+
+                        <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
+
+
+                        {/* 9 */}
+                        <p className="mt-[20px] md:mt-[30px]">
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">10.
+                                Intellectual
                                 Property</strong><br/>
                             EverGift owns:
                             <br/>• Website design
@@ -164,9 +209,10 @@ export default function TermsPage() {
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
 
-                        {/* 9 */}
+                        {/* 10 */}
                         <p className="mt-[20px] md:mt-[30px]">
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">9. Service
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">11.
+                                Service
                                 Availability</strong><br/>
                             We strive to maintain continuous access but do not guarantee uninterrupted service.
                         </p>
@@ -174,9 +220,10 @@ export default function TermsPage() {
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
 
-                        {/* 10 */}
+                        {/* 11 */}
                         <p className="mt-[20px] md:mt-[30px]">
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">10. Limitation of
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">12.
+                                Limitation of
                                 Liability</strong><br/>
                             EverGift is not liable for:
                             <br/>• Lost or delayed payments
@@ -187,9 +234,9 @@ export default function TermsPage() {
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
 
-                        {/* 11 */}
+                        {/* 12 */}
                         <p className="mt-[20px] md:mt-[30px]">
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">11.
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">13.
                                 Indemnification</strong><br/>
                             You agree to indemnify EverGift against claims arising from your use of the platform.
                         </p>
@@ -197,9 +244,9 @@ export default function TermsPage() {
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
 
-                        {/* 12 */}
+                        {/* 13 */}
                         <p className="mt-[20px] md:mt-[30px]">
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">12.
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">14.
                                 Termination</strong><br/>
                             EverGift may suspend or terminate accounts that violate these Terms.
                         </p>
@@ -207,9 +254,10 @@ export default function TermsPage() {
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
 
-                        {/* 13 */}
+                        {/* 14 */}
                         <p className="mt-[20px] md:mt-[30px]">
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">13. Changes to These
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">15.
+                                Changes to These
                                 Terms</strong><br/>
                             We may update these Terms periodically. Continued use constitutes acceptance.
                         </p>
@@ -217,9 +265,10 @@ export default function TermsPage() {
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
 
-                        {/* 14 */}
+                        {/* 15 */}
                         <p className="mt-[20px] md:mt-[30px]">
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">14. Governing
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">16.
+                                Governing
                                 Law</strong><br/>
                             These Terms are governed by the laws of New South Wales, Australia.
                         </p>
@@ -227,9 +276,10 @@ export default function TermsPage() {
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
 
-                        {/* 15 */}
+                        {/* 16 */}
                         <p className="mt-[20px] md:mt-[30px]">
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">15. Contact
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">17.
+                                Contact
                                 Us</strong><br/>
                             If you have questions, contact us at:
                             <br/>

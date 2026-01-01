@@ -37,7 +37,7 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
     const router = useRouter()
 
 
-    const stripeConnected = !!wedding.stripe_account_id
+    const stripeConnected = !!wedding.payout_enabled
     const payoutEnabled = !!wedding.payout_enabled
 
 
@@ -209,7 +209,7 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
 
                 {/* Heading */}
                 <h1
-                    className="mt-[40px] md:mt-[60px] font-interfont-medium text-[26px] md:text-[39px] tracking-[0.015em]
+                    className="mt-[40px] md:mt-[60px] font-inter font-medium text-[26px] md:text-[39px] tracking-[0.015em]
                     text-[#3A3A3A] text-center"
                 >
                     Create Your Wedding Page
@@ -302,7 +302,7 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
                             focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                         />
                         <p
-                            className="mt-[6px] font-inter text-[11px] tracking-[0.015em] text-[#3A3A3A]/60"
+                            className="mt-[6px] md:mt-[9px] font-inter text-[11px] md:text-[16.5px] tracking-[0.015em] text-[#3A3A3A]/60"
                         >
                             Character count: {headerText.length}/{HEADERTEXT_LIMIT}
                         </p>
@@ -326,7 +326,7 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
                             focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                         />
                         <p
-                            className="mt-[6px] font-inter text-[11px] tracking-[0.015em] text-[#3A3A3A]/60"
+                            className="mt-[6px] md:mt-[9px] font-inter text-[11px] md:text-[16.5px] tracking-[0.015em] text-[#3A3A3A]/60"
                         >
                             Character count: {welcomeMessage.length}/{WELCOMEMESSAGE_LIMIT}
                         </p>
@@ -385,18 +385,20 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
                         />
                     </div>
 
-                    {wedding.stripe_account_id ? (
-                        <div className="mt-[16px] md:mt-[24px] text-green-600 text-[14px] md:text-[21px] font-inter
-                        text-center">
-                            ✓ Stripe account connected
-                        </div>
-                    ) : (
+                    {!wedding.payout_enabled && (
                         <ConnectBankAccountContainer
                             weddingId={weddingId}
-                            connected={false}
+                            connected={stripeConnected}
                             beforeConnect={saveDraft}
                         />
                     )}
+
+                    {wedding.payout_enabled && (
+                        <div className="mt-[16px] md:mt-[24px] text-green-600 text-[14px] md:text-[21px] font-inter text-center">
+                            ✓ Stripe account connected
+                        </div>
+                    )}
+
 
                     {!wedding.payout_enabled && (
                         <p className=" text-[12px] md:text-[18px] text-[#3A3A3A]/70 text-center">

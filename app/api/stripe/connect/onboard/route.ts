@@ -66,12 +66,6 @@ export async function POST(req: Request) {
 
         let stripeAccountId = wedding.stripe_account_id
 
-        if (wedding.stripe_account_id) {
-            return NextResponse.json(
-                { error: 'Stripe already connected' },
-                { status: 400 }
-            )
-        }
 
         // 4️⃣ Create Stripe Express account if needed
         if (!stripeAccountId) {
@@ -97,8 +91,8 @@ export async function POST(req: Request) {
         const accountLink = await stripe.accountLinks.create({
             account: stripeAccountId,
             type: 'account_onboarding',
-            refresh_url: `${process.env.NEXT_PUBLIC_SITE_URL}/create-wedding?stripe=refresh`,
-            return_url: `${process.env.NEXT_PUBLIC_SITE_URL}/create-wedding?stripe=success`,
+            refresh_url: `${process.env.NEXT_PUBLIC_SITE_URL}/create-wedding?`,
+            return_url: `${process.env.NEXT_PUBLIC_SITE_URL}/create-wedding`,
         })
 
         return NextResponse.json({ url: accountLink.url })

@@ -73,7 +73,7 @@ export async function POST(req: Request) {
                 },
             },
             success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/${slug}/gift/success?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/${slug}`,
+            cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/${slug}/gift`,
         })
 
         // 2️⃣ Insert pending gift

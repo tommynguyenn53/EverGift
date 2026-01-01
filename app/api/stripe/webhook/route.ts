@@ -49,6 +49,37 @@ export async function POST(req: Request) {
         /**
          * ✅ HANDLE EVENT
          */
+
+        if (event.type === 'account.updated') {
+            const account = event.data.object as Stripe.Account
+
+            const payoutsEnabled =
+                account.payouts_enabled === true &&
+                (account.requirements?.currently_due?.length ?? 0) === 0 &&
+                (account.requirements?.past_due?.length ?? 0) === 0
+
+            console.log('🔔 Stripe account updated', {
+                accountId: account.id,
+                payoutsEnabled,
+                currently_due: account.requirements?.currently_due,
+                past_due: account.requirements?.past_due,
+            })
+
+            const { error } = await supabase
+                .from('weddings')
+                .update({
+                    payout_enabled: payoutsEnabled,
+                })
+                .eq('stripe_account_id', account.id)
+
+            if (error) {
+                console.error('Failed to update payout_enabled', error)
+                throw error
+            }
+        }
+
+
+
         if (event.type === 'checkout.session.completed') {
             const session = event.data.object as Stripe.Checkout.Session
             const sessionId = session.id

@@ -52,7 +52,7 @@ export function FAQItem({
 
                     {/* Answer */}
                     <p
-                        className="font-inter font-normal text-[12px] text-[18px] leading-[150%] tracking-[0.015em]
+                        className="font-inter font-normal text-[12px] md:text-[18px] leading-[150%] tracking-[0.015em]
                          text-[#3A3A3A] w-[295px] md:w-[453px] text-left"
                     >
                         {answer}

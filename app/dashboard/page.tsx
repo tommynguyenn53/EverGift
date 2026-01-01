@@ -3,6 +3,7 @@ import { supabaseServer } from '@/lib/supabase/server'
 import PublishToggle from '@/components/PublishToggle'
 import PageBackground from '@/components/PageBackground'
 import WeddingQrCodeDashboard from '@/components/WeddingQrCodeDashboard'
+import StripeStatusCard from "@/components/StripeStatusCard";
 
 type Gift = {
     id: string
@@ -44,7 +45,7 @@ export default async function DashboardPage() {
 
     const { data: wedding } = await supabase
         .from('weddings')
-        .select('id, partner_one_name, partner_two_name, slug, status')
+        .select('id, partner_one_name, partner_two_name, slug, status, stripe_account_id, payout_enabled')
         .eq('user_id', user.id)
         .single()
 
@@ -111,6 +112,12 @@ export default async function DashboardPage() {
                         initialStatus={wedding.status}
                     />
                 </div>
+
+                <StripeStatusCard
+                    stripeAccountId={wedding.stripe_account_id}
+                    payoutEnabled={wedding.payout_enabled}
+                />
+
 
                 <div className="mt-[32px] md:mt-[48px] flex gap-[20px] md:gap-[30px]">
 

@@ -70,7 +70,7 @@ export default function HowEverGiftWorksCard() {
                     {/* Step 2 */}
                     <div className="flex flex-col gap-[5px] md:gap-[7.5px]">
                         <h3
-                            className="font-inter font-semibold text-[15px] md:text-[22.5px] text-[#3A3A3A]text-left"
+                            className="font-inter font-semibold text-[15px] md:text-[22.5px] text-[#3A3A3A] text-left"
                         >
                             Step 2 – Share Your QR Code
                         </h3>
