@@ -223,7 +223,7 @@ export default function EditWeddingForm({ wedding }: { wedding: Wedding }) {
                         type="date"
                         value={weddingDate}
                         onChange={(e) => setWeddingDate(e.target.value)}
-                        className="w-full rounded-[10px] md:rounded-[15px] bg-white px-[15px] py-[15px]
+                        className="w-full rounded-[10px] appearance-none md:rounded-[15px] bg-white px-[15px] py-[15px]
                         md:px-[22.5px] md:py-[22.5px] border border-black/10 font-inter text-[15px] md:text-[22.5px]
                         placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                     />

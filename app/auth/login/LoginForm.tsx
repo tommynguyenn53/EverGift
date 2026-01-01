@@ -85,7 +85,7 @@ export default function LoginForm() {
                 <a
                     href="/auth/forgot-password"
                     className="mt-[6px] md:mt-[9px] inline-block font-inter font-regular text-[11px] md:text-[16.5px]
-                    tracking-[0.015em] text-[#3A3A3A] underline"
+                    tracking-[0.015em] text-[#3A3A3A] underline transition hover:opacity-80 active:opacity-60"
                 >
                     Forgot your password?
                 </a>
