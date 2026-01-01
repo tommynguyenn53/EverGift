@@ -1,15 +1,16 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 
 export async function GET(
-    req: Request,
-    { params }: { params: { id: string } }
+    request: NextRequest,
+    context: { params: Promise<{ id: string }> }
 ) {
+    const { id } = await context.params
     const cookieStore = await cookies()
 
     const supabase = createServerClient(
-        process.env.NEXT_PUBLIC_SITE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
         {
             cookies: {
@@ -31,7 +32,7 @@ export async function GET(
     const { data: wedding, error } = await supabase
         .from('weddings')
         .select('stripe_account_id')
-        .eq('id', params.id)
+        .eq('id', id)
         .eq('user_id', user.id)
         .single()
 
