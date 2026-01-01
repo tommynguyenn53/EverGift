@@ -5,10 +5,12 @@ import {useRef, useState} from 'react'
 const PRESET_AMOUNTS = [50, 100, 150, 200]
 
 type Props = {
-    onChange: (amountCents: number) => void
+    amountCents: number
+    onChange: (value: number) => void
 }
 
-export default function GiftAmountSelector({onChange}: Props) {
+
+export default function GiftAmountSelector({amountCents, onChange}: Props) {
     const [selectedAmount, setSelectedAmount] = useState<number | null>(null)
     const [customAmount, setCustomAmount] = useState('')
     const inputRef = useRef<HTMLInputElement | null>(null)
