@@ -1,5 +1,7 @@
 'use client'
 
+import StripeOnboardingAccordion from "@/components/StripeOnboardingAccordion";
+
 type ConnectBankAccountSectionProps = {
     onConnect?: () => void
     loading?: boolean
@@ -26,6 +28,8 @@ export default function ConnectBankAccountSection({
                 Connect with Stripe to securely receive payments from
                 your guests.
             </p>
+
+            <StripeOnboardingAccordion/>
 
             {/* CTA */}
             <div className="flex justify-center">

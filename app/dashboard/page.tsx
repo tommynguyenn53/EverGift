@@ -49,7 +49,7 @@ export default async function DashboardPage() {
         .eq('user_id', user.id)
         .single()
 
-    if (!wedding) redirect('/create-wedding')
+    if (!wedding || !wedding.payout_enabled) redirect('/create-wedding')
 
     /* ----------------------------
        Gifts summary (PAID gifts)

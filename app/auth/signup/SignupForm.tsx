@@ -202,7 +202,7 @@ export default function SignupForm() {
                 >
                     I agree to the{' '}
                     <a
-                        href="/terms"
+                        href="/terms&conditions"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="underline hover:opacity-80"
@@ -212,7 +212,7 @@ export default function SignupForm() {
                     </a>{' '}
                     and{' '}
                     <a
-                        href="/privacy"
+                        href="/privacy-policy   "
                         target="_blank"
                         rel="noopener noreferrer"
                         className="underline hover:opacity-80"

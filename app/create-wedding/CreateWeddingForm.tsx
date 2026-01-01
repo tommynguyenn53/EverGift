@@ -10,6 +10,7 @@ import ImageRecommendationModal from '@/components/ImageRecommendationModal'
 import PortraitUploadTile from '@/components/PortraitUploadTile'
 import ConnectBankAccountContainer from "@/components/ConnectBankAccountContainer";
 import FinalStepChecklist from "@/components/FinalStepChecklist";
+import ExampleBackground from "@/components/ExampleBackground";
 
 
 
@@ -204,7 +205,7 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
     }
 
     return (
-        <PageBackground>
+        <ExampleBackground>
             <div className="w-full flex flex-col items-center">
 
                 {/* Heading */}
@@ -386,7 +387,7 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
                     </div>
 
                     {!wedding.payout_enabled && (
-                        <ConnectBankAccountContainer
+                            <ConnectBankAccountContainer
                             weddingId={weddingId}
                             connected={stripeConnected}
                             beforeConnect={saveDraft}
@@ -430,6 +431,6 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
 
                 </div>
             </div>
-        </PageBackground>
+        </ExampleBackground>
     )
 }
