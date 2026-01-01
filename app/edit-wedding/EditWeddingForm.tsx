@@ -320,6 +320,7 @@ export default function EditWeddingForm({ wedding }: { wedding: Wedding }) {
                 <FinalStepChecklist
                     allFieldsCompleted={allFieldsCompleted}
                     collageUploaded={collageUploaded}
+                    stripeConnected={true}
                     hideStripe
                 />
 
