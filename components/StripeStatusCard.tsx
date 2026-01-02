@@ -19,21 +19,33 @@ export default function StripeStatusCard({weddingId,
     const handleOpenStripeDashboard = async () => {
         if (!stripeAccountId) return
 
+        // 1️⃣ Open blank tab synchronously (Safari allows this)
+        const newTab = window.open('', '_blank', 'noopener,noreferrer')
+
+        if (!newTab) {
+            alert('Please allow popups to open the Stripe dashboard.')
+            return
+        }
+
+        // 2️⃣ Fetch the Stripe login link
         const res = await fetch('/api/stripe/express-login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ weddingId }),
+            body: JSON.stringify({ stripeAccountId }),
         })
 
         if (!res.ok) {
-            console.error(await res.text())
+            newTab.close()
             return
         }
 
         const data = await res.json()
 
+        // 3️⃣ Redirect the already-open tab
         if (data.url) {
-            window.open(data.url, '_blank', 'noopener,noreferrer')
+            newTab.location.href = data.url
+        } else {
+            newTab.close()
         }
     }
 
