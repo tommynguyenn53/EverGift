@@ -48,7 +48,7 @@ export async function POST(req: Request) {
          * ✅ HANDLE EVENT
          */
 
-        if (event.type === 'account.updated') {
+        if (event.type === 'account.updated' || event.type === "capability.updated") {
             const account = event.data.object as Stripe.Account
 
             const payoutsEnabled =
