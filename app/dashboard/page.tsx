@@ -214,6 +214,15 @@ export default async function DashboardPage() {
                                         <p className="font-inter text-[15px] md:text-[22.5px] text-[#3A3A3A]">
                                             {formatDate(gift.created_at)}
                                         </p>
+
+                                        <a
+                                            href="/dashboard/gifts"
+                                            className="mt-[12px] md:mt-[18px]
+                                          font-inter font-medium text-[12px] md:text-[18px]
+                                          text-[#C9A86A] underline hover:opacity-80 transition"
+                                        >
+                                            View all gifts
+                                        </a>
                                     </div>
                                 </div>
                             ))
