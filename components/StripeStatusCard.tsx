@@ -19,39 +19,24 @@ export default function StripeStatusCard({weddingId,
     const handleOpenStripeDashboard = async () => {
         if (!stripeAccountId) return
 
-        // Open tab immediately (Safari-safe)
-        const newTab = window.open('', '_blank', 'noopener,noreferrer')
+        const res = await fetch('/api/stripe/express-login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ weddingId }),
+        })
 
-        if (!newTab) {
-            alert('Please allow popups to open Stripe.')
+        if (!res.ok) {
+            console.error(await res.text())
             return
         }
 
-        try {
-            const res = await fetch('/api/stripe/express-login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                credentials: 'include', // 🔑 CRITICAL
-                body: JSON.stringify({ stripeAccountId }),
-            })
+        const data = await res.json()
 
-            if (!res.ok) {
-                throw new Error('Failed to fetch Stripe login link')
-            }
-
-            const data = await res.json()
-
-            if (data?.url) {
-                newTab.location.href = data.url
-            } else {
-                throw new Error('Missing Stripe URL')
-            }
-        } catch (err) {
-            console.error(err)
-            newTab.close()
-            alert('Unable to open Stripe dashboard. Please try again.')
+        if (data.url) {
+            window.location.href = data.url
         }
     }
+
 
     if (!stripeAccountId) {
         status = 'Not connected'
