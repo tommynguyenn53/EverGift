@@ -57,17 +57,33 @@ export default async function DashboardPage() {
 
     const { data: giftStats } = await supabase
         .from('gifts')
-        .select('amount_cents')
+        .select('amount_cents, platform_fee_cents, stripe_fee_cents, guest_covered_fees')
         .eq('wedding_id', wedding.id)
         .eq('status', 'paid')
 
-    const typedGiftStats = (giftStats ?? []) as { amount_cents: number }[]
+    const typedGiftStats = (giftStats ?? []) as {
+        amount_cents: number
+        platform_fee_cents: number
+        stripe_fee_cents: number
+        guest_covered_fees: boolean
+    }[]
 
     const totalGifts = typedGiftStats.length
-    const totalAmount = typedGiftStats.reduce(
-        (sum, g) => sum + g.amount_cents,
-        0
-    )
+    const totalAmount = typedGiftStats.reduce((sum, gift) => {
+        if (gift.guest_covered_fees) {
+            // Guest paid fees on top — couple gets full amount
+            return sum + gift.amount_cents
+        }
+
+        // Fees deducted from gift
+        return (
+            sum +
+            gift.amount_cents -
+            gift.platform_fee_cents -
+            gift.stripe_fee_cents
+        )
+    }, 0)
+
 
     /* ----------------------------
        Recent gifts (last 5)
