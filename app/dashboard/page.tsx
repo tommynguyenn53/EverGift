@@ -114,9 +114,9 @@ export default async function DashboardPage() {
                 </div>
 
                 <StripeStatusCard
+                    weddingId={wedding.id}
                     stripeAccountId={wedding.stripe_account_id}
                     payoutEnabled={wedding.payout_enabled}
-                    weddingId={wedding.stripe_account_id}
                 />
 
 

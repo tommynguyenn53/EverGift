@@ -4,9 +4,10 @@
 type StripeStatusCardProps = {
     stripeAccountId: string | null
     payoutEnabled: boolean
+    weddingId: string
 }
 
-export default function StripeStatusCard({
+export default function StripeStatusCard({weddingId,
                                              stripeAccountId,
                                              payoutEnabled,
                                          }: StripeStatusCardProps) {
@@ -21,8 +22,13 @@ export default function StripeStatusCard({
         const res = await fetch('/api/stripe/express-login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ stripeAccountId }),
+            body: JSON.stringify({ weddingId }),
         })
+
+        if (!res.ok) {
+            console.error(await res.text())
+            return
+        }
 
         const data = await res.json()
 
