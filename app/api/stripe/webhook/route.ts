@@ -1,10 +1,9 @@
+export const runtime = 'nodejs'
 import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
 import { supabaseService } from '@/lib/supabase/service'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-    apiVersion: '2024-04-10',
-})
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 
 export async function POST(req: Request) {
     const body = await req.text()
@@ -50,7 +49,7 @@ export async function POST(req: Request) {
          * ✅ HANDLE EVENT
          */
 
-        if (event.type === 'account.updated' || event.type === "capability.updated") {
+        if (event.type === 'account.updated') {
             const account = event.data.object as Stripe.Account
 
             const payoutsEnabled =
