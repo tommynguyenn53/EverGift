@@ -1,3 +1,6 @@
+
+'use client'
+
 type StripeStatusCardProps = {
     stripeAccountId: string | null
     payoutEnabled: boolean
@@ -11,6 +14,23 @@ export default function StripeStatusCard({
     let description
     let color
     let icon
+
+    const handleOpenStripeDashboard = async () => {
+        if (!stripeAccountId) return
+
+        const res = await fetch('/api/stripe/login-link', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ stripeAccountId }),
+        })
+
+        const data = await res.json()
+
+        if (data.url) {
+            window.location.href = data.url
+        }
+    }
+
 
     if (!stripeAccountId) {
         status = 'Not connected'
@@ -45,14 +65,15 @@ export default function StripeStatusCard({
                     {description}
                 </p>
 
-                {!payoutEnabled && stripeAccountId && (
-                    <a
-                        href="/create-wedding"
-                        className="mt-[8px] w-fit font-inter font-medium text-[12px]
-                        md:text-[18px] text-[#C9A86A] underline hover:opacity-80"
+                {payoutEnabled && stripeAccountId && (
+                    <button
+                        onClick={handleOpenStripeDashboard}
+                        className="mt-[8px] w-fit font-inter font-medium
+                        text-[12px] md:text-[18px]
+                        text-[#C9A86A] underline hover:opacity-80"
                     >
-                        Finish Stripe setup
-                    </a>
+                        View Stripe dashboard
+                    </button>
                 )}
             </div>
         </div>
