@@ -3,6 +3,11 @@ import { FAQItem } from './FAQItem'
 export default function FAQSection() {
     const faqs = [
         {
+            q: 'What is EverGift?',
+            a: 'EverGift is a digital wedding gifting platform that makes it easy for guests to contribute meaningful gifts and messages to a couple — all in one place. ' +
+                'The couple receives the funds directly into their bank account, helping them celebrate their wedding in the way that matters most to them. No apps, no guest accounts, no complicated setup — just a simple, modern way to give.'
+        },
+        {
             q: 'Is EverGift safe for sending and receiving money?',
             a: 'Absolutely. All payments are processed through Stripe, one of the most secure and trusted payment platforms in the world. Your details and your guests are fully encrypted.',
         },
@@ -24,11 +29,7 @@ export default function FAQSection() {
         },
         {
             q: 'Can we personalise our wedding page?',
-            a: 'Yes! You can customise: banner header, welcome message and upload your own collage photo. Your page will feel elegant, personal, and completely unique to your wedding.',
-        },
-        {
-            q: 'Can guests leave a personal message with their gift?',
-            a: 'Absolutely. Guests can include a heartfelt note along with their gift — and you’ll see it displayed beautifully on your dashboard or success notifications.',
+            a: 'Yes! You can customise: banner header, welcome message and upload your own photo. Your page will feel elegant, personal, and completely unique to your wedding.',
         },
         {
             q: 'What if a guest’s payment fails?',

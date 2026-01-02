@@ -62,7 +62,7 @@ export default function HowEverGiftWorksCard() {
                             className="font-inter font-normal text-[12px] md:text-[18px] leading-[150%] text-[#3A3A3A]/80
                              text-left"
                         >
-                            Upload your photos, enter your details, and personalise your
+                            Upload your photo, enter your details, connect your bank account securely via Stripe and personalise your
                             wedding gifting page in minutes.
                         </p>
                     </div>
