@@ -105,7 +105,7 @@ export default async function PublicWeddingPage({params}: Props) {
                                 className="inline-block mt-[8px]
                                 font-medium text-[#C9A86A]
                                 underline underline-offset-4
-                                hover:opacity-80 transition"
+                                hover:opacity-80 transition hover:opacity-80 active:opacity-60"
                             >
                                 Return to dashboard →
                             </a>
