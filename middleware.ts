@@ -35,6 +35,10 @@ export async function middleware(req: NextRequest) {
         pathname.startsWith('/auth/reset-password') ||
         pathname.startsWith('/auth/password-updated')
 
+    if (pathname.startsWith('/api/stripe/webhook')) {
+        return NextResponse.next()
+    }
+
     // Not logged in → block dashboard
     if (!user && isDashboardRoute) {
         return NextResponse.redirect(new URL('/auth/login', req.url))
