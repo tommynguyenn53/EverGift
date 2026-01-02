@@ -30,6 +30,7 @@ export default function GiftSelectionClient({ weddingId, slug }: Props) {
         ? totalChargedCents - amountCents
         : platformFeeCents + stripeFeeCents
 
+    const hasAmount = amountCents > 0
 
 
     const handleProceedToPayment = async () => {
@@ -60,11 +61,12 @@ export default function GiftSelectionClient({ weddingId, slug }: Props) {
 
     return (
         <main className="w-full flex flex-col items-center">
-            <GiftAmountSelector amountCents={amountCents} onChange={setAmountCents} />
+            <GiftAmountSelector amountCents={amountCents} onChange={setAmountCents}/>
 
             {/* Name */}
             <div className="mt-[24px] md:mt-[36px] w-[298px] md:w-[447px]">
-                <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                <label
+                    className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
                     Your name
                 </label>
                 <input
@@ -77,7 +79,8 @@ export default function GiftSelectionClient({ weddingId, slug }: Props) {
 
             {/* Message */}
             <div className="mt-[24px] md:mt-[36px] w-[298px] md:w-[447px]">
-                <label className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                <label
+                    className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
                     Add a message (optional)
                 </label>
                 <textarea
@@ -96,16 +99,28 @@ export default function GiftSelectionClient({ weddingId, slug }: Props) {
 
             {/* Fees */}
             <div className="mt-[28px] md:mt-[42px] w-[298px] md:w-[447px]">
-                <div className="flex items-center justify-between">
+                <div
+                    className={`flex items-center justify-between transition-opacity ${
+                        hasAmount ? 'opacity-100' : 'opacity-50'
+                    }`}
+                >
                     <p className="w-[240px] md:w-[360px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
                         Help the couple receive the full amount — I’ll cover the fees
                     </p>
-                    <FeeCoverageToggle value={guestCoversFees} onChange={setGuestCoversFees} />
+
+                    <FeeCoverageToggle
+                        value={guestCoversFees}
+                        onChange={setGuestCoversFees}
+                        disabled={!hasAmount}
+                    />
                 </div>
+
                 <p className="mt-[5px] md:mt-[7.5px] text-[11px] md:text-[16.5px] text-[#3A3A3A]">
-                    {guestCoversFees
-                        ? `Adds approx. ${formatCents(totalFeesCents)} to your total`
-                        : 'Fees will be deducted from the gift'}
+                    {!hasAmount
+                        ? 'Enter a gift amount to enable this option'
+                        : guestCoversFees
+                            ? `Adds approx. ${formatCents(totalFeesCents)} to your total`
+                            : 'Fees will be deducted from the gift'}
                 </p>
             </div>
 
