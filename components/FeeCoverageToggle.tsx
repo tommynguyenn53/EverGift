@@ -5,12 +5,15 @@ import { useState } from 'react'
 type Props = {
     value: boolean
     onChange: (value: boolean) => void
+    disabled?: boolean
 }
 
-export default function FeeCoverageToggle({ value, onChange }: Props) {
+export default function FeeCoverageToggle({ value, onChange, disabled }: Props) {
     return (
         <button
-            onClick={() => onChange(!value)}
+            type="button"
+            disabled={disabled}
+            onClick={() => !disabled && onChange(!value)}
             className={`relative w-[44px] md:w-[66px] h-[24px] md:h-[36px] rounded-full transition-colors
         ${value ? 'bg-[#D8C9A6]' : 'bg-[#E5E5E5]'}
       `}
