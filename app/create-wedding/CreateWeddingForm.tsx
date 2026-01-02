@@ -33,7 +33,7 @@ const WELCOMEMESSAGE_LIMIT = 150
 
 
 
-export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
+export default function CreateWeddingForm({wedding}: CreateWeddingFormProps) {
     const supabase = supabaseBrowser()
     const router = useRouter()
 
@@ -61,7 +61,7 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
         !!partnerOne &&
         !!partnerTwo &&
         !!weddingDate &&
-        !! welcomeMessage
+        !!welcomeMessage
 
     const isBlank = (s: string) => !s.trim()
 
@@ -82,7 +82,7 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
         imageHydratedRef.current = true
 
         const loadCollageImage = async () => {
-            const { data: image, error } = await supabase
+            const {data: image, error} = await supabase
                 .from('images')
                 .select('storage_path')
                 .eq('wedding_id', wedding.id)
@@ -90,7 +90,7 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
 
             if (error || !image) return
 
-            const { data } = supabase.storage
+            const {data} = supabase.storage
                 .from('wedding-images')
                 .getPublicUrl(image.storage_path)
 
@@ -104,7 +104,6 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
     }, [wedding.id, supabase])
 
 
-
     const [collageImage, setCollageImage] = useState<{
         path: string
         publicUrl: string
@@ -116,9 +115,24 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
     const uploadCollageImage = async (file: File) => {
         const fileExt = file.name.split('.').pop()
         const fileName = `${Date.now()}-${Math.random().toString(36).slice(2)}.${fileExt}`
-        const filePath = `collages/${fileName}`
 
-        const { error: uploadError } = await supabase.storage
+        const {
+            data: {user},
+        } = await supabase.auth.getUser()
+
+        if (!user) {
+            throw new Error('Not authenticated')
+        }
+
+        if (collageImage?.path) {
+            await supabase.storage
+                .from('wedding-images')
+                .remove([collageImage.path])
+        }
+
+        const filePath = `${user.id}/${fileName}`
+
+        const {error: uploadError} = await supabase.storage
             .from('wedding-images')
             .upload(filePath, file)
 
@@ -126,20 +140,21 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
             throw new Error(uploadError.message)
         }
 
-        const { error: dbError } = await supabase
+        const {error: dbError} = await supabase
             .from('images')
             .upsert(
                 {
                     wedding_id: weddingId,
                     storage_path: filePath,
                 },
+                { onConflict: 'wedding_id'}
             )
 
         if (dbError) {
             throw new Error(dbError.message)
         }
 
-        const { data } = supabase.storage
+        const {data} = supabase.storage
             .from('wedding-images')
             .getPublicUrl(filePath)
 
@@ -148,7 +163,6 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
             publicUrl: data.publicUrl,
         })
     }
-
 
     const saveDraft = async () => {
         await supabase
@@ -181,7 +195,7 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
 
         const slug = generateWeddingSlug(partnerOne, partnerTwo)
 
-        const { error: updateError} = await supabase
+        const {error: updateError} = await supabase
             .from('weddings')
             .update({
                 partner_one_name: partnerOne,
@@ -230,7 +244,8 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
 
                     {/* Partner 1 */}
                     <div>
-                        <label htmlFor="partner-one" className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                        <label htmlFor="partner-one"
+                               className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
                             Partner 1 Name
                         </label>
                         <input
@@ -288,7 +303,7 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
                     {/* Header Text */}
                     <div>
                         <label htmlFor="header-text"
-                            className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
+                               className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
                             text-[#3A3A3A]">
                             Header Text
                         </label>
@@ -312,7 +327,7 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
                     {/* Welcome Message */}
                     <div>
                         <label htmlFor="welcome-message"
-                            className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
+                               className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
                             text-[#3A3A3A]">
                             Welcome Message
                         </label>
@@ -343,7 +358,7 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
 
                         <div className="flex flex-col gap-[10px] md:gap-[15px]">
 
-                        {/* Subheading */}
+                            {/* Subheading */}
                             <p
                                 className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]"
                             >
@@ -387,7 +402,7 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
                     </div>
 
                     {!wedding.payout_enabled && (
-                            <ConnectBankAccountContainer
+                        <ConnectBankAccountContainer
                             weddingId={weddingId}
                             connected={stripeConnected}
                             beforeConnect={saveDraft}
@@ -395,7 +410,8 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
                     )}
 
                     {wedding.payout_enabled && (
-                        <div className="mt-[16px] md:mt-[24px] text-green-600 text-[14px] md:text-[21px] font-inter text-center">
+                        <div
+                            className="mt-[16px] md:mt-[24px] text-green-600 text-[14px] md:text-[21px] font-inter text-center">
                             ✓ Stripe account connected
                         </div>
                     )}
@@ -412,7 +428,6 @@ export default function CreateWeddingForm({ wedding }: CreateWeddingFormProps) {
                         collageUploaded={collageUploaded}
                         stripeConnected={stripeConnected}
                     />
-
 
 
                     {/* CTA */}

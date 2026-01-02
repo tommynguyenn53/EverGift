@@ -85,52 +85,55 @@ export default function EditWeddingForm({ wedding }: { wedding: Wedding }) {
        Upload / replace collage image
     -------------------------------- */
     const uploadCollageImage = async (file: File) => {
-        // 1️⃣ Get existing image (if any)
-        const { data: existingImage } = await supabase
-            .from('images')
-            .select('id, storage_path')
-            .eq('wedding_id', wedding.id)
-            .single()
+        const fileExt = file.name.split('.').pop()
+        const fileName = `${Date.now()}-${Math.random().toString(36).slice(2)}.${fileExt}`
 
-        // 2️⃣ Upload new file
-        const ext = file.name.split('.').pop()
-        const newPath = `collages/${Date.now()}-${Math.random()
-            .toString(36)
-            .slice(2)}.${ext}`
+        const {
+            data: { user },
+        } = await supabase.auth.getUser()
+
+        if (!user) {
+            throw new Error('Not authenticated')
+        }
+
+        // 🔥 Remove old image if it exists
+        if (collageImage?.path) {
+            await supabase.storage
+                .from('wedding-images')
+                .remove([collageImage.path])
+        }
+
+        const filePath = `${user.id}/${fileName}`
 
         const { error: uploadError } = await supabase.storage
             .from('wedding-images')
-            .upload(newPath, file)
+            .upload(filePath, file)
 
-        if (uploadError) throw uploadError
-
-        // 3️⃣ Update or insert DB row
-        if (existingImage) {
-            await supabase
-                .from('images')
-                .update({ storage_path: newPath })
-                .eq('id', existingImage.id)
-
-            // 4️⃣ Delete old storage file
-            if (existingImage.storage_path) {
-                await supabase.storage
-                    .from('wedding-images')
-                    .remove([existingImage.storage_path])
-            }
-        } else {
-            await supabase.from('images').insert({
-                wedding_id: wedding.id,
-                storage_path: newPath,
-            })
+        if (uploadError) {
+            throw uploadError
         }
 
-        // 5️⃣ Update preview
+        // ✅ Single upsert — guaranteed 1 row per wedding
+        const { error: dbError } = await supabase
+            .from('images')
+            .upsert(
+                {
+                    wedding_id: wedding.id,
+                    storage_path: filePath,
+                },
+                { onConflict: 'wedding_id' }
+            )
+
+        if (dbError) {
+            throw dbError
+        }
+
         const { data } = supabase.storage
             .from('wedding-images')
-            .getPublicUrl(newPath)
+            .getPublicUrl(filePath)
 
         setCollageImage({
-            path: newPath,
+            path: filePath,
             publicUrl: data.publicUrl,
         })
     }

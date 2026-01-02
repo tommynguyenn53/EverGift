@@ -71,7 +71,7 @@ export default function ProfileMenu() {
                             {/* Dashboard */}
                             <Link
                                 href="/dashboard"
-                                className="mx-2 my-1 block rounded-lg px-4 py-2 tracking-[0.01em] text-sm font-medium text-[#3A3A3A] hover:bg-black/5 transition"
+                                className="mx-2 my-1 block rounded-lg px-4 py-2 tracking-[0.01em] text-sm font-medium text-[#3A3A3A] hover:bg-black/5 transition active:bg-black/10"
                             >
                                 Dashboard
                             </Link>
@@ -79,7 +79,7 @@ export default function ProfileMenu() {
                             {/* Logout */}
                             <button
                                 onClick={logout}
-                                className="mx-2 mb-2 block w-[calc(100%-1rem)] tracking-[0.01em] rounded-lg px-4 py-2 text-sm font-medium text-red-500 hover:bg-red-50 transition text-left"
+                                className="mx-2 mb-2 block w-[calc(100%-1rem)] tracking-[0.01em] rounded-lg px-4 py-2 text-sm font-medium text-red-500 hover:bg-red-50 transition text-left active:bg-black/10"
                             >
                                 Log out
                             </button>
@@ -87,7 +87,7 @@ export default function ProfileMenu() {
                     ) : (
                         <Link
                             href="/auth/login"
-                            className="block px-4 py-3 text-sm font-medium hover:bg-black/5 rounded-lg mx-2 my-2"
+                            className="block px-4 py-3 text-sm font-medium hover:bg-black/5 rounded-lg mx-2 my-2 active:bg-black/10"
                         >
                             Log in
                         </Link>

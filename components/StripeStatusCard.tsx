@@ -16,19 +16,16 @@ export default function StripeStatusCard({
         status = 'Not connected'
         description = 'Connect Stripe to start receiving wedding gifts.'
         color = 'text-red-600'
-        icon = '✕'
     } else if (!payoutEnabled) {
         status = 'Setup in progress'
         description =
             'Your Stripe account is connected, but setup is not finished yet.'
         color = 'text-[#C9A86A]'
-        icon = '⏳'
     } else {
         status = 'Ready to receive gifts'
         description =
             'Your Stripe account is fully set up and can receive payments.'
         color = 'text-green-600'
-        icon = '✓'
     }
 
     return (
