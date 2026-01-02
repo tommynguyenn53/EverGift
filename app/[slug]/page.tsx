@@ -84,8 +84,31 @@ export default async function PublicWeddingPage({params}: Props) {
 
                     {/* Draft banner (owner only) */}
                     {isOwner && wedding.status === 'draft' && (
-                        <div className="mt-[40px] rounded-md bg-yellow-100 text-yellow-800 px-4 py-2 text-sm">
-                            This page is in draft mode and only visible to you.
+                        <div
+                            className="mt-[40px] w-full max-w-[520px]
+                            rounded-[12px] bg-[#FFF7E0]
+                            border border-[#E8D9B5]
+                            px-[16px] py-[14px]
+                            font-inter text-[13px] md:text-[18px]
+                            text-[#6F5A1E]"
+                        >
+                            <p className="font-medium">
+                                This page is in draft mode
+                            </p>
+
+                            <p className="mt-[4px] text-[#6F5A1E]/80">
+                                Only you can see it until it’s published.
+                            </p>
+
+                            <a
+                                href="/dashboard"
+                                className="inline-block mt-[8px]
+                                font-medium text-[#C9A86A]
+                                underline underline-offset-4
+                                hover:opacity-80 transition"
+                            >
+                                Return to dashboard →
+                            </a>
                         </div>
                     )}
 
