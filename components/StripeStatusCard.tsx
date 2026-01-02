@@ -18,7 +18,7 @@ export default function StripeStatusCard({
     const handleOpenStripeDashboard = async () => {
         if (!stripeAccountId) return
 
-        const res = await fetch('/api/stripe/login-link', {
+        const res = await fetch('/api/stripe/express-login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ stripeAccountId }),
