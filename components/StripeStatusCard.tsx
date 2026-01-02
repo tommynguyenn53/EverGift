@@ -33,7 +33,7 @@ export default function StripeStatusCard({weddingId,
         const data = await res.json()
 
         if (data.url) {
-            window.location.href = data.url
+            window.open(data.url, '_blank', 'noopener,noreferrer')
         }
     }
 
@@ -76,7 +76,7 @@ export default function StripeStatusCard({weddingId,
                         onClick={handleOpenStripeDashboard}
                         className="mt-[8px] w-fit font-inter font-medium
                         text-[12px] md:text-[18px]
-                        text-[#C9A86A] underline hover:opacity-80"
+                        text-[#C9A86A] underline transition hover:opacity-80 active:opacity-60"
                     >
                         View Stripe dashboard
                     </button>
