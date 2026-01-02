@@ -362,7 +362,7 @@ export default function CreateWeddingForm({wedding}: CreateWeddingFormProps) {
                             <p
                                 className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]"
                             >
-                                Your Collage Photo
+                                Your Photo
                             </p>
 
                             {/* Helper text */}

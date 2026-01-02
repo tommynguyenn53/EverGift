@@ -89,6 +89,16 @@ export default function ImageRecommendationModal({
                     ×
                 </button>
 
+                <p className="font-inter text-[11px] md:text-[16.5px] leading-[150%] tracking-[0.015em] text-[#3A3A3A]">
+                    <strong>You don’t need to create a collage.</strong>
+                </p>
+
+                <p className="font-inter text-[11px] md:text-[16.5px] leading-[150%] tracking-[0.015em] text-[#3A3A3A]">
+                    You can simply upload a single photo of the two of you together.
+                    A portrait photo from your phone works perfectly and looks great on your page.
+                </p>
+
+
                 <p className="font-inter text-[11px] md:text-[16.5px] tracking-[0.015em] text-[#3A3A3A]">
                     <strong className="">
                         Create your collage (recommended tools)
@@ -96,7 +106,8 @@ export default function ImageRecommendationModal({
                 </p>
 
                 <p className="font-inter text-[11px] md:text-[16.5px] leading-[150%] tracking-[0.015em] text-[#3A3A3A]">
-                    We suggest creating your collage using a design tool, then uploading the final image:
+                    If you do plan on creating a collage, we suggest using a design tool, then uploading the final
+                    image:
                 </p>
 
                 <ul className="list-disc pl-[16px] space-y-[6px] md:space-y-[9px] font-inter text-[11px] md:text-[16.5px] leading-[150%] tracking-[0.015em] text-[#3A3A3A]">
@@ -136,6 +147,10 @@ export default function ImageRecommendationModal({
                         — More control for custom layouts
                     </li>
                 </ul>
+
+                <p className="font-inter text-[11px] md:text-[16.5px] leading-[150%] tracking-[0.015em] text-[#3A3A3A]/80">
+                    Collages are optional — they’re just a nice way to combine multiple moments into one image.
+                </p>
 
                 <p className="font-inter text-[11px] md:text-[16.5px] tracking-[0.015em] text-[#3A3A3A]">
                     <strong>Recommended image size:</strong>

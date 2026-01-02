@@ -118,7 +118,7 @@ export default async function PublicWeddingPage({params}: Props) {
                     {/* Message */}
                     <p
                         className="playfair-display-body_text mt-[32px] md:mt-[48px] font-playfair font-normal
-                        text-[15px] md:text-[22.5px] leading-[150%] text-[#3A3A3A] w-[270px] md:w-[430px]whitespace-pre-line"
+                        text-[15px] md:text-[22.5px] leading-[150%] text-[#3A3A3A] w-[270px] md:w-[430px] whitespace-pre-line"
                     >
                         {wedding.welcome_message}
 

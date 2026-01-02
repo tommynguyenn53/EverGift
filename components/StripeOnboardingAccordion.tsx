@@ -137,7 +137,7 @@ export default function StripeOnboardingAccordion() {
                         </p>
                         <ul className="mt-[6px] ml-[18px] list-disc text-[#3A3A3A]/80">
                             <li>
-                                Industry:{' '}
+                                In the <strong>Industry</strong> field, use the search bar and select{' '}
                                 <strong>Other personal services</strong>
                             </li>
                             <li>Select <strong>“I don’t have a website”</strong></li>

@@ -54,7 +54,7 @@ export default function PortraitUploadTile({
             +
           </span>
                     <span className="font-inter text-[12px] md:text-[18px] text-black/40">
-            Upload collage
+            Upload photo
           </span>
                 </div>
             )}
