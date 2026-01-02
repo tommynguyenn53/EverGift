@@ -150,9 +150,9 @@ export default async function AllGiftsPage() {
                         href="/dashboard"
                         className="mt-[20px] inline-block
                         font-inter font-medium text-[12px] md:text-[18px]
-                        text-[#C9A86A] underline hover:opacity-80"
+                        text-[#C9A86A] underline transition hover:opacity-80 active:opacity-60"
                     >
-                        ← Back to dashboard
+                        Back to dashboard
                     </a>
                 </div>
             </main>

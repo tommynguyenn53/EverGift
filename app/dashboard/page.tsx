@@ -219,7 +219,7 @@ export default async function DashboardPage() {
                                             href="/dashboard/gifts"
                                             className="mt-[12px] md:mt-[18px]
                                           font-inter font-medium text-[12px] md:text-[18px]
-                                          text-[#C9A86A] underline hover:opacity-80 transition"
+                                          text-[#C9A86A] underline transition hover:opacity-80 active:opacity-60"
                                         >
                                             View all gifts
                                         </a>
