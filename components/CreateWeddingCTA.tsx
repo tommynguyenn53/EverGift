@@ -4,7 +4,7 @@ import CreateWeddingButton from "@/components/CreateWeddingButton";
 export default function CreateWeddingCTA() {
     return (
         <div
-            className="flex flex-col items-center text-center mt-[48px] md:mt-[72px]"
+            className="flex flex-col items-center text-center mt-[32px] md:mt-[48px]"
         >
             {/* Heading */}
             <h2
@@ -18,7 +18,7 @@ export default function CreateWeddingCTA() {
                 className="mt-[12px] md:mt-[18px] font-inter font-normal text-[11px] md:text-[16.5px] tracking-[0.015em]
                 text-[#999999]"
             >
-                Takes less than 5 minutes.
+                Takes less than 10 minutes.
             </p>
 
             {/* CTA Button */}
