@@ -43,33 +43,6 @@ export async function POST(req: Request) {
             totalChargedCents,
         } = calculateSummary(amountCents, guestCoversFees)
 
-
-// 1️⃣ Insert pending gift FIRST
-        const { data: gift, error: giftError } = await supabase
-            .from('gifts')
-            .insert({
-                wedding_id: weddingId,
-                amount_cents: amountCents,
-                platform_fee_cents: platformFeeCents,
-                stripe_fee_cents: stripeFeeCents,
-                guest_covered_fees: guestCoversFees,
-                guest_name: guestName,
-                message_text: message,
-                status: 'pending',
-            })
-            .select('id')
-            .single()
-
-        if (giftError || !gift) {
-            console.error(giftError)
-            return NextResponse.json(
-                { error: 'Failed to save gift' },
-                { status: 500 }
-            )
-        }
-
-
-
         // 1️⃣ Create Checkout Session
         const session = await stripe.checkout.sessions.create(
             {
@@ -90,7 +63,6 @@ export async function POST(req: Request) {
                 payment_intent_data: {
                     application_fee_amount: platformFeeCents,
                     metadata: {
-                        gift_id: gift.id,
                         wedding_id: weddingId,
                         guest_name: guestName ?? '',
                         message_text: message ?? '',
@@ -106,15 +78,28 @@ export async function POST(req: Request) {
 
 
         // 2️⃣ Insert pending gift
-        await supabase
-            .from('gifts')
-            .update({ stripe_checkout_session_id: session.id })
-            .eq('id', gift.id)
+        const { error: giftError } = await supabase.from('gifts').insert({
+            wedding_id: weddingId,
+            amount_cents: amountCents,
+            platform_fee_cents: platformFeeCents,
+            stripe_fee_cents: stripeFeeCents,
+            guest_covered_fees: guestCoversFees,
+            stripe_checkout_session_id: session.id, // Checkout session ID
+            guest_name: guestName,
+            message_text: message,
+            status: 'pending',
 
+        })
 
+        if (giftError) {
+            console.error(giftError)
+            return NextResponse.json(
+                { error: 'Failed to save gift' },
+                { status: 500 }
+            )
+        }
 
         return NextResponse.json({ url: session.url })
-
     } catch (err) {
         console.error(err)
         return NextResponse.json(

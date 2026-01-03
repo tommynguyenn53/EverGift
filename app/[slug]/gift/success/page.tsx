@@ -3,9 +3,7 @@ import AppHeader from '@/components/AppHeader'
 import Footer from '@/components/Footer'
 import { formatCents } from '@/lib/payments/format'
 import { supabaseService } from '@/lib/supabase/service'
-import Stripe from 'stripe'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 
 type Props = {
     params: { slug: string }
