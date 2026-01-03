@@ -1,4 +1,6 @@
 export const runtime = 'nodejs'
+export const dynamic = 'force-dynamic'
+
 import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
 import { supabaseService } from '@/lib/supabase/service'
@@ -27,6 +29,9 @@ export async function POST(req: Request) {
         console.error('Webhook signature verification failed', err)
         return NextResponse.json({ error: 'Invalid signature' }, { status: 400 })
     }
+
+    console.log('✅ Verified event:', event.type)
+
 
     const supabase = supabaseService
     const eventId = event.id
@@ -80,25 +85,20 @@ export async function POST(req: Request) {
         }
 
 
-
         if (event.type === 'checkout.session.completed') {
             const session = event.data.object as Stripe.Checkout.Session
             const sessionId = session.id
 
-            // Re-fetch session with expanded payment_intent
-            const expandedSession = await stripe.checkout.sessions.retrieve(sessionId, {
-                expand: ['payment_intent'],
-            })
+            console.log('💰 Checkout completed:', sessionId)
 
-            const paymentIntent =
-                expandedSession.payment_intent as Stripe.PaymentIntent | null
+            const paymentIntentId = session.payment_intent as string | null
 
-            if (!paymentIntent) {
-                console.error('PaymentIntent missing for session', sessionId)
+            if (!paymentIntentId) {
+                console.error('Missing payment_intent on session', sessionId)
                 return NextResponse.json({ received: true })
             }
 
-            // 🔁 Retry loop to handle DB race condition
+            // 🔁 Retry loop (keep this — it's good)
             let gift = null
 
             for (let i = 0; i < 5; i++) {
@@ -121,24 +121,16 @@ export async function POST(req: Request) {
                 return NextResponse.json({ received: true })
             }
 
-            /**
-             * 🔒 IDEMPOTENT UPDATE
-             * Prevents double status updates if webhook is replayed
-             */
-            const { error: updateError } = await supabase
+            await supabase
                 .from('gifts')
                 .update({
                     status: 'paid',
-                    stripe_payment_intent_id: paymentIntent.id,
+                    stripe_payment_intent_id: paymentIntentId,
                 })
                 .eq('stripe_checkout_session_id', sessionId)
                 .neq('status', 'paid')
-
-            if (updateError) {
-                console.error('Gift update failed:', updateError)
-                throw updateError
-            }
         }
+
 
         if (event.type === 'checkout.session.expired') {
             const session = event.data.object as Stripe.Checkout.Session
