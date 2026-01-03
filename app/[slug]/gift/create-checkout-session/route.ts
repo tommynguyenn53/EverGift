@@ -42,37 +42,38 @@ export async function POST(req: Request) {
         } = calculateSummary(amountCents, guestCoversFees)
 
         // 1️⃣ Create Checkout Session
-        const session = await stripe.checkout.sessions.create({
-            mode: 'payment',
-            currency: 'aud',
-            payment_method_types: ['card'],
-            line_items: [
-                {
-                    price_data: {
-                        currency: 'aud',
-                        unit_amount: totalChargedCents,
-                        product_data: {
-                            name: 'Wedding Gift',
+        const session = await stripe.checkout.sessions.create(
+            {
+                mode: 'payment',
+                payment_method_types: ['card'],
+                line_items: [
+                    {
+                        price_data: {
+                            currency: 'aud',
+                            unit_amount: totalChargedCents,
+                            product_data: {
+                                name: 'Wedding Gift',
+                            },
                         },
+                        quantity: 1,
                     },
-                    quantity: 1,
+                ],
+                payment_intent_data: {
+                    application_fee_amount: platformFeeCents,
+                    metadata: {
+                        wedding_id: weddingId,
+                        guest_name: guestName ?? '',
+                        message_text: message ?? '',
+                    },
                 },
-            ],
-            payment_intent_data: {
-                application_fee_amount: platformFeeCents,
-                transfer_data: {
-                    destination: wedding.stripe_account_id,
-                },
-                metadata: {
-                    wedding_id: weddingId,
-                    guest_name: guestName ?? '',
-                    message_text: message ?? '',
-
-                },
+                success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/${slug}/gift/success?session_id={CHECKOUT_SESSION_ID}`,
+                cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/${slug}/gift`,
             },
-            success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/${slug}/gift/success?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/${slug}/gift`,
-        })
+            {
+                stripeAccount: wedding.stripe_account_id,
+            }
+        )
+
 
         // 2️⃣ Insert pending gift
         const { error: giftError } = await supabase.from('gifts').insert({
