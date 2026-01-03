@@ -6,16 +6,16 @@ import { supabaseService } from '@/lib/supabase/service'
 
 
 type Props = {
-    params: Promise<{ slug: string }>
-    searchParams: Promise<{ session_id?: string }>
+    params: { slug: string }
+    searchParams: { session_id?: string }
 }
 
 export const dynamic = 'force-dynamic'
 
 
 export default async function GiftSuccessPage({ params, searchParams }: Props) {
-    const { slug } = await params
-    const { session_id: sessionId } = await searchParams
+    const { slug } = params
+    const { session_id: sessionId } = searchParams
 
 
     if (!slug || !sessionId) notFound()
