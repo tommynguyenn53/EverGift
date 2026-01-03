@@ -288,7 +288,7 @@ export default function TermsPage() {
                             <br/>
                             <br/>
                             Email us anytime at: <br/>
-                            <a href="mailto:evergift.team@gmail.com" className="underline hover:underline">
+                            <a href="mailto:support@evergift.com.au" className="underline hover:underline">
                                 support@evergift.com.au
                             </a>
                             <br/>

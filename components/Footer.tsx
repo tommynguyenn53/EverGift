@@ -43,7 +43,7 @@ export default function Footer() {
                     </Link>
                     {' '}•{' '}
 
-                    <a href="mailto:evergift.team@gmail.com" className="hover:underline">
+                    <a href="mailto:support@evergift.com.au" className="hover:underline">
                         Contact Us
                     </a>
                 </div>
