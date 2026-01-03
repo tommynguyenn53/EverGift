@@ -10,6 +10,23 @@ type Props = {
     searchParams: { session_id?: string }
 }
 
+
+type Wedding = {
+    partner_one_name: string
+    partner_two_name: string
+    slug: string
+}
+
+type GiftWithWedding = {
+    amount_cents: number
+    platform_fee_cents: number
+    stripe_fee_cents: number
+    guest_covered_fees: boolean
+    guest_name: string | null
+    message_text: string | null
+    wedding: Wedding
+}
+
 export const dynamic = 'force-dynamic'
 
 
@@ -23,28 +40,29 @@ export default async function GiftSuccessPage({ params, searchParams }: Props) {
     const supabase = supabaseService
 
 // 2️⃣ Fetch gift by PRIMARY KEY (no race condition)
-    const { data: gift, error } = await supabase
+    const { data, error } = await supabase
         .from('gifts')
         .select(`
-        amount_cents,
-        platform_fee_cents,
-        stripe_fee_cents,
-        guest_covered_fees,
-        guest_name,
-        message_text,
-        wedding:weddings (
-          partner_one_name,
-          partner_two_name,
-          slug
+    amount_cents,
+    platform_fee_cents,
+    stripe_fee_cents,
+    guest_covered_fees,
+    guest_name,
+    message_text,
+    wedding:weddings (
+      partner_one_name,
+      partner_two_name,
+      slug
     )
   `)
         .eq('stripe_checkout_session_id', sessionId)
         .single()
 
-    if (error || !gift) notFound()
+    if (error || !data) notFound()
 
-
+    const gift = data as unknown as GiftWithWedding
     const wedding = gift.wedding
+
 
     if (!wedding) notFound()
 
