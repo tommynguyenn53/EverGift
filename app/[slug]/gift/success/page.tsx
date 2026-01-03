@@ -3,7 +3,9 @@ import AppHeader from '@/components/AppHeader'
 import Footer from '@/components/Footer'
 import { formatCents } from '@/lib/payments/format'
 import { supabaseService } from '@/lib/supabase/service'
+import Stripe from 'stripe'
 
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 
 type Props = {
     params: { slug: string }
@@ -22,26 +24,27 @@ export default async function GiftSuccessPage({ params, searchParams }: Props) {
 
     const supabase = supabaseService
 
-    // 1️⃣ Fetch gift using Checkout Session ID (pre-webhook)
+// 2️⃣ Fetch gift by PRIMARY KEY (no race condition)
     const { data: gift, error } = await supabase
         .from('gifts')
         .select(`
-      amount_cents,
-      platform_fee_cents,
-      stripe_fee_cents,
-      guest_covered_fees,
-      guest_name,
-      message_text,
-      wedding:weddings (
-        partner_one_name,
-        partner_two_name,
-        slug
-      )
-    `)
+        amount_cents,
+        platform_fee_cents,
+        stripe_fee_cents,
+        guest_covered_fees,
+        guest_name,
+        message_text,
+        wedding:weddings (
+          partner_one_name,
+          partner_two_name,
+          slug
+    )
+  `)
         .eq('stripe_checkout_session_id', sessionId)
         .single()
 
     if (error || !gift) notFound()
+
 
     const wedding = gift.wedding?.[0]
 
