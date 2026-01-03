@@ -238,7 +238,7 @@ export default function PrivacyPolicyPage() {
                         <p>
                             <br/> Requests can be made by emailing:
                             <br/>
-                            <a href="mailto:support@evergift.com" className="underline hover:underline">
+                            <a href="mailto:support@evergift.com.au" className="underline hover:underline">
                                 support@evergift.app
                             </a>
                         </p>
@@ -319,13 +319,22 @@ export default function PrivacyPolicyPage() {
 
                         <p className="mt-[20px]">
                             <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
-                                12. Contact
+                                12.Contact
                                 Us</strong><br/>
-                            If you have questions, contact us at:
+                            Need help?
                             <br/>
-                            <a href="mailto:support@evergift.com" className="underline hover:underline">
-                                support@evergift.app
+                            <br/>
+                            If you have any questions or run into issues, our support team is here to help.
+                            <br/>
+                            <br/>
+                            Email us anytime at: <br/>
+                            <a href="mailto:evergift.team@gmail.com" className="underline hover:underline">
+                                support@evergift.com.au
                             </a>
+                            <br/>
+                            <br/>
+                            We usually respond within 24 hours.
+                            <br/>
 
                         </p>
 

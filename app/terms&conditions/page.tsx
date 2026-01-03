@@ -281,11 +281,20 @@ export default function TermsPage() {
                             <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">17.
                                 Contact
                                 Us</strong><br/>
-                            If you have questions, contact us at:
+                            Need help?
                             <br/>
-                            <a href="mailto:support@evergift.com" className="underline hover:underline">
-                                support@evergift.app
+                            <br/>
+                            If you have any questions or run into issues, our support team is here to help.
+                            <br/>
+                            <br/>
+                            Email us anytime at: <br/>
+                            <a href="mailto:evergift.team@gmail.com" className="underline hover:underline">
+                                support@evergift.com.au
                             </a>
+                            <br/>
+                            <br/>
+                            We usually respond within 24 hours.
+                            <br/>
 
                         </p>
 
