@@ -60,13 +60,13 @@ export async function POST(req: Request) {
                         quantity: 1,
                     },
                 ],
+                metadata: {
+                    wedding_id: weddingId,
+                    guest_name: guestName ?? '',
+                    message_text: message ?? '',
+                },
                 payment_intent_data: {
                     application_fee_amount: platformFeeCents,
-                    metadata: {
-                        wedding_id: weddingId,
-                        guest_name: guestName ?? '',
-                        message_text: message ?? '',
-                    },
                 },
                 success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/${slug}/gift/success?session_id={CHECKOUT_SESSION_ID}`,
                 cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/${slug}/gift`,
