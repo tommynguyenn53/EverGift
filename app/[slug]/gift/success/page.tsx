@@ -10,10 +10,13 @@ type Props = {
     searchParams: Promise<{ session_id?: string }>
 }
 
+export const dynamic = 'force-dynamic'
+
 
 export default async function GiftSuccessPage({ params, searchParams }: Props) {
     const { slug } = await params
     const { session_id: sessionId } = await searchParams
+
 
     if (!slug || !sessionId) notFound()
 
