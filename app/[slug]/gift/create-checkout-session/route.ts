@@ -68,7 +68,7 @@ export async function POST(req: Request) {
                         message_text: message ?? '',
                     },
                 },
-                success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
+                success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/${slug}/gift/success?session_id={CHECKOUT_SESSION_ID}`,
                 cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/${slug}/gift`,
             },
             {
