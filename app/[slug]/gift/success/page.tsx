@@ -56,7 +56,7 @@ export default async function GiftSuccessPage({ params, searchParams }: Props) {
     )
   `)
         .eq('stripe_checkout_session_id', sessionId)
-        .single()
+        .maybeSingle()
 
     if (error || !data) notFound()
 
