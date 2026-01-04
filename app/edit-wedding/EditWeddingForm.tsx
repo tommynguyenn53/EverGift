@@ -334,7 +334,8 @@ export default function EditWeddingForm({ wedding }: { wedding: Wedding }) {
                         || !collageImage}
                     className="mt-[16px] md:mt-[24px] shadow-[6px_4px_18px_rgba(0,0,0,0.1)] rounded-[14px]
                     md:rounded-[21px] bg-[#D8C9A6] py-[16px] md:py-[24px] font-inter font-medium text-[16px] md:text-[24px]
-                    text-white disabled:opacity-60"
+                    text-white transition disabled:opacity-60 disabled:cursor-not-allowed hover:opacity-90 active:opacity-80
+                    active:scale-[0.98]"
                 >
                     {loading ? 'Updating…' : 'Update My Wedding Page'}
                 </button>

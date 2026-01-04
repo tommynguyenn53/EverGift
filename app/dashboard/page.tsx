@@ -8,10 +8,14 @@ import StripeStatusCard from "@/components/StripeStatusCard";
 type Gift = {
     id: string
     amount_cents: number
+    platform_fee_cents: number
+    stripe_fee_cents: number
+    guest_covered_fees: boolean
     created_at: string
     guest_name: string | null
     message_text: string | null
 }
+
 
 
 function formatAmount(cents: number) {
@@ -84,6 +88,20 @@ export default async function DashboardPage() {
         )
     }, 0)
 
+    function getNetGiftAmount(gift: Gift) {
+        if (gift.guest_covered_fees) {
+            return gift.amount_cents
+        }
+
+        return (
+            gift.amount_cents -
+            gift.platform_fee_cents -
+            gift.stripe_fee_cents
+        )
+    }
+
+
+
 
     /* ----------------------------
        Recent gifts (last 5)
@@ -91,7 +109,8 @@ export default async function DashboardPage() {
 
     const { data: recentGifts } = await supabase
         .from('gifts')
-        .select('id, amount_cents, created_at, guest_name, message_text')
+        .select(`id, amount_cents, platform_fee_cents, stripe_fee_cents, guest_covered_fees, created_at, 
+        guest_name, message_text`)
         .eq('wedding_id', wedding.id)
         .eq('status', 'paid')
         .order('created_at', { ascending: false })
@@ -211,7 +230,7 @@ export default async function DashboardPage() {
                                     >
                                         <div className="flex flex-col gap-[10px] md:gap-[15px]">
                                             <p className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
-                                                {gift.guest_name ?? 'Guest'} — {formatAmount(gift.amount_cents)}
+                                                {gift.guest_name ?? 'Guest'} — {formatAmount(getNetGiftAmount(gift))}
                                             </p>
 
                                             <p className="font-inter font-regular text-[15px] md:text-[22.5px] text-[#3A3A3A]">
@@ -223,7 +242,7 @@ export default async function DashboardPage() {
                                                     : '"No message"'}
                                             </p>
 
-                                            <p className="font-inter text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                            <p className="font-inter text-[13px] md:text-[19.5px] text-[#3A3A3A]/70">
                                                 {formatDate(gift.created_at)}
                                             </p>
                                         </div>

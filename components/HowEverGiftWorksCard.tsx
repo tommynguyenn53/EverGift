@@ -29,7 +29,7 @@ export default function HowEverGiftWorksCard() {
                         />
                     </div>
 
-                    <div className="w-[64px] h-[64px] md:w-[96px] md:h-[96px]">
+                    <div className="w-[64px] h-[64px] md:w-[96px] md:h-[96px] mt-[24px] md:mt-[36px]">
                         <img
                             src="/qr-icon.svg"
                             alt=""
