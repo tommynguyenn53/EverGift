@@ -24,6 +24,7 @@ function formatAmount(cents: number) {
 
 function formatDate(date: string) {
     return new Date(date).toLocaleString('en-AU', {
+        timeZone: 'Australia/Sydney',
         month: 'short',
         day: 'numeric',
         year: 'numeric',
@@ -32,6 +33,7 @@ function formatDate(date: string) {
         hour12: true,
     })
 }
+
 
 export default async function DashboardPage() {
     const supabase = await supabaseServer()
