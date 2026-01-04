@@ -36,9 +36,16 @@ export default async function GiftSuccessPage({ params, searchParams }: Props) {
     const { slug } = params
     const { session_id: sessionId } = searchParams
 
+    if (!slug) notFound()
 
-    if (!slug || !sessionId) {
-        return <div>Missing params</div>
+    if (!sessionId) {
+        return (
+            <div className="min-h-screen flex items-center justify-center text-center">
+                <p className="text-gray-600">
+                    Verifying your payment… please refresh in a moment.
+                </p>
+            </div>
+        )
     }
 
     const supabase = createClient(
