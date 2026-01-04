@@ -1,9 +1,31 @@
+'use client'
+
+
 import PageBackground from '@/components/PageBackground'
+import { useEffect, useState } from 'react'
 
 export default function TermsPage() {
+
+    const [showButton, setShowButton] = useState(false)
+
+    useEffect(() => {
+        const onScroll = () => {
+            setShowButton(window.scrollY > 300)
+        }
+
+        window.addEventListener('scroll', onScroll)
+        return () => window.removeEventListener('scroll', onScroll)
+    }, [])
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        })
+    }
+
     return (
         <PageBackground>
-
             <main className="w-full flex justify-center">
                 <div className="w-full max-w-[320px] md: max-w-[480px] mt-[40px] md:mt-[60px]">
 
@@ -300,10 +322,54 @@ export default function TermsPage() {
 
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
 
+                        {/* Back to top */}
+
 
                     </div>
                 </div>
+                {/* Floating Back to Top */}
+                {showButton && (
+                    <button
+                        onClick={scrollToTop}
+                        aria-label="Back to top"
+                        className="
+                            fixed
+                            bottom-[24px] md:bottom-[36px]
+                            right-[20px] md:right-[32px]
+                            z-50
+                            w-[44px] md:w-[56px]
+                            h-[44px] md:h-[56px]
+                            flex items-center justify-center
+                            rounded-full
+                            bg-white border-[2px]
+                            border-[#CBB89B]
+                            text-[#A89470]
+                            shadow-[0_6px_20px_rgba(0,0,0,0.18)]
+                            transition
+                            hover:opacity-90
+                            active:opacity-80
+                            active:scale-[0.95]
+                        "
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-[20px] h-[20px] md:w-[24px] md:h-[24px]"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M5 15l7-7 7 7"
+                            />
+                        </svg>
+                    </button>
+                )}
+
             </main>
+
         </PageBackground>
     )
 }
