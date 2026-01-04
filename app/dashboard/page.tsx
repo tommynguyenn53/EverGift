@@ -183,60 +183,63 @@ export default async function DashboardPage() {
                 </div>
 
                 {/* Recent Gifts */}
-                <div className="w-[270px] md:w-[405px]">
-                    <h2 className="mt-[32px] md:mt-[48px] font-inter font-medium text-[15px] md:text-[22.5px]
-                    tracking-[0.015em] text-[#3A3A3A] text-left">
-                        Recent Gifts
-                    </h2>
+                <div className="w-[270px] md:w-[405px] mt-[32px] md:mt-[48px]">
+                    <div className="flex items-center justify-between align-center">
+                        <h2 className="font-inter font-medium text-[15px] md:text-[22.5px]
+                            tracking-[0.015em] text-[#3A3A3A]">
+                            Recent Gifts
+                        </h2>
 
-                    <div className="mt-[16px] md:mt-[24px] flex flex-col gap-[12px] md:gap-[18px]">
-                        {typedRecentGifts.length > 0 ? (
-                            typedRecentGifts.map((gift) => (
-                                <div
-                                    key={gift.id}
-                                    className="w-[270px] md:w-[405px] rounded-[10px] md:rounded-[15px] bg-white px-[15px]
-                                    md:px-[22.5px] py-[15px] md:py-[22.5px]"
-                                >
-                                    <div className="flex flex-col gap-[10px] md:gap-[15px]">
-                                        <p className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
-                                            {gift.guest_name ?? 'Guest'} — {formatAmount(gift.amount_cents)}
-                                        </p>
-
-                                        <p className="font-inter font-regular text-[15px] md:text-[22.5px] text-[#3A3A3A]">
-                                            {gift.message_text
-                                                ? `"${gift.message_text.length > 35
-                                                    ? gift.message_text.slice(0, 35) + '…'
-                                                    : gift.message_text
-                                                }"`
-                                                : '"No message"'}
-                                        </p>
-
-                                        <p className="font-inter text-[15px] md:text-[22.5px] text-[#3A3A3A]">
-                                            {formatDate(gift.created_at)}
-                                        </p>
-
-                                        <a
-                                            href="/dashboard/gifts"
-                                            className="mt-[12px] md:mt-[18px]
+                        <a
+                            href="/dashboard/gifts"
+                            className="
                                           font-inter font-medium text-[12px] md:text-[18px]
-                                          text-[#C9A86A] underline transition hover:opacity-80 active:opacity-60"
-                                        >
-                                            View all gifts
-                                        </a>
+                                          text-[#C9A86A] transition hover:opacity-80 active:opacity-60"
+                        >
+                            View all gifts →
+                        </a>
+                    </div>
+
+
+                        <div className="mt-[16px] md:mt-[24px] flex flex-col gap-[12px] md:gap-[18px]">
+                            {typedRecentGifts.length > 0 ? (
+                                typedRecentGifts.map((gift) => (
+                                    <div
+                                        key={gift.id}
+                                        className="w-[270px] md:w-[405px] rounded-[10px] md:rounded-[15px] bg-white px-[15px]
+                                    md:px-[22.5px] py-[15px] md:py-[22.5px]"
+                                    >
+                                        <div className="flex flex-col gap-[10px] md:gap-[15px]">
+                                            <p className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                                {gift.guest_name ?? 'Guest'} — {formatAmount(gift.amount_cents)}
+                                            </p>
+
+                                            <p className="font-inter font-regular text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                                {gift.message_text
+                                                    ? `"${gift.message_text.length > 35
+                                                        ? gift.message_text.slice(0, 35) + '…'
+                                                        : gift.message_text
+                                                    }"`
+                                                    : '"No message"'}
+                                            </p>
+
+                                            <p className="font-inter text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                                {formatDate(gift.created_at)}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            ))
-                        ) : (
-                            <div
-                                className="w-[270px] md:w-[405px] rounded-[10px] md:rounded-[15px] bg-white px-[15px]
+                                ))
+                            ) : (
+                                <div
+                                    className="w-[270px] md:w-[405px] rounded-[10px] md:rounded-[15px] bg-white px-[15px]
                                 md:px-[22.5px] py-[15px] md:py-[22.5px] text-center font-inter text-[15px]
                                 md:text-[22.5px] text-[#3A3A3A]/70">
-                                No gifts yet — they’ll appear here once guests start gifting.
-                            </div>
-                        )}
+                                    No gifts yet — they’ll appear here once guests start gifting.
+                                </div>
+                            )}
+                        </div>
                     </div>
-                </div>
             </main>
         </PageBackground>
-    )
+)
 }

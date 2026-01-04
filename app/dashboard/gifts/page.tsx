@@ -143,17 +143,18 @@ export default async function AllGiftsPage() {
                                 No gifts yet — messages will appear here once guests start gifting.
                             </div>
                         )}
+                        <a
+                            href={`/dashboard`}
+                            className="mt-[24px] md:mt-[36px] h-[55px] md:h-[82.5px] flex items-center
+                    justify-center rounded-[14px] md:rounded-[21px] bg-[#D8C9A6] font-inter font-medium text-[16px]
+                    md:text-[24px] text-white shadow-[6px_4px_18px_rgba(0,0,0,0.1)] hover:opacity-90 transition
+                    disabled:opacity-60 disabled:cursor-not-allowed hover:opacity-90 active:opacity-80 active:scale-[0.98]"
+                        >
+                            Return to Dashboard
+                        </a>
                     </div>
 
                     {/* Back link */}
-                    <a
-                        href="/dashboard"
-                        className="mt-[20px] inline-block
-                        font-inter font-medium text-[12px] md:text-[18px]
-                        text-[#C9A86A] underline transition hover:opacity-80 active:opacity-60"
-                    >
-                        Back to dashboard
-                    </a>
                 </div>
             </main>
         </PageBackground>

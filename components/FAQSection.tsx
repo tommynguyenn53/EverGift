@@ -21,7 +21,7 @@ export default function FAQSection() {
         },
         {
             q: 'How does the 5% platform fee work?',
-            a: 'EverGift charges a 5% platform fee on each gift to support the platform. Guests can choose whether to cover the fees at checkout. If they don’t, the platform and Stripe processing fees are simply deducted from the gift amount, and the couple never pays anything out of pocket. If a guest chooses to cover the fees, the total increases slightly because Stripe’s processing fee is calculated based on the final payment amount.',
+            a: 'EverGift charges a 5% platform fee on each gift to support the platform. Guests can choose whether to cover the fees at checkout. If they don’t, the platform and Stripe processing fees are simply deducted from the gift amount, and the couple never pays anything out of pocket. If a guest chooses to cover the fees, the total increases slightly because Stripe’s processing fee is calculated based on the final payment amount which allows the couple to receive the full amount.',
         },
         {
             q: 'When do we receive the money?',
@@ -29,7 +29,7 @@ export default function FAQSection() {
         },
         {
             q: 'Can we personalise our wedding page?',
-            a: 'Yes! You can customise: banner header, welcome message and upload your own photo. Your page will feel elegant, personal, and completely unique to your wedding.',
+            a: 'Yes! You can customise your banner header, welcome message and upload your own photo. Your page will feel elegant, personal, and completely unique to your wedding.',
         },
         {
             q: 'What if a guest’s payment fails?',

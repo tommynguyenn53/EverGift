@@ -68,9 +68,9 @@ export default function HomePage() {
                     <Link
                         href="/example"
                         className="shadow-[6px_4px_18px_rgba(0,0,0,0.1)] mt-[32px] md:mt-[48px] inline-flex items-center
-                        justify-center rounded-[14px] md:rounded-[21px] bg-white border-[1.5px] border-[#CBB89B]
+                        justify-center rounded-[14px] md:rounded-[21px] bg-[#D8C9A6]
                         px-[62px] py-[18px] md:px-[93px] md:py-[27px] font-inter font-medium text-[16px] md:text-[24px]
-                        text-[#A89470] transition hover:bg-[#FAF6F0] active:bg-[#FAF6F0] duration-150 hover:opacity-90
+                        text-white transition hover:bg-[#FAF6F0] duration-150 hover:opacity-90
                         active:opacity-80 active:scale-[0.98]"
                     >
                         View Example Page
