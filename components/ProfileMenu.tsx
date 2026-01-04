@@ -53,7 +53,7 @@ export default function ProfileMenu() {
             {/* Dropdown */}
             {open && (
                 <div
-                    className="absolute right-0 mt-3 w-60 rounded-2xl bg-[#FFFDF8] shadow-[0_12px_30px_rgba(0,0,0,0.12)] border border-black/5 overflow-hidden animate-in fade-in zoom-in-95 font-inter">
+                    className="absolute z-10 right-0 mt-3 w-60 rounded-2xl bg-[#FFFDF8] shadow-[0_12px_30px_rgba(0,0,0,0.12)] border border-black/5 overflow-hidden animate-in fade-in zoom-in-95 font-inter">
                     {email ? (
                         <>
                             {/* Email / identity */}
