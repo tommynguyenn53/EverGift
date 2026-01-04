@@ -7,8 +7,8 @@ import { createClient } from '@supabase/supabase-js'
 
 
 type Props = {
-    params: { slug: string }
-    searchParams: { session_id?: string }
+    params: Promise<{ slug: string }>
+    searchParams: Promise<{ session_id?: string }>
 }
 
 
@@ -33,25 +33,13 @@ export const dynamic = 'force-dynamic'
 
 export default async function GiftSuccessPage({ params, searchParams }: Props) {
     console.log('✅ SUCCESS PAGE EXECUTED')
-    const { slug } = params
-    const { session_id: sessionId } = searchParams
+    const { slug } = await params
+    const { session_id: sessionId } = await searchParams
 
-    if (!slug) notFound()
+    if (!slug || !sessionId) notFound()
 
-    if (!sessionId) {
-        return (
-            <div className="min-h-screen flex items-center justify-center text-center">
-                <p className="text-gray-600">
-                    Verifying your payment… please refresh in a moment.
-                </p>
-            </div>
-        )
-    }
 
-    const supabase = createClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    )
+    const supabase = supabaseService
 
 // 2️⃣ Fetch gift by PRIMARY KEY (no race condition)
     const { data, error } = await supabase
