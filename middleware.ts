@@ -3,6 +3,17 @@ import type { NextRequest } from 'next/server'
 import { createServerClient } from '@supabase/ssr'
 
 export async function middleware(req: NextRequest) {
+    const pathname = req.nextUrl.pathname
+
+    // ✅ ALLOW PUBLIC GUEST ROUTES (VERY IMPORTANT)
+    if (
+        pathname.startsWith('/api/stripe/webhook') ||
+        pathname.includes('/gift/success') ||
+        pathname.match(/^\/[^/]+\/gift/)
+    ) {
+        return NextResponse.next()
+    }
+
     let res = NextResponse.next()
 
     const supabase = createServerClient(
@@ -27,17 +38,11 @@ export async function middleware(req: NextRequest) {
         data: { user },
     } = await supabase.auth.getUser()
 
-    const pathname = req.nextUrl.pathname
-
     const isAuthRoute = pathname.startsWith('/auth')
     const isDashboardRoute = pathname.startsWith('/dashboard')
     const isPasswordResetFlow =
         pathname.startsWith('/auth/reset-password') ||
         pathname.startsWith('/auth/password-updated')
-
-    if (pathname.startsWith('/api/stripe/webhook')) {
-        return NextResponse.next()
-    }
 
     // Not logged in → block dashboard
     if (!user && isDashboardRoute) {
@@ -55,9 +60,10 @@ export async function middleware(req: NextRequest) {
 export const config = {
     matcher: [
         '/dashboard/:path*',
+        '/auth/:path*',
         '/edit-wedding',
         '/create-wedding',
         '/wedding-ready',
+        '/:slug/gift/:path*', // 👈 ensures middleware is aware of route
     ],
 }
-
