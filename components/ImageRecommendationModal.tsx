@@ -101,7 +101,7 @@ export default function ImageRecommendationModal({
 
                 <p className="font-inter text-[11px] md:text-[16.5px] tracking-[0.015em] text-[#3A3A3A]">
                     <strong className="">
-                        Create your collage (recommended tools)
+                        Creating your collage (recommended tools)
                     </strong>
                 </p>
 
