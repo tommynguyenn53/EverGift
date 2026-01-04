@@ -37,6 +37,10 @@ export default function TermsPage() {
                         Terms & Conditions
                     </h1>
 
+                    <p className="mt-[12px] md:mt-[18px] font-inter font-regular text-center text-[12px] md:text-[18px] text-[#3A3A3A]/80">
+                        Last Updated: 5 January 2026 <br/>
+                    </p>
+
                     {/* Body */}
                     <div
                         className="mt-[24px] md:mt-[36px] font-inter font-normal text-[12px] md:text-[18px] leading-[170%]
@@ -80,7 +84,8 @@ export default function TermsPage() {
                                 Privacy
                             </strong><br/>
                             EverGift collects and uses personal information in accordance with its Privacy Policy.
-                            By using the platform, you consent to the collection and use of your information as described in that policy.
+                            By using the platform, you consent to the collection and use of your information as
+                            described in that policy.
 
                         </p>
 
@@ -102,7 +107,7 @@ export default function TermsPage() {
                             By uploading content, you confirm:
                             <br/>• You own the rights to the content OR have permission to use it
                             <br/>• The content does not violate copyright laws
-                            <br/>• Illegal material is not permitted
+                            <br/>• Illegal or unlawful content is not permitted
                             <br/><br/>
                             We reserve the right to remove or disable content that violates these Terms.
                         </p>
@@ -124,6 +129,9 @@ export default function TermsPage() {
                                 Platform
                                 Fees</strong><br/>
                             EverGift charges a platform fee on each gift. This fee is disclosed before payment.
+                            Stripe processing fees may be deducted from gifts unless the guest chooses to cover fees
+                            during checkout.
+                            Fee responsibility is clearly disclosed prior to payment.
                             <br/><br/>
                             <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]">5.3
                                 Availability of
@@ -138,6 +146,9 @@ export default function TermsPage() {
                             <br/><br/>
                             <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]">5.5
                                 Refunds</strong><br/>
+                            EverGift does not have the ability to independently issue refunds.
+                            Refunds, if any, are subject to Stripe’s policies and the discretion of the receiving
+                            couple.
                             All gifts are voluntary and final unless:
                             <br/>• Required by law
                             <br/>• Approved by the couple
@@ -165,7 +176,9 @@ export default function TermsPage() {
                             <br/>• Ensuring gift links are accurate
                             <br/><br/>
                             EverGift does not guarantee outcomes between guests and couples beyond
-                            facilitating the gifting platform.
+                            facilitating the gifting platform. EverGift does not guarantee that gifts will be accepted,
+                            acknowledged,
+                            or used by the receiving couple.
 
                         </p>
 
@@ -251,6 +264,10 @@ export default function TermsPage() {
                             <br/>• Lost or delayed payments
                             <br/>• Stripe processing issues
                             <br/>• Content posted by users
+                            <br/>
+                            <br/>
+                            EverGift does not provide financial, legal, or tax advice. EverGift is not a bank, escrow
+                            service, or trustee of funds.
                         </p>
 
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
@@ -303,7 +320,7 @@ export default function TermsPage() {
                             <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">17.
                                 Contact
                                 Us</strong><br/>
-                            Need help?
+                            Need help or have questions?
                             <br/>
                             <br/>
                             If you have any questions or run into issues, our support team is here to help.

@@ -34,6 +34,9 @@ export default function PrivacyPolicyPage() {
                     >
                         Privacy Policy
                     </h1>
+                    <p className="mt-[12px] md:mt-[18px] font-inter font-regular text-center text-[12px] md:text-[18px] text-[#3A3A3A]/80">
+                        Last Updated: 5 January 2026 <br/>
+                    </p>
 
                     {/* Body */}
                     <div
@@ -55,7 +58,7 @@ export default function PrivacyPolicyPage() {
                         <ul className="list-disc pl-[16px] md:pl-[24px]">
                             <li>Names of the couple</li>
                             <li>Wedding date</li>
-                            <li>Photo of the collage</li>
+                            <li>Your photos</li>
                             <li>Custom messages or page text</li>
                             <li>Email addresses</li>
                             <li>
@@ -90,7 +93,8 @@ export default function PrivacyPolicyPage() {
                             <li>Date and time of interactions</li>
                         </ul>
 
-                        <p>
+                        <p><br/>
+                            This information is used in aggregate and is not used to personally identify users unless required for security, fraud prevention, or legal compliance.<br/>
                             <br/> This information helps us operate the platform, improve performance, enhance security,
                             and prevent misuse.
 
@@ -111,15 +115,20 @@ export default function PrivacyPolicyPage() {
                         <ul className="list-disc pl-[16px] md:pl-[24px]">
                             <li>Create and display your wedding page</li>
                             <li>Process gifts securely via Stripe</li>
-                            <li>Send emails about gift activity</li>
+                            <li>Send transactional emails related to gift activity, account setup, or important service updates.
+                            </li>
                             <li>Provide customer support</li>
                             <li>Improve our website and services</li>
                             <li>Prevent fraud or misuse</li>
+                            <li>We do not send marketing emails without consent</li>
                         </ul>
 
                         <p>
                             <br/> We never sell your information. By using EverGift, you consent to the collection
-                            and use of your information as described in this Privacy Policy.
+                            and use of your information as described in this Privacy Policy. <br/> <br/>
+
+                            We collect and process personal information where necessary to provide our services,
+                            comply with legal obligations, and based on user consent.
 
                         </p>
 
@@ -173,7 +182,8 @@ export default function PrivacyPolicyPage() {
                         </ul>
 
                         <p>
-                            <br/> However, no online service is 100% secure. By using EverGift, you accept this risk.
+                            <br/> However, no online service is 100% secure. By using EverGift, you accept this risk. EverGift is not responsible for
+                            unauthorised access caused by factors outside our reasonable control.
                         </p>
 
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
@@ -241,7 +251,7 @@ export default function PrivacyPolicyPage() {
                                 7. Couple & Guest Rights</strong>
                         </p>
 
-                        <p>
+                        <p>EverGift complies with the Australian Privacy Act 1988 (Cth) and the Australian Privacy Principles (APPs). <br/> <br/>
                             Under Australian privacy laws, you have the right to:
                         </p>
 
@@ -337,9 +347,9 @@ export default function PrivacyPolicyPage() {
 
                         <p className="mt-[20px]">
                             <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
-                                12.Contact
+                                12. Contact
                                 Us</strong><br/>
-                            Need help?
+                            Need help or have questions?
                             <br/>
                             <br/>
                             If you have any questions or run into issues, our support team is here to help.

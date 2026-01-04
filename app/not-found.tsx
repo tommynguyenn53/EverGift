@@ -33,6 +33,13 @@ export default function NotFound() {
                             expired, or no longer active.
                         </p>
 
+                        <p
+                            className="mt-[16px] md:mt-[24px] w-[300px] md:w-[450px] font-inter font-normal text-[15px]
+                            md:text-[22.5px] leading-[150%] tracking-[0.015em] text-[#3A3A3A]"
+                        >
+                            If this page doesn’t load right away, <br/> try refreshing your browser.
+                        </p>
+
                         {/* CTA */}
                         <Link
                             href="/"
