@@ -63,7 +63,7 @@ export default async function WeddingReadyPage() {
                     className="mt-[16px] md:mt-[24px] font-inter font-normal text-[15px] md:text-[22.5px] tracking-[0.015em]
                      text-[#3A3A3A]"
                 >
-                    Press the QR code to save or share it.
+                    Press the QR code to save and share it.
                 </p>
 
                 {/* Action buttons */}

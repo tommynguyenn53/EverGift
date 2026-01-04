@@ -136,11 +136,6 @@ export default async function DashboardPage() {
                     Here’s your wedding page overview.
                 </p>
 
-                <p className="mt-[16px] md:mt-[24px] font-inter text-[15px] md:text-[22.5px] leading-[150%]
-                tracking-[0.015em] text-[#3A3A3A] text-center">
-                    Press the QR code to save or share it.
-                </p>
-
                 <div className="mt-[24px] md:mt-[36px]">
                     <PublishToggle
                         weddingId={wedding.id}
@@ -155,7 +150,12 @@ export default async function DashboardPage() {
                 />
 
 
-                <div className="mt-[32px] md:mt-[48px] flex gap-[20px] md:gap-[30px]">
+                <p className="mt-[24px] md:mt-[36px] font-inter text-[15px] md:text-[22.5px] leading-[150%]
+                tracking-[0.015em] text-[#3A3A3A] text-center">
+                    Press the QR code to save and share it.
+                </p>
+
+                <div className="mt-[24px] md:mt-[36px] flex gap-[20px] md:gap-[30px]">
 
                     <div className="w-[130px] md:w-[195px] h-[130px] md:h-[195px] rounded-[10px] md:rounded-[15px]
                     bg-white px-[20px] md:px-[30px] flex flex-col justify-center shadow-[0_4px_12px_rgba(0,0,0,0.05)]">
@@ -176,7 +176,7 @@ export default async function DashboardPage() {
                         </p>
                     </div>
 
-                    <WeddingQrCodeDashboard value={pageUrl} />
+                    <WeddingQrCodeDashboard value={pageUrl}/>
                 </div>
 
                 <div className="mt-[32px] md:mt-[48px] grid grid-cols-2 gap-[12px] md:gap-[18px]">
@@ -220,45 +220,45 @@ export default async function DashboardPage() {
                     </div>
 
 
-                        <div className="mt-[16px] md:mt-[24px] flex flex-col gap-[12px] md:gap-[18px]">
-                            {typedRecentGifts.length > 0 ? (
-                                typedRecentGifts.map((gift) => (
-                                    <div
-                                        key={gift.id}
-                                        className="w-[270px] md:w-[405px] rounded-[10px] md:rounded-[15px] bg-white px-[15px]
-                                    md:px-[22.5px] py-[15px] md:py-[22.5px]"
-                                    >
-                                        <div className="flex flex-col gap-[10px] md:gap-[15px]">
-                                            <p className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
-                                                {gift.guest_name ?? 'Guest'} — {formatAmount(getNetGiftAmount(gift))}
-                                            </p>
-
-                                            <p className="font-inter font-regular text-[15px] md:text-[22.5px] text-[#3A3A3A]">
-                                                {gift.message_text
-                                                    ? `"${gift.message_text.length > 35
-                                                        ? gift.message_text.slice(0, 35) + '…'
-                                                        : gift.message_text
-                                                    }"`
-                                                    : '"No message"'}
-                                            </p>
-
-                                            <p className="font-inter text-[13px] md:text-[19.5px] text-[#3A3A3A]/70">
-                                                {formatDate(gift.created_at)}
-                                            </p>
-                                        </div>
-                                    </div>
-                                ))
-                            ) : (
+                    <div className="mt-[16px] md:mt-[24px] flex flex-col gap-[12px] md:gap-[18px]">
+                        {typedRecentGifts.length > 0 ? (
+                            typedRecentGifts.map((gift) => (
                                 <div
+                                    key={gift.id}
                                     className="w-[270px] md:w-[405px] rounded-[10px] md:rounded-[15px] bg-white px-[15px]
+                                    md:px-[22.5px] py-[15px] md:py-[22.5px]"
+                                >
+                                    <div className="flex flex-col gap-[10px] md:gap-[15px]">
+                                        <p className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                            {gift.guest_name ?? 'Guest'} — {formatAmount(getNetGiftAmount(gift))}
+                                        </p>
+
+                                        <p className="font-inter font-regular text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                            {gift.message_text
+                                                ? `"${gift.message_text.length > 35
+                                                    ? gift.message_text.slice(0, 35) + '…'
+                                                    : gift.message_text
+                                                }"`
+                                                : '"No message"'}
+                                        </p>
+
+                                        <p className="font-inter text-[13px] md:text-[19.5px] text-[#3A3A3A]/70">
+                                            {formatDate(gift.created_at)}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))
+                        ) : (
+                            <div
+                                className="w-[270px] md:w-[405px] rounded-[10px] md:rounded-[15px] bg-white px-[15px]
                                 md:px-[22.5px] py-[15px] md:py-[22.5px] text-center font-inter text-[15px]
                                 md:text-[22.5px] text-[#3A3A3A]/70">
-                                    No gifts yet — they’ll appear here once guests start gifting.
-                                </div>
-                            )}
-                        </div>
+                                No gifts yet — they’ll appear here once guests start gifting.
+                            </div>
+                        )}
                     </div>
+                </div>
             </main>
         </PageBackground>
-)
+    )
 }

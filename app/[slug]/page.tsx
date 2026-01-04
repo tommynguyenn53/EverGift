@@ -147,7 +147,6 @@ export default async function PublicWeddingPage({params}: Props) {
 
                     </p>
 
-                    {/* CTA (disabled for now) */}
                     <Link
                         href={`/${slug}/gift`}
                         className="mt-[24px] md:mt-[36px] shadow-[6px_4px_18px_rgba(0,0,0,0.1)] inline-flex items-center

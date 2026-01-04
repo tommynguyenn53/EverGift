@@ -17,7 +17,8 @@ export default function WeddingReadyActions({ pageUrl }: Props) {
                 href={pageUrl}
                 className="w-[150px] md:w-[225px] h-[55px] md:h-[82.5px] flex items-center justify-center
                 shadow-[6px_4px_18px_rgba(0,0,0,0.1)] rounded-[14px] md:rounded-[21px] bg-[#D8C9A6] font-inter
-                font-medium text-[16px] md:text-[24px] text-white transition hover:opacity-90 active:scale-[0.98]"
+                font-medium text-[16px] md:text-[24px] text-white transition disabled:opacity-60 disabled:cursor-not-allowed hover:opacity-90 active:opacity-80
+                    active:scale-[0.98]"
             >
                 View Live Page
             </a>
@@ -26,16 +27,18 @@ export default function WeddingReadyActions({ pageUrl }: Props) {
                 onClick={copyLink}
                 className="w-[150px] md:w-[225px] h-[55px] md:h-[82.5px] flex items-center justify-center
                 shadow-[6px_4px_18px_rgba(0,0,0,0.1)] rounded-[14px] md:rounded-[21px] bg-[#D8C9A6] font-inter font-medium
-                text-[16px] md:text-[24px] text-white transition hover:opacity-90 active:scale-[0.98]"
+                text-[16px] md:text-[24px] text-white transition disabled:opacity-60 disabled:cursor-not-allowed hover:opacity-90 active:opacity-80
+                    active:scale-[0.98]"
             >
-                Share Page Link
+                Copy Page Link
             </button>
 
             <a
                 href="/edit-wedding"
                 className="w-[150px] md:w-[225px] h-[55px] md:h-[82.5px] flex items-center justify-center
                 shadow-[6px_4px_18px_rgba(0,0,0,0.1)] rounded-[14px] md:rounded-[21px] bg-[#D8C9A6] font-inter
-                 font-medium text-[16px] md:text-[24px] text-white transition hover:opacity-90 active:scale-[0.98]"
+                 font-medium text-[16px] md:text-[24px] text-white transition disabled:opacity-60 disabled:cursor-not-allowed hover:opacity-90 active:opacity-80
+                    active:scale-[0.98]"
             >
                 Edit Wedding
             </a>
@@ -44,7 +47,8 @@ export default function WeddingReadyActions({ pageUrl }: Props) {
                 href="/dashboard"
                 className="w-[150px] md:w-[225px] h-[55px] md:h-[82.5px] flex items-center justify-center
                 shadow-[6px_4px_18px_rgba(0,0,0,0.1)] rounded-[14px] md:rounded-[21px] bg-[#D8C9A6] font-inter
-                font-medium text-[16px] md:text-[24px] text-white transition hover:opacity-90 active:scale-[0.98]"
+                font-medium text-[16px] md:text-[24px] text-white transition disabled:opacity-60 disabled:cursor-not-allowed hover:opacity-90 active:opacity-80
+                    active:scale-[0.98]"
             >
                 Dashboard
             </a>
