@@ -2,14 +2,17 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { createServerClient } from '@supabase/ssr'
 
+
+
 export async function middleware(req: NextRequest) {
+    console.log('🧱 MIDDLEWARE HIT:', req.nextUrl.pathname)
+
     const pathname = req.nextUrl.pathname
 
-    // ✅ ALLOW PUBLIC GUEST ROUTES (VERY IMPORTANT)
+    // 🔓 PUBLIC ROUTES — MUST BYPASS COMPLETELY
     if (
         pathname.startsWith('/api/stripe/webhook') ||
-        pathname.includes('/gift/success') ||
-        pathname.match(/^\/[^/]+\/gift/)
+        pathname.includes('/gift') // includes /gift and /gift/success
     ) {
         return NextResponse.next()
     }
@@ -44,12 +47,12 @@ export async function middleware(req: NextRequest) {
         pathname.startsWith('/auth/reset-password') ||
         pathname.startsWith('/auth/password-updated')
 
-    // Not logged in → block dashboard
+    // 🚫 Not logged in → block dashboard
     if (!user && isDashboardRoute) {
         return NextResponse.redirect(new URL('/auth/login', req.url))
     }
 
-    // Logged in → block auth pages (except reset flow)
+    // 🚫 Logged in → block auth pages (except reset flow)
     if (user && isAuthRoute && !isPasswordResetFlow) {
         return NextResponse.redirect(new URL('/dashboard', req.url))
     }
@@ -64,6 +67,5 @@ export const config = {
         '/edit-wedding',
         '/create-wedding',
         '/wedding-ready',
-        '/:slug/gift/:path*', // 👈 ensures middleware is aware of route
     ],
 }

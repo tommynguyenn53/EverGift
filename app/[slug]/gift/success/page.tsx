@@ -3,6 +3,7 @@ import AppHeader from '@/components/AppHeader'
 import Footer from '@/components/Footer'
 import { formatCents } from '@/lib/payments/format'
 import { supabaseService } from '@/lib/supabase/service'
+import { createClient } from '@supabase/supabase-js'
 
 
 type Props = {
@@ -31,13 +32,19 @@ export const dynamic = 'force-dynamic'
 
 
 export default async function GiftSuccessPage({ params, searchParams }: Props) {
+    console.log('✅ SUCCESS PAGE EXECUTED')
     const { slug } = params
     const { session_id: sessionId } = searchParams
 
 
-    if (!slug || !sessionId) notFound()
+    if (!slug || !sessionId) {
+        return <div>Missing params</div>
+    }
 
-    const supabase = supabaseService
+    const supabase = createClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    )
 
 // 2️⃣ Fetch gift by PRIMARY KEY (no race condition)
     const { data, error } = await supabase
