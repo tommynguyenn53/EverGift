@@ -179,7 +179,6 @@ export default function GiftSelectionClient({ weddingId, slug }: Props) {
                     <PortraitUploadTile
                         uploadedUrl={giftImage?.publicUrl}
                         onUpload={uploadGiftImage}
-                        loading={uploadingImage}
                     />
                 </div>
 
