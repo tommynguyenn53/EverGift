@@ -50,7 +50,7 @@ export default function StripeStatusCard({weddingId,
     } else {
         status = 'Ready to receive gifts'
         description =
-            'Your Stripe account is fully set up and can receive payments.'
+            'Your Stripe account is fully set up and can receive payments. You can view your Stripe dashboard with the link below.'
         color = 'text-green-600'
     }
 
