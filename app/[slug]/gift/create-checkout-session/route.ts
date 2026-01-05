@@ -14,6 +14,8 @@ export async function POST(req: Request) {
             message,
             guestCoversFees,
             slug,
+            imagePath,
+            imagePublicUrl
         } = await req.json()
 
         if (!weddingId || amountCents < 100) {
@@ -87,6 +89,8 @@ export async function POST(req: Request) {
             stripe_checkout_session_id: session.id, // Checkout session ID
             guest_name: guestName,
             message_text: message,
+            image_path: imagePath ?? null,
+            image_public_url: imagePublicUrl ?? null,
             status: 'pending',
 
         })

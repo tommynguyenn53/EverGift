@@ -11,6 +11,8 @@ type Gift = {
     created_at: string
     guest_name: string | null
     message_text: string | null
+    image_path: string | null
+    image_public_url: string | null
 }
 
 function formatAmount(cents: number) {
@@ -69,7 +71,9 @@ export default async function AllGiftsPage() {
             guest_covered_fees,
             created_at,
             guest_name,
-            message_text
+            message_text,
+            image_path, 
+            image_public_url
         `)
         .eq('wedding_id', wedding.id)
         .eq('status', 'paid')
@@ -132,6 +136,13 @@ export default async function AllGiftsPage() {
                                             {formatDate(gift.created_at)}
                                         </p>
                                     </div>
+                                    {gift.image_public_url && (
+                                        <img
+                                            src={gift.image_public_url}
+                                            alt="Gift photo"
+                                            className="mt-[10px] w-full rounded-[10px] object-cover"
+                                        />
+                                    )}
                                 </div>
                             ))
                         ) : (

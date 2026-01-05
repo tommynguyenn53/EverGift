@@ -14,6 +14,8 @@ type Gift = {
     created_at: string
     guest_name: string | null
     message_text: string | null
+    image_path: string | null
+    image_public_url: string | null
 }
 
 
@@ -112,7 +114,7 @@ export default async function DashboardPage() {
     const { data: recentGifts } = await supabase
         .from('gifts')
         .select(`id, amount_cents, platform_fee_cents, stripe_fee_cents, guest_covered_fees, created_at, 
-        guest_name, message_text`)
+        guest_name, message_text, image_path, image_public_url`)
         .eq('wedding_id', wedding.id)
         .eq('status', 'paid')
         .order('created_at', { ascending: false })
@@ -248,6 +250,13 @@ export default async function DashboardPage() {
                                             {formatDate(gift.created_at)}
                                         </p>
                                     </div>
+                                    {gift.image_public_url && (
+                                        <img
+                                            src={gift.image_public_url}
+                                            alt="Gift photo"
+                                            className="mt-[10px] w-full rounded-[10px] object-cover"
+                                        />
+                                    )}
                                 </div>
                             ))
                         ) : (
