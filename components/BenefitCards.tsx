@@ -28,7 +28,7 @@ const benefits = [
 export default function BenefitCards() {
     return (
         <div
-            className="flex flex-col gap-[20px] md:gap-[30px] mt-[24px] md:mt-[36px]"
+            className="flex flex-col gap-[30px] md:gap-[45px] mt-[24px] md:mt-[36px]"
         >
             {benefits.map((benefit) => (
                 <div
@@ -43,7 +43,7 @@ export default function BenefitCards() {
                     />
 
                     {/* Text group */}
-                    <div className="flex flex-col gap-[10px] md:gap-[15px]">
+                    <div className="flex flex-col gap-[15px] md:gap-[22.5px]">
                         <h3
                             className="font-inter font-medium text-[17px] md:text-[25.5px] text-[#3A3A3A] text-center
                             width-[233px]"
@@ -52,7 +52,7 @@ export default function BenefitCards() {
                         </h3>
 
                         <p
-                            className="font-inter font-normal text-[12px] md:text-[18px] leading-[150%] text-[#3A3A3A]
+                            className="font-inter font-normal text-[12px] md:text-[18px] leading-[200%] text-[#3A3A3A]
                             w-[233px] md:w-[349.5px]"
                         >
                             {benefit.description}

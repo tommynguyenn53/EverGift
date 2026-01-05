@@ -1,7 +1,7 @@
 export default function HowPricingWorks() {
     return (
         <div
-            className="flex flex-col gap-[12px] md:gap-[18px] text-center mt-[48px] md:mt-[72px]"
+            className="flex flex-col gap-[20px] md:gap-[30px] text-center mt-[48px] md:mt-[72px]"
         >
             {/* Title */}
             <h2

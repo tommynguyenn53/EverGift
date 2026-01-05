@@ -289,11 +289,11 @@ export default function EditWeddingForm({ wedding }: { wedding: Wedding }) {
 
                 <div className="mt-[16px] md:mt-[24px] flex flex-col gap-[10px] md:gap-[15px]">
                     <p className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
-                        Your Collage Photos
+                        Your Photo
                     </p>
 
                     <p className="font-inter text-[11px] md:text-[16.5px] tracking-[0.015em] text-[#3A3A3A]">
-                        Update your collage photos below.
+                        Make your wedding page feel uniquely yours.
                     </p>
 
                     <button

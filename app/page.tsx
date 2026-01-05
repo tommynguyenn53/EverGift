@@ -70,7 +70,7 @@ export default function HomePage() {
 
 
                     <h1
-                        className="mt-[48px] md:mt-[72px] font-inter font-medium text-[22px] md:text-[39px] leading-tight
+                        className="mt-[64px] md:mt-[96px] font-inter font-medium text-[22px] md:text-[39px] leading-tight
                         tracking-[0.015em] text-[#3A3A3A]"
                     >
                         Why Couples Love EverGift
@@ -87,7 +87,7 @@ export default function HomePage() {
 
                     <Link
                         href="/example"
-                        className="shadow-[6px_4px_18px_rgba(0,0,0,0.1)] mt-[32px] md:mt-[48px] inline-flex items-center
+                        className="shadow-[6px_4px_18px_rgba(0,0,0,0.1)] mt-[48px] md:mt-[72px] inline-flex items-center
                         justify-center rounded-[14px] md:rounded-[21px] bg-[#D8C9A6]
                         px-[62px] py-[18px] md:px-[93px] md:py-[27px] font-inter font-medium text-[16px] md:text-[24px]
                         text-white transition hover:bg-[#FAF6F0] duration-150 hover:opacity-90
