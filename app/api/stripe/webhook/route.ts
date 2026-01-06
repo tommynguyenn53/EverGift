@@ -4,8 +4,13 @@ export const dynamic = 'force-dynamic'
 import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
 import { supabaseService } from '@/lib/supabase/service'
+import { Resend } from 'resend'
+import GiftReceivedEmail from '@/emails/GiftReceivedEmail'
+
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
+const resend = new Resend(process.env.RESEND_API_KEY!)
+
 
 export async function POST(req: Request) {
     console.log('🔔 WEBHOOK HIT')
@@ -104,7 +109,14 @@ export async function POST(req: Request) {
             for (let i = 0; i < 5; i++) {
                 const { data } = await supabase
                     .from('gifts')
-                    .select('*')
+                    .select(`
+                *,
+                wedding:weddings (
+                    partner_one_name,
+                    partner_two_name,
+                    user_id
+                )
+            `)
                     .eq('stripe_checkout_session_id', sessionId)
                     .single()
 
@@ -121,7 +133,8 @@ export async function POST(req: Request) {
                 return NextResponse.json({ received: true })
             }
 
-            await supabase
+            // ✅ Update gift to PAID (idempotent)
+            const { error: updateError } = await supabase
                 .from('gifts')
                 .update({
                     status: 'paid',
@@ -129,8 +142,48 @@ export async function POST(req: Request) {
                 })
                 .eq('stripe_checkout_session_id', sessionId)
                 .neq('status', 'paid')
-        }
 
+            if (updateError) {
+                throw updateError
+            }
+
+            /**
+             * 📧 SEND EMAIL (after successful update)
+             */
+
+            const totalFees =
+                gift.platform_fee_cents + gift.stripe_fee_cents
+
+            const totalReceived = gift.guest_covered_fees
+                ? gift.amount_cents
+                : gift.amount_cents - totalFees
+
+            // 🔎 Fetch couple email
+            const { data: coupleUser } = await supabase
+                .from('auth.users')
+                .select('email')
+                .eq('id', gift.wedding.user_id)
+                .single()
+
+            if (coupleUser?.email) {
+                await resend.emails.send({
+                    from: 'EverGift <notifications@evergift.com.au>',
+                    to: coupleUser.email,
+                    subject: '🎁 You’ve received a new wedding gift',
+                    react: GiftReceivedEmail({
+                        coupleNames: `${gift.wedding.partner_one_name} & ${gift.wedding.partner_two_name}`,
+                        guestName: gift.guest_name,
+                        message: gift.message_text,
+                        amount: `$${(gift.amount_cents / 100).toFixed(2)}`,
+                        fees: `$${(totalFees / 100).toFixed(2)}`,
+                        total: `$${(totalReceived / 100).toFixed(2)}`,
+                        feesCovered: gift.guest_covered_fees,
+                        imageUrl: gift.image_public_url,
+                        dashboardUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/dashboard`,
+                    }),
+                })
+            }
+        }
 
         if (event.type === 'checkout.session.expired') {
             const session = event.data.object as Stripe.Checkout.Session
