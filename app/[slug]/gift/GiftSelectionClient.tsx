@@ -175,19 +175,33 @@ export default function GiftSelectionClient({ weddingId, slug }: Props) {
 
                 <div className="mt-[36px] md:mt-[54px] w-[298px] md:w-[447px]">
                     {!showPhotoUpload ? (
-                        <button
-                            type="button"
-                            onClick={() => setShowPhotoUpload(true)}
-                            className="w-full text-left"
+                        <div
+                            className=" w-full rounded-[10px] md:rounded-[15px]
+                             flex items-center justify-between"
                         >
-                            <p className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
-                                Share a photo with the couple <span className="opacity-60">(optional)</span>
-                            </p>
+                            <div className="flex flex-col gap-[4px] md:gap-[6px]">
+                                <p className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                    Share a photo with the couple
+                                    <span className="opacity-60"> (optional)</span>
+                                </p>
 
-                            <p className="mt-[6px] md:mt-[9px] text-[11px] md:text-[16.5px] text-[#3A3A3A]/60">
-                                If you’d like to include a photo with your gift, tap here — otherwise, you can continue.</p>
-                        </button>
+                                <p className="text-[11px] md:text-[16.5px] text-[#3A3A3A]/60">
+                                    Add a photo to be shared with your gift.
+                                </p>
+                            </div>
+
+                            <button
+                                type="button"
+                                onClick={() => setShowPhotoUpload(true)}
+                                className="shrink-0 px-[14px] md:px-[18px] py-[6px] md:py-[9px] rounded-full bg-[#C9A86A]
+                                font-inter font-medium text-[11px] md:text-[16.5px] text-white
+                                transition hover:bg-[#C9A86A]/80 active:scale-[0.96]"
+                            >
+                                Upload
+                            </button>
+                        </div>
                     ) : (
+
                         <div className="flex flex-col gap-[12px] md:gap-[18px]">
                             <div className="flex items-center justify-between">
                                 <p className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
@@ -215,7 +229,6 @@ export default function GiftSelectionClient({ weddingId, slug }: Props) {
                         </div>
                     )}
                 </div>
-
             </div>
                 {/* Fees */}
             <div className="mt-[48px] md:mt-[72px] w-[298px] md:w-[447px]">
