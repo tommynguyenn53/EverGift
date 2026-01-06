@@ -36,6 +36,8 @@ export default function GiftSelectionClient({ weddingId, slug }: Props) {
     const [uploadingImage, setUploadingImage] = useState(false)
 
     const [showAcknowledgement, setShowAcknowledgement] = useState(false)
+    const [redirecting, setRedirecting] = useState(false)
+
 
 
 
@@ -254,12 +256,12 @@ export default function GiftSelectionClient({ weddingId, slug }: Props) {
                 {/* CTA */}
                 <button
                     onClick={() => setShowAcknowledgement(true)}
-                    disabled={!amountCents || !guestName || !message}
+                    disabled={!amountCents || !guestName || !message || redirecting}
                     className="mt-[24px] md:mt-[36px] w-[288px] md:w-[432px] h-[55px] md:h-[82.5px] rounded-[14px] md:rounded-[21px]
                 bg-[#D8C9A6] text-white font-inter font-medium text-[16px] md:text-[24px] disabled:opacity-60
                 transition hover:opacity-90 active:opacity-80 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                    Proceed to Payment
+                    {redirecting ? 'Proceeding…' : 'Proceed to Payment'}
                 </button>
 
                 <GiftAcknowledgementModal
@@ -267,6 +269,7 @@ export default function GiftSelectionClient({ weddingId, slug }: Props) {
                     onClose={() => setShowAcknowledgement(false)}
                     onConfirm={() => {
                         setShowAcknowledgement(false)
+                        setRedirecting(true)
                         handleProceedToPayment()
                     }}
                 />
