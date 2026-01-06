@@ -54,43 +54,22 @@ export default async function PublicWeddingPage({params}: Props) {
     }
 
     const {
-        data: {user},
-    } = await supabase.auth.getUser()
+        data: { session },
+    } = await supabase.auth.getSession()
 
-    const isOwner = user && user.id === wedding.user_id
+    const user = session?.user ?? null
+
+
+    const isOwner = user?.id === wedding.user_id
 
     // Visibility rules
-    if (wedding.status !== 'active' && !isOwner) {
-        return (
-            <div className="min-h-screen px-[24px] py-[20px] bg-gradient-to-b from-[#EDE0C3] via-[#F6EEDC] to-[#FFFEFA]">
-                <AppHeader tagline="A celebration of love" showProfile={false} />
+    const canView =
+        wedding.status === 'active' ||
+        (user && user.id === wedding.user_id)
 
-                <main className="flex justify-center">
-                    <div className="mt-[80px] w-full max-w-[420px] text-center">
-                        <h1 className="font-inter text-[24px] md:text-[32px] text-[#3A3A3A]">
-                            This wedding page isn’t published yet
-                        </h1>
-
-                        <p className="mt-[12px] text-[#3A3A3A]/70 text-[14px] md:text-[18px]">
-                            The couple is still setting things up.
-                            <br />
-                            Please check back soon.
-                        </p>
-
-                        <Link
-                            href="/"
-                            className="inline-block mt-[24px] font-medium text-[#C9A86A] underline underline-offset-4"
-                        >
-                            Return to homepage →
-                        </Link>
-                    </div>
-                </main>
-
-                <Footer />
-            </div>
-        )
+    if (!canView) {
+        notFound()
     }
-
 
     const formattedDate = new Date(wedding.wedding_date).toLocaleDateString(
         undefined,
