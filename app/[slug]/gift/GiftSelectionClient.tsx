@@ -193,9 +193,9 @@ export default function GiftSelectionClient({ weddingId, slug }: Props) {
                             <button
                                 type="button"
                                 onClick={() => setShowPhotoUpload(true)}
-                                className="shrink-0 px-[14px] md:px-[18px] py-[6px] md:py-[9px] rounded-full bg-[#C9A86A]
+                                className="shrink-0 px-[14px] md:px-[18px] py-[6px] md:py-[9px] rounded-full bg-[#D8C9A6]
                                 font-inter font-medium text-[11px] md:text-[16.5px] text-white
-                                transition hover:bg-[#C9A86A]/80 active:scale-[0.96]"
+                                transition hover:bg-[#D8C9A6]/80 active:scale-[0.96]"
                             >
                                 Upload
                             </button>
