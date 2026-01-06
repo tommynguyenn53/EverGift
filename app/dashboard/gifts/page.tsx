@@ -186,7 +186,7 @@ export default async function AllGiftsPage({ searchParams }: Props) {
                         flex items-center justify-center rounded-[14px] md:rounded-[21px]
                         bg-[#D8C9A6] font-inter font-medium text-[16px] md:text-[24px]
                         text-white shadow-[6px_4px_18px_rgba(0,0,0,0.1)]
-                        hover:opacity-90 transition active:scale-[0.98]"
+                        hover:opacity-80 transition active:scale-[0.98] active:opacity-60"
                     >
                         Return to Dashboard
                     </a>
