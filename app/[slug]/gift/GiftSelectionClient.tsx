@@ -218,46 +218,56 @@ export default function GiftSelectionClient({ weddingId, slug }: Props) {
 
             </div>
                 {/* Fees */}
-                <div className="mt-[48px] md:mt-[72px] w-[298px] md:w-[447px]">
-                    <div
-                        className={`flex items-center justify-between transition-opacity ${
-                            hasAmount ? 'opacity-100' : 'opacity-50'
-                        }`}
-                    >
-                        <p className="w-[240px] md:w-[360px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
-                            Help the couple receive the full amount — I’ll cover the fees
-                        </p>
-
-                        <FeeCoverageToggle
-                            value={guestCoversFees}
-                            onChange={setGuestCoversFees}
-                            disabled={!hasAmount}
-                        />
-                    </div>
-
-                    <p className="mt-[5px] md:mt-[7.5px] text-[11px] md:text-[16.5px] text-[#3A3A3A]">
-                        {!hasAmount
-                            ? 'Enter a gift amount to enable this option'
-                            : guestCoversFees
-                                ? `Adds approx. ${formatCents(totalFeesCents)} to your total`
-                                : 'Fees will be deducted from the gift'}
+            <div className="mt-[48px] md:mt-[72px] w-[298px] md:w-[447px]">
+                <div
+                    className={`flex items-center justify-between transition-opacity ${
+                        hasAmount ? 'opacity-100' : 'opacity-50'
+                    }`}
+                >
+                    <p className="w-[240px] md:w-[360px] font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                        Help the couple receive the full amount — I’ll cover the fees
                     </p>
-                </div>
 
-
-                {/* Summary */}
-                <div className="mt-[24px] md:mt-[36px]">
-                    <GiftSummaryCard
-                        amountCents={amountCents}
-                        guestCoversFees={guestCoversFees}
+                    <FeeCoverageToggle
+                        value={guestCoversFees}
+                        onChange={setGuestCoversFees}
+                        disabled={!hasAmount}
                     />
                 </div>
 
-                {/* CTA */}
-                <button
-                    onClick={() => setShowAcknowledgement(true)}
-                    disabled={!amountCents || !guestName || !message || redirecting}
-                    className="mt-[24px] md:mt-[36px] w-[288px] md:w-[432px] h-[55px] md:h-[82.5px] rounded-[14px] md:rounded-[21px]
+                <p className="mt-[5px] md:mt-[7.5px] text-[11px] md:text-[16.5px] text-[#3A3A3A]">
+                    {!hasAmount
+                        ? 'Enter a gift amount to enable this option'
+                        : guestCoversFees ? (
+                            <>
+                <span className="block">
+                    Adds approx. {formatCents(totalFeesCents)} to your total
+                </span>
+                                <span className="mt-[6px] md:mt-[9px] block text-[#3A3A3A]/60">
+                    Fees are slightly higher when covered to account for processing.
+                </span>
+                            </>
+                        ) : (
+                            'Fees will be deducted from the gift'
+                        )}
+                </p>
+
+            </div>
+
+
+            {/* Summary */}
+            <div className="mt-[24px] md:mt-[36px]">
+                <GiftSummaryCard
+                    amountCents={amountCents}
+                    guestCoversFees={guestCoversFees}
+                />
+            </div>
+
+            {/* CTA */}
+            <button
+                onClick={() => setShowAcknowledgement(true)}
+                disabled={!amountCents || !guestName || !message || redirecting}
+                className="mt-[24px] md:mt-[36px] w-[288px] md:w-[432px] h-[55px] md:h-[82.5px] rounded-[14px] md:rounded-[21px]
                 bg-[#D8C9A6] text-white font-inter font-medium text-[16px] md:text-[24px] disabled:opacity-60
                 transition hover:opacity-90 active:opacity-80 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
                 >
