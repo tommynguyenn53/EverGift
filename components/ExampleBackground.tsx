@@ -1,5 +1,6 @@
 import AppHeader from '@/components/AppHeader'
 import Footer from "@/components/Footer";
+import ScrollToTopFloating from "@/components/ScrollToTopFloating";
 
 export default function ExampleBackground({
                                               children,
@@ -14,6 +15,7 @@ export default function ExampleBackground({
             <AppHeader tagline="A celebration of love" showProfile={true}/>
 
             {children}
+            <ScrollToTopFloating/>
             <Footer/>
         </div>
     )

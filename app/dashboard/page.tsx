@@ -4,6 +4,7 @@ import PublishToggle from '@/components/PublishToggle'
 import PageBackground from '@/components/PageBackground'
 import WeddingQrCodeDashboard from '@/components/WeddingQrCodeDashboard'
 import StripeStatusCard from "@/components/StripeStatusCard";
+import DashboardGiftCard from "@/components/DashboardGiftCard";
 
 type Gift = {
     id: string
@@ -227,47 +228,26 @@ export default async function DashboardPage() {
                     <div className="mt-[16px] md:mt-[24px] flex flex-col gap-[12px] md:gap-[18px]">
                         {typedRecentGifts.length > 0 ? (
                             typedRecentGifts.map((gift) => (
-                                <div
+                                <DashboardGiftCard
                                     key={gift.id}
-                                    className="w-[270px] md:w-[405px] rounded-[10px] md:rounded-[15px] bg-white px-[15px]
-                                    md:px-[22.5px] py-[15px] md:py-[22.5px]"
-                                >
-                                    <div className="flex flex-col gap-[10px] md:gap-[15px]">
-                                        <p className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
-                                            {gift.guest_name ?? 'Guest'} — {formatAmount(getNetGiftAmount(gift))}
-                                        </p>
-
-                                        <p className="font-inter font-regular text-[15px] md:text-[22.5px] text-[#3A3A3A]">
-                                            {gift.message_text
-                                                ? `"${gift.message_text.length > 35
-                                                    ? gift.message_text.slice(0, 35) + '…'
-                                                    : gift.message_text
-                                                }"`
-                                                : '"No message"'}
-                                        </p>
-
-                                        <p className="font-inter text-[13px] md:text-[19.5px] text-[#3A3A3A]/70">
-                                            {formatDate(gift.created_at)}
-                                        </p>
-                                    </div>
-                                    {gift.image_public_url && (
-                                        <img
-                                            src={gift.image_public_url}
-                                            alt="Gift photo"
-                                            className="mt-[10px] w-full rounded-[10px] object-cover"
-                                        />
-                                    )}
-                                </div>
+                                    guestName={gift.guest_name}
+                                    amount={formatAmount(getNetGiftAmount(gift))}
+                                    message={gift.message_text}
+                                    date={formatDate(gift.created_at)}
+                                    imageUrl={gift.image_public_url}
+                                />
                             ))
                         ) : (
                             <div
                                 className="w-[270px] md:w-[405px] rounded-[10px] md:rounded-[15px] bg-white px-[15px]
-                                md:px-[22.5px] py-[15px] md:py-[22.5px] text-center font-inter text-[15px]
-                                md:text-[22.5px] text-[#3A3A3A]/70">
+                                 md:px-[22.5px] py-[15px] md:py-[22.5px] text-center font-inter text-[15px]
+                                 md:text-[22.5px] text-[#3A3A3A]/70"
+                            >
                                 No gifts yet — they’ll appear here once guests start gifting.
                             </div>
                         )}
                     </div>
+
                 </div>
             </main>
         </PageBackground>

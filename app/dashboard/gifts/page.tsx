@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation'
 import { supabaseServer } from '@/lib/supabase/server'
 import PageBackground from '@/components/PageBackground'
+import DashboardGiftCard from "@/components/DashboardGiftCard";
 
 type Gift = {
     id: string
@@ -14,6 +15,8 @@ type Gift = {
     image_path: string | null
     image_public_url: string | null
 }
+
+const PAGE_SIZE = 5
 
 function formatAmount(cents: number) {
     return `$${(cents / 100).toFixed(2)}`
@@ -31,7 +34,6 @@ function formatDate(date: string) {
     })
 }
 
-
 function getNetGiftAmount(gift: Gift) {
     if (gift.guest_covered_fees) {
         return gift.amount_cents
@@ -44,8 +46,16 @@ function getNetGiftAmount(gift: Gift) {
     )
 }
 
-export default async function AllGiftsPage() {
+/* 🔽 READ PAGE FROM URL */
+type Props = {
+    searchParams: Promise<{ page?: string }>
+}
+
+
+export default async function AllGiftsPage({ searchParams }: Props) {
     const supabase = await supabaseServer()
+    const resolvedSearchParams = await searchParams
+
 
     const {
         data: { user },
@@ -61,9 +71,15 @@ export default async function AllGiftsPage() {
 
     if (!wedding) redirect('/dashboard')
 
-    const { data: gifts } = await supabase
+    /* 🔽 PAGINATION LOGIC */
+    const page = Math.max(1, Number(resolvedSearchParams.page ?? 1))
+    const from = (page - 1) * PAGE_SIZE
+    const to = from + PAGE_SIZE - 1
+
+    const { data: gifts, count } = await supabase
         .from('gifts')
-        .select(`
+        .select(
+            `
             id,
             amount_cents,
             platform_fee_cents,
@@ -72,14 +88,18 @@ export default async function AllGiftsPage() {
             created_at,
             guest_name,
             message_text,
-            image_path, 
+            image_path,
             image_public_url
-        `)
+        `,
+            { count: 'exact' }
+        )
         .eq('wedding_id', wedding.id)
         .eq('status', 'paid')
         .order('created_at', { ascending: false })
+        .range(from, to)
 
     const typedGifts = (gifts ?? []) as Gift[]
+    const totalPages = Math.max(1, Math.ceil((count ?? 0) / PAGE_SIZE))
 
     return (
         <PageBackground>
@@ -107,67 +127,69 @@ export default async function AllGiftsPage() {
                     <div className="flex flex-col gap-[12px] md:gap-[18px]">
                         {typedGifts.length > 0 ? (
                             typedGifts.map((gift) => (
-                                <div
+                                <DashboardGiftCard
                                     key={gift.id}
-                                    className="w-full rounded-[10px] md:rounded-[15px]
-                                    bg-white px-[15px] md:px-[22.5px]
-                                    py-[15px] md:py-[22.5px]
-                                    shadow-[0_4px_12px_rgba(0,0,0,0.05)]"
-                                >
-                                    <div className="flex flex-col gap-[10px] md:gap-[15px]">
-                                        <p className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
-                                            {gift.guest_name ?? 'Guest'} —{' '}
-                                            {formatAmount(getNetGiftAmount(gift))}
-                                        </p>
-
-                                        <p
-                                            className="font-inter text-[15px] md:text-[22.5px]
-                                            leading-[150%] text-[#3A3A3A]"
-                                        >
-                                            {gift.message_text
-                                                ? `"${gift.message_text}"`
-                                                : '"No message"'}
-                                        </p>
-
-                                        <p
-                                            className="font-inter text-[13px] md:text-[19.5px]
-                                            text-[#3A3A3A]/70"
-                                        >
-                                            {formatDate(gift.created_at)}
-                                        </p>
-                                    </div>
-                                    {gift.image_public_url && (
-                                        <img
-                                            src={gift.image_public_url}
-                                            alt="Gift photo"
-                                            className="mt-[10px] w-full rounded-[10px] object-cover"
-                                        />
-                                    )}
-                                </div>
+                                    guestName={gift.guest_name}
+                                    amount={formatAmount(getNetGiftAmount(gift))}
+                                    message={gift.message_text}
+                                    date={formatDate(gift.created_at)}
+                                    imageUrl={gift.image_public_url}
+                                />
                             ))
                         ) : (
                             <div
-                                className="rounded-[10px] md:rounded-[15px]
-                                bg-white px-[15px] md:px-[22.5px]
-                                py-[15px] md:py-[22.5px]
+                                className="rounded-[10px] md:rounded-[15px] bg-white px-[15px]
+                                md:px-[22.5px] py-[15px] md:py-[22.5px]
                                 text-center font-inter text-[15px]
                                 md:text-[22.5px] text-[#3A3A3A]/70"
                             >
-                                No gifts yet — messages will appear here once guests start gifting.
+                                No gifts yet — they’ll appear here once guests start gifting.
                             </div>
                         )}
-                        <a
-                            href={`/dashboard`}
-                            className="mt-[24px] md:mt-[36px] h-[55px] md:h-[82.5px] flex items-center
-                    justify-center rounded-[14px] md:rounded-[21px] bg-[#D8C9A6] font-inter font-medium text-[16px]
-                    md:text-[24px] text-white shadow-[6px_4px_18px_rgba(0,0,0,0.1)] hover:opacity-90 transition
-                    disabled:opacity-60 disabled:cursor-not-allowed hover:opacity-90 active:opacity-80 active:scale-[0.98]"
-                        >
-                            Return to Dashboard
-                        </a>
                     </div>
 
-                    {/* Back link */}
+                    {/* 🔽 PAGINATION CONTROLS */}
+                    {totalPages > 1 && (
+                        <div className="mt-[36px] md:mt-[54px] flex items-center justify-between text-[14px]">
+                            <a
+                                href={`/dashboard/gifts?page=${page - 1}`}
+                                className={`font-inter ${
+                                    page <= 1
+                                        ? 'pointer-events-none opacity-40'
+                                        : 'hover:underline'
+                                }`}
+                            >
+                                ← Last
+                            </a>
+
+                            <span className="opacity-70">
+                                Page {page} of {totalPages}
+                            </span>
+
+                            <a
+                                href={`/dashboard/gifts?page=${page + 1}`}
+                                className={`font-inter ${
+                                    page >= totalPages
+                                        ? 'pointer-events-none opacity-40'
+                                        : 'hover:underline'
+                                }`}
+                            >
+                                Next →
+                            </a>
+                        </div>
+                    )}
+
+                    {/* Back */}
+                    <a
+                        href="/dashboard"
+                        className="mt-[36px] md:mt-[54px] h-[55px] md:h-[82.5px]
+                        flex items-center justify-center rounded-[14px] md:rounded-[21px]
+                        bg-[#D8C9A6] font-inter font-medium text-[16px] md:text-[24px]
+                        text-white shadow-[6px_4px_18px_rgba(0,0,0,0.1)]
+                        hover:opacity-90 transition active:scale-[0.98]"
+                    >
+                        Return to Dashboard
+                    </a>
                 </div>
             </main>
         </PageBackground>

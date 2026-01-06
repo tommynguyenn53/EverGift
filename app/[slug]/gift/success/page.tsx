@@ -26,6 +26,8 @@ type GiftWithWedding = {
     guest_name: string | null
     message_text: string | null
     wedding: Wedding
+    image_path: string | null
+    image_public_url: string | null
 }
 
 export const dynamic = 'force-dynamic'
@@ -51,6 +53,8 @@ export default async function GiftSuccessPage({ params, searchParams }: Props) {
     guest_covered_fees,
     guest_name,
     message_text,
+    image_path, 
+    image_public_url,
     wedding:weddings (
       partner_one_name,
       partner_two_name,
@@ -165,6 +169,32 @@ export default async function GiftSuccessPage({ params, searchParams }: Props) {
                         </div>
                     </div>
                 )}
+
+                {gift.image_public_url && (
+                    <div className="mt-[24px] md:mt-[36px]">
+                        <div
+                            className="w-[287px] md:w-[430.5px] rounded-[12px] md:rounded-[18px] bg-white px-[15px] md:px-[22.5px]
+                              py-[15px] md:py-[22.5px]
+                              shadow-[0px_2px_6px_rgba(0,0,0,0.04)]
+                              flex flex-col gap-[10px] md:gap-[15px]"
+                        >
+                            <p className="font-inter text-[12px] md:text-[18px] tracking-[0.015em] text-[#3A3A3A] text-left">
+                                Photo from You
+                            </p>
+
+                            <div className="w-full h-px bg-black/10" />
+
+                            <div className="w-full overflow-hidden rounded-[10px] md:rounded-[14px]">
+                                <img
+                                    src={gift.image_public_url}
+                                    alt="Gift photo"
+                                    className="w-full h-auto object-cover"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                )}
+
 
 
                 {/* CTA */}
