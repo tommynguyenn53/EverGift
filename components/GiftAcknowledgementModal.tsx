@@ -1,5 +1,7 @@
 'use client'
 
+import {useEffect} from "react";
+
 type Props = {
     open: boolean
     onConfirm: () => void
@@ -13,6 +15,19 @@ export default function GiftAcknowledgementModal({
                                                  }: Props) {
     if (!open) return null
 
+    useEffect(() => {
+        if (open) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = ''
+        }
+
+        return () => {
+            document.body.style.overflow = ''
+        }
+    }, [open])
+
+
     return (
         <div
             className="
@@ -21,6 +36,8 @@ export default function GiftAcknowledgementModal({
         bg-black/40 backdrop-blur-[2px]
         px-[16px]
       "
+            style={{ touchAction: 'none' }}
+            onClick={onClose}
         >
             <div
                 className="
@@ -31,6 +48,7 @@ export default function GiftAcknowledgementModal({
           py-[20px] md:py-[30px]
           shadow-[0_10px_40px_rgba(0,0,0,0.18)]
         "
+                onClick={(e) => e.stopPropagation()}
             >
                 {/* Title */}
                 <h2
@@ -103,7 +121,7 @@ export default function GiftAcknowledgementModal({
                 {/* Actions */}
                 <div
                     className="
-            mt-[20px] md:mt-[30px]
+            mt-[30px] md:mt-[45px]
             flex flex-col gap-[10px] md:gap-[15px]
           "
                 >

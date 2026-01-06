@@ -156,7 +156,7 @@ export default async function AllGiftsPage({ searchParams }: Props) {
                                 className={`font-inter ${
                                     page <= 1
                                         ? 'pointer-events-none opacity-40'
-                                        : 'hover:underline'
+                                        : 'hover:underline transition hover:opacity-90 active:opacity-80'
                                 }`}
                             >
                                 ← Last
@@ -171,7 +171,7 @@ export default async function AllGiftsPage({ searchParams }: Props) {
                                 className={`font-inter ${
                                     page >= totalPages
                                         ? 'pointer-events-none opacity-40'
-                                        : 'hover:underline'
+                                        : 'hover:underline transition hover:opacity-90 active:opacity-80'
                                 }`}
                             >
                                 Next →
