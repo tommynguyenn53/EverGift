@@ -56,9 +56,10 @@ export default function PrivacyPolicyPage() {
                         </p>
 
                         <ul className="list-disc pl-[16px] md:pl-[24px]">
-                            <li>Name (optional — can send anonymously)</li>
+                            <li>Name</li>
                             <li>Gift amount</li>
                             <li>Message to the couple</li>
+                            <li>Photo (optional)</li>
                             <li>Payment information (handled securely by Stripe — not stored by EverGift)</li>
                         </ul>
 

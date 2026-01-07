@@ -32,8 +32,12 @@ export default function TermsPage() {
 
                         {/* 1 */}
                         <p className="mt-[20px] md:mt-[30px] ">
-                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">1.
-                                Information Provided</strong><br/>
+                            <strong className="font-inter font-medium text-[15px] md:text-[22.5px] text-[#3A3A3A]">
+                                1. Information Provided
+                            </strong>
+                            <br/>
+                            <br/>
+                            <strong>Couples</strong><br/>
                             When creating a wedding page, you may provide:
                             <br/>• Names of the couple
                             <br/>• Wedding date
@@ -41,11 +45,21 @@ export default function TermsPage() {
                             <br/>• Custom messages or page text
                             <br/>• Email address
                             <br/><br/>
-                            Bank account details are linked through Stripe Connect — we never see or store this
-                            information.
+                            Bank account details are linked securely through Stripe Connect — we never see or store this information.
+                            <br/><br/>
+
+                            <strong>Guests</strong><br/>
+                            When sending a gift, guests may provide:
+                            <br/>• Name
+                            <br/>• Gift amount
+                            <br/>• Personal message
+                            <br/>• Photo (optional)
+                            <br/><br/>
+                            Payment information is processed securely by Stripe and is never stored by EverGift.
                         </p>
 
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
+
 
 
                         {/* 2 */}
@@ -177,6 +191,7 @@ export default function TermsPage() {
                             <br/>• Provide accurate payment details
                             <br/>• Avoid sending fraudulent or offensive messages
                             <br/>• Not abuse or misuse gifting features
+                            <br/>• Not upload or share offensive, inappropriate, or unlawful images
                         </p>
 
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>

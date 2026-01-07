@@ -12,6 +12,18 @@ export default function FAQSection() {
             a: 'Absolutely. All payments are processed through Stripe, one of the most secure and trusted payment platforms in the world. Your details and your guests are fully encrypted.',
         },
         {
+            q: 'What can guests do on our wedding page?',
+            a: 'Guests can\n' +
+                '\n' +
+                'send a monetary gift securely through Stripe,' +
+                '\n' +
+                'include a personal message with their gift,' +
+                '\n' +
+                'optionally upload a photo to share with the couple.' +
+                '\n' +
+                'All gifts and messages are delivered directly to the couple, and any shared photos are private and only visible to them.',
+        },
+        {
             q: 'Do guests need an EverGift account to send a gift?',
             a: 'No accounts, no logins, no hassle. Guests simply scan a QR code, choose an amount, and send their gift securely in under a minute.',
         },
@@ -21,11 +33,13 @@ export default function FAQSection() {
         },
         {
             q: 'How does the 5% platform fee work?',
-            a: 'EverGift charges a 5% platform fee on each gift to support the platform. Guests can choose whether to cover the fees at checkout. If they don’t, the platform and Stripe processing fees are simply deducted from the gift amount, and the couple never pays anything out of pocket. If a guest chooses to cover the fees, the total increases slightly because Stripe’s processing fee is calculated based on the final payment amount allowing the couple to receive the full amount.',
+            a: 'EverGift charges a 5% platform fee on each gift to support the platform. Guests can choose whether to cover the fees at checkout. If they don’t, the platform and Stripe processing fees are simply deducted from the gift amount, ' +
+                'and the couple never pays anything out of their own pocket. If a guest chooses to cover the fees, the total increases slightly because Stripe’s processing fee is calculated based on the final payment amount allowing the couple to receive the full amount.',
         },
         {
             q: 'When do we receive the money?',
-            a: 'Funds are transferred automatically to the couple’s nominated bank account through Stripe. Payout timing varies slightly, but typically lands within 2–3 business days.',
+            a: 'Funds are transferred automatically to the couple’s nominated bank account through Stripe. Payout timing varies slightly, but typically lands within 2–3 business days. ' +
+                'Once your wedding page is created, you’ll also be able to access your Stripe dashboard, where you can manage payout details and view your estimated payout dates.',
         },
         {
             q: 'Can we personalise our wedding page?',
