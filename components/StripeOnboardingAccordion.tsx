@@ -255,8 +255,10 @@ export default function StripeOnboardingAccordion({
                         </p>
 
                         <p className="text-[#3A3A3A]/60">
-                            Payouts are typically available within 2–5 business days, depending on Stripe’s processing and your bank. Once your wedding page is live, you’ll be able to access your Stripe dashboard, where you can view your payout details
-                            and estimated payout date.
+                            Payout timing is determined by Stripe and your bank. While payouts are often available
+                            within a few business days, initial or reviewed accounts may experience longer processing
+                            times. You can always view your payout status and estimated arrival date in your Stripe dashboard. EverGift currently supports payments
+                            using Australian-issued cards only.
                         </p>
 
 
@@ -267,7 +269,8 @@ export default function StripeOnboardingAccordion({
                             }
                         >
                             I confirm the bank account I add belongs to me and will receive all wedding gifts,
-                            and I understand that payouts are processed by Stripe and typically arrive within 2–5 business days.
+                            and I understand that payouts are processed by Stripe, not EverGift, and that payout timing
+                            may vary based on Stripe reviews, verification, and bank processing times.
                         </AcknowledgeRow>
                     </div>
 

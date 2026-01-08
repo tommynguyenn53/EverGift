@@ -198,6 +198,11 @@ export default function EditWeddingForm({ wedding }: { wedding: Wedding }) {
                     />
                 </div>
 
+                <p className="mt-[-12px] font-inter text-[11px] md:text-[16px] text-[#3A3A3A]/60">
+                    Changing partner names will update what’s shown on your wedding page, but
+                    won’t change your page URL once it’s been created.
+                </p>
+
                 {/* Partner 2 */}
                 <div>
                     <label htmlFor="partner-two-name" className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
@@ -214,6 +219,11 @@ export default function EditWeddingForm({ wedding }: { wedding: Wedding }) {
                         placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                     />
                 </div>
+
+                <p className="mt-[-12px] font-inter text-[11px] md:text-[16px] text-[#3A3A3A]/60">
+                    Changing partner names will update what’s shown on your wedding page, but
+                    won’t change your page URL once it’s been created.
+                </p>
 
                 {/* Wedding Date */}
                 <div>
@@ -266,7 +276,7 @@ export default function EditWeddingForm({ wedding }: { wedding: Wedding }) {
                 {/* Welcome Message */}
                 <div>
                     <label htmlFor="welcome-message"
-                        className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
+                           className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
                         text-[#3A3A3A]">
                         Welcome Message
                     </label>

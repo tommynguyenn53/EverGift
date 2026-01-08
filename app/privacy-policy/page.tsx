@@ -42,7 +42,7 @@ export default function PrivacyPolicyPage() {
                             <li>Wedding date</li>
                             <li>Your photos</li>
                             <li>Custom messages or page text</li>
-                            <li>Email addresses</li>
+                            <li>Email addresses (used for account access, verification, and transactional communication)</li>
                             <li>
                                 Bank account details (only through Stripe Connect — we never see or store these)
                             </li>
@@ -98,8 +98,8 @@ export default function PrivacyPolicyPage() {
                         <ul className="list-disc pl-[16px] md:pl-[24px]">
                             <li>Create and display your wedding page</li>
                             <li>Process gifts securely via Stripe</li>
-                            <li>Send transactional emails related to gift activity, account setup, or important service updates.
-                            </li>
+                            <li>Send transactional emails related to gift activity, account setup, or important service updates.</li>
+                            <li>Verify user accounts and communicate important service-related information</li>
                             <li>Provide customer support</li>
                             <li>Improve our website and services</li>
                             <li>Prevent fraud or misuse</li>

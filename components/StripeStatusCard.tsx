@@ -71,6 +71,13 @@ export default function StripeStatusCard({weddingId,
                     {description}
                 </p>
 
+                <p className="font-inter text-[12px] md:text-[18px] text-[#3A3A3A]/70">For first-time users, Stripe may ask you to verify your email before you can access all dashboard
+                    features. </p>
+
+                <p className="text-[#3A3A3A]/60">
+                    Tip: If you don’t see the email, check your spam or promotions folder.
+                </p>
+
                 {payoutEnabled && stripeAccountId && (
                     <button
                         onClick={handleOpenStripeDashboard}

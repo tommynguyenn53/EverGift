@@ -70,6 +70,7 @@ export default function TermsPage() {
                             <br/>• Be at least 18 years old
                             <br/>• Use the service for lawful purposes
                             <br/>• Provide accurate and truthful information
+                            <br/>• EverGift currently supports Australian-based Stripe accounts and domestic payment methods only.
                             <br/><br/>
                             Only couples who successfully connect Stripe accounts may accept gifts.
                         </p>
@@ -106,7 +107,8 @@ export default function TermsPage() {
                             <br/>• The content does not violate copyright laws
                             <br/>• Illegal or unlawful content is not permitted
                             <br/><br/>
-                            We reserve the right to remove or disable content that violates these Terms.
+                            EverGift reserves the right to remove or restrict access to any content that
+                            may expose the platform to legal, reputational, or compliance risk.
                         </p>
 
                         <div className="my-[20px] md:my-[30px] w-full h-[1px] md:h-[1.5px] bg-[#3A3A3A]/15"/>
@@ -143,7 +145,7 @@ export default function TermsPage() {
                             <br/><br/>
                             <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]">5.5
                                 Refunds</strong><br/>
-                            EverGift does not have the ability to independently issue refunds.
+                            EverGift does not hold funds and does not have the ability to independently issue refunds.
                             Refunds, if any, are subject to Stripe’s policies and the discretion of the receiving
                             couple.
                             All gifts are voluntary and final unless:
@@ -151,6 +153,17 @@ export default function TermsPage() {
                             <br/>• Approved by the couple
                             <br/>• Stripe issues a refund due to fraud or payment failure
 
+                            <br/>
+                            <br/>
+                            EverGift acts solely as a platform facilitating gifts between guests and couples. EverGift
+                            is not a party to any gift transaction and does not control or guarantee outcomes between
+                            users.
+                            <br/><br/>
+                            <strong className="font-inter font-medium text-[12px] md:text-[18px] text-[#3A3A3A]">5.6
+                                Supported Payment Methods
+                            </strong><br/>
+                            EverGift currently supports payments made using Australian-issued cards only. International cards may incur additional Stripe fees that are not reflected in EverGift’s pricing calculations and are therefore not supported.
+                            EverGift is not responsible for failed, delayed, or adjusted payments resulting from the use of unsupported payment methods.
                             <br/>
                             <br/>
                             EverGift acts solely as a platform facilitating gifts between guests and couples. EverGift
@@ -174,8 +187,7 @@ export default function TermsPage() {
                             <br/><br/>
                             EverGift does not guarantee outcomes between guests and couples beyond
                             facilitating the gifting platform. EverGift does not guarantee that gifts will be accepted,
-                            acknowledged,
-                            or used by the receiving couple.
+                            acknowledged, or used by the receiving couple.
 
                         </p>
 

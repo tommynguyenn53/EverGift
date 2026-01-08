@@ -260,6 +260,11 @@ export default function CreateWeddingForm({wedding}: CreateWeddingFormProps) {
                         />
                     </div>
 
+                    <p className="mt-[-12px] font-inter text-[11px] md:text-[16px] text-[#3A3A3A]/60">
+                        Your page URL is generated when your wedding page is created. If you update
+                        partner names later, the page content will update, but the URL will stay the same.
+                    </p>
+
                     {/* Partner 2 */}
                     <div>
                         <label htmlFor="partner-two" className="block mb-[6px] md:mb-[9px] font-inter font-medium text-[15px] md:text-[22.5px]
@@ -277,6 +282,11 @@ export default function CreateWeddingForm({wedding}: CreateWeddingFormProps) {
                             placeholder:text-[#3A3A3A]/35 focus:outline-none focus:ring-2 focus:ring-[#D8C9A6]/50"
                         />
                     </div>
+
+                    <p className="mt-[-12px] font-inter text-[11px] md:text-[16px] text-[#3A3A3A]/60">
+                        Your page URL is generated when your wedding page is created. If you update
+                        partner names later, the page content will update, but the URL will stay the same.
+                    </p>
 
                     {/* Wedding Date */}
                     <div>

@@ -29,7 +29,7 @@ export default function FAQSection() {
         },
         {
             q: 'What payment methods do you support?',
-            a: 'We support: Apple Pay, Google Pay, Visa, Mastercard, AMEX. Anything Stripe supports — EverGift supports too.',
+            a: 'We support Australian-issued Visa, Mastercard, and American Express cards, as well as Apple Pay and Google Pay where available. International cards are not supported at this time.',
         },
         {
             q: 'How does the 5% platform fee work?',
@@ -38,8 +38,10 @@ export default function FAQSection() {
         },
         {
             q: 'When do we receive the money?',
-            a: 'Funds are transferred automatically to the couple’s nominated bank account through Stripe. Payout timing varies slightly, but typically lands within 2–3 business days. ' +
-                'Once your wedding page is created, you’ll also be able to access your Stripe dashboard, where you can manage payout details and view your estimated payout dates.',
+            a: 'Funds are transferred automatically to the couple’s nominated bank account through Stripe. ' +
+                'Payout timing varies, but is typically available within 2–5 business days. ' +
+                'Once your wedding page is live, you can access your Stripe dashboard to manage payout details ' +
+                'and view estimated payout dates.'
         },
         {
             q: 'Can we personalise our wedding page?',

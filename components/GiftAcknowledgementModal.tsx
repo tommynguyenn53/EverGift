@@ -74,28 +74,35 @@ export default function GiftAcknowledgementModal({
           "
                 >
                     <p>
-                        <strong>No refunds.</strong><br />
+                        <strong>No refunds.</strong><br/>
                         All gifts are voluntary and final. Refunds are subject to Stripe’s
                         policies and the receiving couple’s discretion.
                     </p>
 
                     <p>
-                        <strong>Fees & totals.</strong><br />
+                        <strong>Fees & totals.</strong><br/>
                         If you choose to cover fees, a small additional amount is added so
                         the couple receives the full gift. Otherwise, platform and Stripe
                         fees are deducted from the gift.
                     </p>
 
                     <p>
-                        <strong>What the couple sees.</strong><br />
+                        <strong>What the couple sees.</strong><br/>
                         Your name, message, and any photo you include will be visible to the
                         couple.
                     </p>
 
                     <p>
-                        <strong>Payments.</strong><br />
+                        <strong>Payments.</strong><br/>
                         Payments are processed securely via Stripe. EverGift does not store
                         your payment details.
+                    </p>
+
+                    <p>
+                        <strong>Supported cards.</strong><br/>
+                        EverGift currently supports Australian-issued cards only.
+                        International cards are not supported and may result in incorrect
+                        fee calculations or failed payments.
                     </p>
 
                     <p className="text-[#3A3A3A]/80">
@@ -125,7 +132,7 @@ export default function GiftAcknowledgementModal({
             flex flex-col gap-[10px] md:gap-[15px]
           "
                 >
-                    <button
+                <button
                         onClick={onConfirm}
                         className="
               w-full h-[44px] md:h-[66px]
