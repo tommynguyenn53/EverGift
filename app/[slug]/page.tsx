@@ -54,18 +54,13 @@ export default async function PublicWeddingPage({params}: Props) {
     }
 
     const {
-        data: { session },
-    } = await supabase.auth.getSession()
-
-    const user = session?.user ?? null
-
+        data: { user },
+    } = await supabase.auth.getUser()
 
     const isOwner = user?.id === wedding.user_id
 
-    // Visibility rules
     const canView =
-        wedding.status === 'active' ||
-        (user && user.id === wedding.user_id)
+        wedding.status === 'active' || isOwner
 
     if (!canView) {
         notFound()
