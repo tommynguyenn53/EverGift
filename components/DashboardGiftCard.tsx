@@ -32,10 +32,9 @@ export default function DashboardGiftCard({
                 </p>
 
                 <p className="font-inter italic text-[15px] md:text-[22.5px] text-[#3A3A3A]">
-                    {message
-                        ? `"${message.length > 35 ? message.slice(0, 35) + '…' : message}"`
-                        : '"No message"'}
+                    {message ? `"${message}"` : '"No message"'}
                 </p>
+
 
                 <p className="font-inter text-[13px] md:text-[19.5px] text-[#3A3A3A]/70">
                     {date}
