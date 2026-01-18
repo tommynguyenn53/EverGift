@@ -1,33 +1,40 @@
 # EverGift
-EverGift is a streamlined wedding gifting platform that allows couples to create a personalised wedding page where guests can send monetary gifts securely online — no cash, no envelopes.
+Website: https://evergift.com.au
 
-Built with Next.js, Supabase, and Stripe, EverGift focuses on a simple, mobile-first guest experience and a clean setup flow for couples.
+EverGift is a modern digital wedding gifting platform that allows couples to create a personalised wedding page where guests can send monetary gifts securely online — no cash, no envelopes, no stress.
+
+Built with Next.js, Supabase, and Stripe, EverGift is mobile‑first and designed to simplify gifting for guests while giving couples a clean, transparent way to receive and manage their gifts.
 
 ## What EverGift Does
 ### For Guests
-- Visit a wedding page via link or QR code
-- Choose a gift amount (preset or custom)
-- Leave their name and an optional message
-- Pay securely via Stripe (Apple Pay, Google Pay, cards)
-- Receive confirmation after successful payment
+* Visit a wedding page via link or QR code
+* Choose a gift amount (preset or custom)
+* Optionally add their name and a personal message
+* Optionally upload a photo with their gift
+* Pay securely via Stripe (Apple Pay, Google Pay, Visa, Mastercard, AMEX)
+* Receive a confirmation after successful payment
 
 No account required.
 
 ### For Couples
 
 * Create and manage a personalised wedding page
-* Upload photos and choose a collage layout
-* Receive gifts directly into their bank account via Stripe
-* View gift totals and recent messages
-* Share their wedding page via link or QR code
+* Add partner names, wedding date, welcome message, and photos
+* Share their page via link or QR code
+* Receive gifts securely via Stripe Connect
+* View all gifts, messages, and photos in one dashboard
+* Manage payout details and view estimated payout dates via Stripe
+
+Funds are transferred to the couple’s nominated bank account by Stripe.
 
 ## Monetisation Model
 
 * **Platform fee**: 5% per gift
-* Guests can optionally cover platform + Stripe fees
-* Stripe processing fee: ~1.7% + $0.30
+* Guests can optionally cover platform + Stripe processing fees
+* Stripe processing fee: ~1.7% + $0.30 AUD (domestic cards)
 * Net revenue to EverGift ≈ 5% per gift
-* Payments and payouts handled entirely by Stripe
+
+All payments and payouts are handled entirely by Stripe.
 
 ## Tech Stack
 
@@ -49,29 +56,31 @@ No account required.
 * Vercel
 
 ## Core Features
-* Mobile-first design with desktop support
+* Mobile‑first design with full desktop support
 * Secure, hosted Stripe Checkout (no PCI burden)
 * Stripe Connect onboarding for couples
-* Public guest pages, private admin dashboard
-* Image upload and collage system
-* Fee-coverage toggle for guests
-
-## Project Status
-* Current stage: Early development (post-design)
-* Full UX and UI completed in Figma
-* Tech stack and data models locked
-* Development setup in progress
-* This repository represents the initial build and MVP implementation.
+* Public guest‑facing wedding pages
+* Private couple dashboard
+* Image upload for wedding pages and gifts
+* Fee‑coverage toggle for guests
+* Row‑Level Security (RLS) enforced via Supabase
 
 ## Security & Payments
 * No guest accounts required
-* All payments handled by Stripe
-* No card data touches EverGift servers
-* Row-Level Security enforced via Supabase
+* EverGift never stores card or bank details
+* All sensitive payment and identity data handled by Stripe
+* Supabase Row‑Level Security protects user data
+
+## Project Status
+* MVP feature‑complete
+* Full guest gifting flow implemented
+* Stripe Connect onboarding live
+* Public wedding pages + dashboard live
+* Terms & Privacy policies in place
 
 ## Roadmap (High Level)
-* Complete guest gifting flow
-* Couple onboarding and dashboard
-* Email confirmations (v2)
-* Admin tooling (v2)
-* Analytics and logging (later)
+* Email notifications (gift received, setup reminders)
+* Enhanced analytics for couples
+* Improved admin tooling
+* Marketing site expansion
+* Broader gifting use‑cases (future consideration)

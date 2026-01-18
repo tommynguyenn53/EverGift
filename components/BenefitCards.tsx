@@ -53,7 +53,7 @@ export default function BenefitCards() {
 
                         <p
                             className="font-inter font-normal text-[12px] md:text-[18px] leading-[200%] text-[#3A3A3A]
-                            w-[233px] md:w-[349.5px]"
+                            w-[300px] md:w-[450px]"
                         >
                             {benefit.description}
                         </p>
