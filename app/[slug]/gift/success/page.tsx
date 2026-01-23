@@ -91,7 +91,7 @@ export default async function GiftSuccessPage({ params, searchParams }: Props) {
                     className="mt-[32px] md:mt-[48px] font-inter font-normal text-[28px] md:text-[42px] leading-[130%]
                     tracking-[0.015em] text-[#3A3A3A]"
                 >
-                    Your Gift Has<br />Been Received
+                    Your Gift Has<br/>Been Received
                 </h1>
 
                 {/* Checkmark */}
@@ -109,7 +109,7 @@ export default async function GiftSuccessPage({ params, searchParams }: Props) {
                 >
                     Your gift for {wedding.partner_one_name} &amp;{' '}
                     {wedding.partner_two_name} has been sent successfully.
-                    <br /><br />
+                    <br/><br/>
                     Thank you for celebrating this special moment with them.
                 </p>
 
@@ -123,7 +123,7 @@ export default async function GiftSuccessPage({ params, searchParams }: Props) {
                             Summary - Successful Payment
                         </p>
 
-                        <div className="w-full h-px bg-black/10" />
+                        <div className="w-full h-px bg-black/10"/>
 
                         <div className="flex justify-between text-[12px] md:text-[18px] text-[#3A3A3A]">
                             <span>Gift Amount</span>
@@ -139,7 +139,7 @@ export default async function GiftSuccessPage({ params, searchParams }: Props) {
                             <span>{formatCents(totalFees)}</span>
                         </div>
 
-                        <div className="w-full h-px bg-black/10" />
+                        <div className="w-full h-px bg-black/10"/>
 
                         <div className="flex justify-between font-medium text-[12px] md:text-[18px] text-[#3A3A3A]">
                             <span>Total</span>
@@ -182,7 +182,7 @@ export default async function GiftSuccessPage({ params, searchParams }: Props) {
                                 Photo from You
                             </p>
 
-                            <div className="w-full h-px bg-black/10" />
+                            <div className="w-full h-px bg-black/10"/>
 
                             <div className="w-full overflow-hidden rounded-[10px] md:rounded-[14px]">
                                 <img
@@ -196,7 +196,6 @@ export default async function GiftSuccessPage({ params, searchParams }: Props) {
                 )}
 
 
-
                 {/* CTA */}
                 <a
                     href={`/${wedding.slug}`}
@@ -207,6 +206,10 @@ export default async function GiftSuccessPage({ params, searchParams }: Props) {
                 >
                     Return to Couple’s Page
                 </a>
+
+                <p className="mt-[18px] md:mt-[27px] font-inter text-[11px] md:text-[16.5px] tracking-[0.015em] text-[#3A3A3A]/80 text-center">
+                    Securely powered by EverGift
+                </p>
 
             </main>
 
